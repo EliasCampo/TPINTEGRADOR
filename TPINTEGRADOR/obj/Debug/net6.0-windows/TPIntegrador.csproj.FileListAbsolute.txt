@@ -1,0 +1,278 @@
+C:\TPINTEGRADOR\TPIntegrador\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.exe
+C:\TPINTEGRADOR\TPIntegrador\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.deps.json
+C:\TPINTEGRADOR\TPIntegrador\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.runtimeconfig.json
+C:\TPINTEGRADOR\TPIntegrador\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.dll
+C:\TPINTEGRADOR\TPIntegrador\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.pdb
+C:\TPINTEGRADOR\TPIntegrador\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.csproj.AssemblyReference.cache
+C:\TPINTEGRADOR\TPIntegrador\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.csproj.GenerateResource.cache
+C:\TPINTEGRADOR\TPIntegrador\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.GeneratedMSBuildEditorConfig.editorconfig
+C:\TPINTEGRADOR\TPIntegrador\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.AssemblyInfoInputs.cache
+C:\TPINTEGRADOR\TPIntegrador\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.AssemblyInfo.cs
+C:\TPINTEGRADOR\TPIntegrador\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.csproj.CoreCompileInputs.cache
+C:\TPINTEGRADOR\TPIntegrador\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.dll
+C:\TPINTEGRADOR\TPIntegrador\TPIntegrador\obj\Debug\net6.0-windows\refint\TPIntegrador.dll
+C:\TPINTEGRADOR\TPIntegrador\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.pdb
+C:\TPINTEGRADOR\TPIntegrador\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.genruntimeconfig.cache
+C:\TPINTEGRADOR\TPIntegrador\TPIntegrador\obj\Debug\net6.0-windows\ref\TPIntegrador.dll
+C:\TPINTEGRADOR\TPIntegrador\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.FormularioInicio.resources
+C:\TPINTEGRADOR\TPIntegrador\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.FormularioTarea.resources
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.exe
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.deps.json
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.runtimeconfig.json
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.dll
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.pdb
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.csproj.AssemblyReference.cache
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.FormularioInicio.resources
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.FormularioTarea.resources
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.Properties.Resources.resources
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.csproj.GenerateResource.cache
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.AssemblyInfoInputs.cache
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.AssemblyInfo.cs
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.csproj.CoreCompileInputs.cache
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.dll
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\TPIntegrador\obj\Debug\net6.0-windows\refint\TPIntegrador.dll
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.pdb
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.genruntimeconfig.cache
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\TPIntegrador\obj\Debug\net6.0-windows\ref\TPIntegrador.dll
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\TPIntegrador\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\TPIntegrador\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\TPIntegrador\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\TPIntegrador\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\TPIntegrador\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\TPIntegrador\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.csproj.CopyComplete
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.FormularioBuscar.resources
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.dll.config
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.exe
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.dll.config
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.deps.json
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.runtimeconfig.json
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.dll
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.pdb
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.csproj.AssemblyReference.cache
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.FormularioBuscar.resources
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.FormularioInicio.resources
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.FormularioTarea.resources
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.Properties.Resources.resources
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.Resource1.resources
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.csproj.GenerateResource.cache
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.AssemblyInfoInputs.cache
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.AssemblyInfo.cs
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.csproj.CoreCompileInputs.cache
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.csproj.CopyComplete
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.dll
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\refint\TPIntegrador.dll
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.pdb
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.genruntimeconfig.cache
+C:\Users\PabloW\Desktop\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\ref\TPIntegrador.dll
+D:\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.csproj.AssemblyReference.cache
+D:\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.FormularioBuscar.resources
+D:\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.FormularioInicio.resources
+D:\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.FormularioTarea.resources
+D:\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.Properties.Resources.resources
+D:\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.Resource1.resources
+D:\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.csproj.GenerateResource.cache
+D:\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.GeneratedMSBuildEditorConfig.editorconfig
+D:\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.AssemblyInfoInputs.cache
+D:\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.AssemblyInfo.cs
+D:\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.csproj.CoreCompileInputs.cache
+D:\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.dll
+D:\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\refint\TPIntegrador.dll
+D:\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.pdb
+D:\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.exe
+D:\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.dll.config
+D:\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.deps.json
+D:\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.runtimeconfig.json
+D:\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.dll
+D:\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.pdb
+D:\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
+D:\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
+D:\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
+D:\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
+D:\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.csproj.CopyComplete
+D:\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.genruntimeconfig.cache
+D:\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\ref\TPIntegrador.dll
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.csproj.AssemblyReference.cache
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.FormularioBuscar.resources
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.FormularioInicio.resources
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.FormularioTarea.resources
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.Properties.Resources.resources
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.Resource1.resources
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.csproj.GenerateResource.cache
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.GeneratedMSBuildEditorConfig.editorconfig
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.AssemblyInfoInputs.cache
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.AssemblyInfo.cs
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.csproj.CoreCompileInputs.cache
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.dll
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\refint\TPIntegrador.dll
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.pdb
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.exe
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.dll.config
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.deps.json
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.runtimeconfig.json
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.dll
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.pdb
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.csproj.CopyComplete
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.genruntimeconfig.cache
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\ref\TPIntegrador.dll
+D:\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.exe
+D:\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.dll.config
+D:\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.deps.json
+D:\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.runtimeconfig.json
+D:\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.dll
+D:\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.pdb
+D:\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
+D:\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
+D:\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
+D:\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
+D:\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.csproj.AssemblyReference.cache
+D:\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.FormularioBuscar.resources
+D:\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.FormularioInicio.resources
+D:\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.FormularioTarea.resources
+D:\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.Properties.Resources.resources
+D:\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.Resource1.resources
+D:\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.csproj.GenerateResource.cache
+D:\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.GeneratedMSBuildEditorConfig.editorconfig
+D:\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.AssemblyInfoInputs.cache
+D:\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.AssemblyInfo.cs
+D:\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.csproj.CoreCompileInputs.cache
+D:\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.csproj.CopyComplete
+D:\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.dll
+D:\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\refint\TPIntegrador.dll
+D:\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.pdb
+D:\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.genruntimeconfig.cache
+D:\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\ref\TPIntegrador.dll
+D:\Programación 3\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.exe
+D:\Programación 3\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.dll.config
+D:\Programación 3\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.deps.json
+D:\Programación 3\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.runtimeconfig.json
+D:\Programación 3\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.dll
+D:\Programación 3\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.pdb
+D:\Programación 3\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
+D:\Programación 3\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
+D:\Programación 3\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
+D:\Programación 3\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
+D:\Programación 3\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Programación 3\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Programación 3\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.csproj.AssemblyReference.cache
+D:\Programación 3\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.FormularioBuscar.resources
+D:\Programación 3\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.FormularioInicio.resources
+D:\Programación 3\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.FormularioTarea.resources
+D:\Programación 3\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.Properties.Resources.resources
+D:\Programación 3\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.Resource1.resources
+D:\Programación 3\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.csproj.GenerateResource.cache
+D:\Programación 3\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programación 3\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.AssemblyInfoInputs.cache
+D:\Programación 3\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.AssemblyInfo.cs
+D:\Programación 3\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.csproj.CoreCompileInputs.cache
+D:\Programación 3\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.csproj.CopyComplete
+D:\Programación 3\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.dll
+D:\Programación 3\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\refint\TPIntegrador.dll
+D:\Programación 3\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.pdb
+D:\Programación 3\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.genruntimeconfig.cache
+D:\Programación 3\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\ref\TPIntegrador.dll
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.exe
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.dll.config
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.deps.json
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.runtimeconfig.json
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.dll
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.pdb
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.csproj.AssemblyReference.cache
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.FormularioBuscar.resources
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.FormularioInicio.resources
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.FormularioTarea.resources
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.Properties.Resources.resources
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.Resource1.resources
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.csproj.GenerateResource.cache
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.GeneratedMSBuildEditorConfig.editorconfig
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.AssemblyInfoInputs.cache
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.AssemblyInfo.cs
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.csproj.CoreCompileInputs.cache
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.csproj.CopyComplete
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.dll
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\refint\TPIntegrador.dll
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.pdb
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.genruntimeconfig.cache
+D:\TSP\2º año\1º Cuatrimestre\Programacion III\TPINTEGRADOR\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\ref\TPIntegrador.dll
+C:\Users\PabloW\Videos\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.exe
+C:\Users\PabloW\Videos\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.dll.config
+C:\Users\PabloW\Videos\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.deps.json
+C:\Users\PabloW\Videos\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.runtimeconfig.json
+C:\Users\PabloW\Videos\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.dll
+C:\Users\PabloW\Videos\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.pdb
+C:\Users\PabloW\Videos\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
+C:\Users\PabloW\Videos\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\PabloW\Videos\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\PabloW\Videos\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\PabloW\Videos\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\PabloW\Videos\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\PabloW\Videos\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.csproj.AssemblyReference.cache
+C:\Users\PabloW\Videos\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.FormularioBuscar.resources
+C:\Users\PabloW\Videos\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.FormularioInicio.resources
+C:\Users\PabloW\Videos\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.FormularioTarea.resources
+C:\Users\PabloW\Videos\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.Properties.Resources.resources
+C:\Users\PabloW\Videos\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.Resource1.resources
+C:\Users\PabloW\Videos\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.csproj.GenerateResource.cache
+C:\Users\PabloW\Videos\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PabloW\Videos\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.AssemblyInfoInputs.cache
+C:\Users\PabloW\Videos\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.AssemblyInfo.cs
+C:\Users\PabloW\Videos\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.csproj.CoreCompileInputs.cache
+C:\Users\PabloW\Videos\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.csproj.CopyComplete
+C:\Users\PabloW\Videos\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.dll
+C:\Users\PabloW\Videos\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\refint\TPIntegrador.dll
+C:\Users\PabloW\Videos\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.pdb
+C:\Users\PabloW\Videos\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.genruntimeconfig.cache
+C:\Users\PabloW\Videos\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\ref\TPIntegrador.dll
+C:\Users\elias\Imágenes\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.exe
+C:\Users\elias\Imágenes\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.dll.config
+C:\Users\elias\Imágenes\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.deps.json
+C:\Users\elias\Imágenes\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.runtimeconfig.json
+C:\Users\elias\Imágenes\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.dll
+C:\Users\elias\Imágenes\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\TPIntegrador.pdb
+C:\Users\elias\Imágenes\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
+C:\Users\elias\Imágenes\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\elias\Imágenes\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\elias\Imágenes\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\elias\Imágenes\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\elias\Imágenes\TPINTEGRADOR\TPIntegrador\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\elias\Imágenes\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.csproj.AssemblyReference.cache
+C:\Users\elias\Imágenes\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.FormularioBuscar.resources
+C:\Users\elias\Imágenes\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.FormularioInicio.resources
+C:\Users\elias\Imágenes\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.FormularioTarea.resources
+C:\Users\elias\Imágenes\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.Properties.Resources.resources
+C:\Users\elias\Imágenes\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.Resource1.resources
+C:\Users\elias\Imágenes\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.csproj.GenerateResource.cache
+C:\Users\elias\Imágenes\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\elias\Imágenes\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.AssemblyInfoInputs.cache
+C:\Users\elias\Imágenes\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.AssemblyInfo.cs
+C:\Users\elias\Imágenes\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.csproj.CoreCompileInputs.cache
+C:\Users\elias\Imágenes\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.csproj.CopyComplete
+C:\Users\elias\Imágenes\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.dll
+C:\Users\elias\Imágenes\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\refint\TPIntegrador.dll
+C:\Users\elias\Imágenes\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.pdb
+C:\Users\elias\Imágenes\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\TPIntegrador.genruntimeconfig.cache
+C:\Users\elias\Imágenes\TPINTEGRADOR\TPIntegrador\obj\Debug\net6.0-windows\ref\TPIntegrador.dll
