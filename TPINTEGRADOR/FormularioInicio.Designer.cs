@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             menuStrip1 = new MenuStrip();
             proyectosToolStripMenuItem = new ToolStripMenuItem();
             tareasToolStripMenuItem = new ToolStripMenuItem();
@@ -90,10 +90,10 @@
             IdProyecto = new DataGridViewTextBoxColumn();
             Nombre = new DataGridViewTextBoxColumn();
             Empresa = new DataGridViewTextBoxColumn();
+            monto_estimado = new DataGridViewTextBoxColumn();
             CostoEstimado = new DataGridViewTextBoxColumn();
             CostoReal = new DataGridViewTextBoxColumn();
             Desvio = new DataGridViewTextBoxColumn();
-            grado_avance = new DataGridViewTextBoxColumn();
             pictureBox8 = new PictureBox();
             pbNombreProyecto = new PictureBox();
             pxNombreEmpresa = new PictureBox();
@@ -408,24 +408,24 @@
             dgvLider.AllowUserToDeleteRows = false;
             dgvLider.BackgroundColor = Color.White;
             dgvLider.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = Color.DeepSkyBlue;
-            dataGridViewCellStyle7.Font = new Font("Franklin Gothic Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle7.ForeColor = Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            dgvLider.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.DeepSkyBlue;
+            dataGridViewCellStyle1.Font = new Font("Franklin Gothic Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvLider.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvLider.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvLider.Columns.AddRange(new DataGridViewColumn[] { legajo, nombre_empleado, apellido, celular, email, fecha_ingreso });
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = Color.SteelBlue;
-            dataGridViewCellStyle8.Font = new Font("Franklin Gothic Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle8.ForeColor = Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            dgvLider.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.SteelBlue;
+            dataGridViewCellStyle2.Font = new Font("Franklin Gothic Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvLider.DefaultCellStyle = dataGridViewCellStyle2;
             dgvLider.EnableHeadersVisualStyles = false;
             dgvLider.GridColor = Color.DeepSkyBlue;
             dgvLider.Location = new Point(19, 60);
@@ -577,6 +577,7 @@
             btnModificarEmpleado.Text = "MODIFICAR";
             btnModificarEmpleado.TextAlign = ContentAlignment.MiddleLeft;
             btnModificarEmpleado.UseVisualStyleBackColor = false;
+            btnModificarEmpleado.Click += btnModificarEmpleado_Click_1;
             // 
             // pcCorreoLider
             // 
@@ -832,24 +833,24 @@
             dgvProyecto.AllowUserToAddRows = false;
             dgvProyecto.AllowUserToDeleteRows = false;
             dgvProyecto.BackgroundColor = Color.White;
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = Color.DarkSlateBlue;
-            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle9.ForeColor = Color.White;
-            dataGridViewCellStyle9.SelectionBackColor = Color.Indigo;
-            dataGridViewCellStyle9.SelectionForeColor = Color.White;
-            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
-            dgvProyecto.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = Color.DarkSlateBlue;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = Color.Indigo;
+            dataGridViewCellStyle3.SelectionForeColor = Color.White;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvProyecto.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvProyecto.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProyecto.Columns.AddRange(new DataGridViewColumn[] { IdProyecto, Nombre, Empresa, CostoEstimado, CostoReal, Desvio, grado_avance });
-            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = Color.MediumOrchid;
-            dataGridViewCellStyle10.Font = new Font("Franklin Gothic Medium", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle10.ForeColor = Color.White;
-            dataGridViewCellStyle10.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.False;
-            dgvProyecto.DefaultCellStyle = dataGridViewCellStyle10;
+            dgvProyecto.Columns.AddRange(new DataGridViewColumn[] { IdProyecto, Nombre, Empresa, monto_estimado, CostoEstimado, CostoReal, Desvio });
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.MediumOrchid;
+            dataGridViewCellStyle4.Font = new Font("Franklin Gothic Medium", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            dgvProyecto.DefaultCellStyle = dataGridViewCellStyle4;
             dgvProyecto.EnableHeadersVisualStyles = false;
             dgvProyecto.GridColor = Color.DarkSlateBlue;
             dgvProyecto.Location = new Point(16, 56);
@@ -877,7 +878,7 @@
             // Nombre
             // 
             Nombre.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Nombre.DataPropertyName = "nombre_proyecto";
+            Nombre.DataPropertyName = "nombre";
             Nombre.FillWeight = 104.822342F;
             Nombre.HeaderText = "Nombre";
             Nombre.MinimumWidth = 6;
@@ -893,6 +894,15 @@
             Empresa.MinimumWidth = 6;
             Empresa.Name = "Empresa";
             Empresa.ReadOnly = true;
+            // 
+            // monto_estimado
+            // 
+            monto_estimado.DataPropertyName = "monto_estimado";
+            monto_estimado.HeaderText = "Monto estimado";
+            monto_estimado.MinimumWidth = 6;
+            monto_estimado.Name = "monto_estimado";
+            monto_estimado.ReadOnly = true;
+            monto_estimado.Width = 125;
             // 
             // CostoEstimado
             // 
@@ -923,15 +933,6 @@
             Desvio.MinimumWidth = 6;
             Desvio.Name = "Desvio";
             Desvio.ReadOnly = true;
-            // 
-            // grado_avance
-            // 
-            grado_avance.DataPropertyName = "grado_avance";
-            grado_avance.HeaderText = "GradoAvance";
-            grado_avance.MinimumWidth = 6;
-            grado_avance.Name = "grado_avance";
-            grado_avance.ReadOnly = true;
-            grado_avance.Width = 125;
             // 
             // pictureBox8
             // 
@@ -1146,24 +1147,24 @@
             dgvPropietario.AllowUserToResizeColumns = false;
             dgvPropietario.AllowUserToResizeRows = false;
             dgvPropietario.BackgroundColor = Color.White;
-            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle11.BackColor = Color.Teal;
-            dataGridViewCellStyle11.Font = new Font("Franklin Gothic Medium", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle11.ForeColor = Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = Color.MediumSlateBlue;
-            dataGridViewCellStyle11.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.True;
-            dgvPropietario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle5.BackColor = Color.Teal;
+            dataGridViewCellStyle5.Font = new Font("Franklin Gothic Medium", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = Color.MediumSlateBlue;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dgvPropietario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dgvPropietario.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvPropietario.Columns.AddRange(new DataGridViewColumn[] { id_propietario, NombrePropietario, RazonSocial, Telefono, Cuit, PersonaContacto });
-            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = Color.Turquoise;
-            dataGridViewCellStyle12.Font = new Font("Franklin Gothic Medium", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle12.ForeColor = Color.White;
-            dataGridViewCellStyle12.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = DataGridViewTriState.False;
-            dgvPropietario.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.Turquoise;
+            dataGridViewCellStyle6.Font = new Font("Franklin Gothic Medium", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            dgvPropietario.DefaultCellStyle = dataGridViewCellStyle6;
             dgvPropietario.EnableHeadersVisualStyles = false;
             dgvPropietario.GridColor = Color.Teal;
             dgvPropietario.Location = new Point(16, 57);
@@ -1530,13 +1531,6 @@
         private TextBox txtEmpresa;
         private Label lbNombreEmpresa;
         private DataGridView dgvProyecto;
-        private DataGridViewTextBoxColumn IdProyecto;
-        private DataGridViewTextBoxColumn Nombre;
-        private DataGridViewTextBoxColumn Empresa;
-        private DataGridViewTextBoxColumn CostoEstimado;
-        private DataGridViewTextBoxColumn CostoReal;
-        private DataGridViewTextBoxColumn Desvio;
-        private DataGridViewTextBoxColumn grado_avance;
         private DataGridViewTextBoxColumn IdPropietario;
         private DataGridViewTextBoxColumn IdLiderFK;
         private PictureBox pictureBox8;
@@ -1578,5 +1572,12 @@
         private DataGridViewTextBoxColumn celular;
         private DataGridViewTextBoxColumn email;
         private DataGridViewTextBoxColumn fecha_ingreso;
+        private DataGridViewTextBoxColumn IdProyecto;
+        private DataGridViewTextBoxColumn Nombre;
+        private DataGridViewTextBoxColumn Empresa;
+        private DataGridViewTextBoxColumn monto_estimado;
+        private DataGridViewTextBoxColumn CostoEstimado;
+        private DataGridViewTextBoxColumn CostoReal;
+        private DataGridViewTextBoxColumn Desvio;
     }
 }

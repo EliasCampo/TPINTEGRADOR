@@ -79,28 +79,37 @@ namespace TPIntegrador.Controlador
         {
             String expresion;
             expresion = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
-            if (Regex.IsMatch(email, expresion))
+            try
             {
-                if (Regex.Replace(email, expresion, String.Empty).Length == 0)
+                if (Regex.IsMatch(email, expresion))
                 {
-                    return true;
+                    if (Regex.Replace(email, expresion, String.Empty).Length == 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        throw new Exception();
+                    }
                 }
                 else
                 {
-                    return false;
+                    throw new Exception();
                 }
             }
-            else
+            catch (Exception e) 
             {
+                MessageBox.Show("Email invalido. Ingrese un mail valido");
                 return false;
             }
+            
         }
 
         public static Boolean validarFecha(String fecha)  // FUNCIONANDO validar fecha para empleado y observaciones del empleado
         {
             if (fecha == null)
             {
-                return true;
+                return false;
             }
             else
             {

@@ -13,6 +13,7 @@ namespace TPIntegrador
             InitializeComponent();
             dgvPropietario.DataSource = ControladorPropietario.obtenerPropietariosBDD();
             dgvLider.DataSource = ControladorEmpleado.listarEmpleadoLiderBDD();
+
             btnAgregarEmpleado.Enabled = false;
 
             if (dgvLider.Rows.Count != 0)
@@ -247,6 +248,8 @@ namespace TPIntegrador
                 txtPersonaContacto.Text = dgvPropietario[5, indiceTablaPropietario].Value.ToString();
 
 
+                dgvProyecto.DataSource = ControladorProyecto.listarProyectoPropietarioBDD(idPropietario);
+
             }
         }
         ///////////////////////////////////////////////////////////////////////
@@ -301,6 +304,7 @@ namespace TPIntegrador
 
         private void LimpiarCamposLider()
         {
+            txtNumeroLegajo.Text = string.Empty;
             txtNombreLider.Text = string.Empty;
             txtApellidoLider.Text = string.Empty;
             txtCelularLider.Text = string.Empty;
@@ -346,23 +350,36 @@ namespace TPIntegrador
                 ControladorTrabaja insertarTrabaja = new ControladorTrabaja(0, 0, ultimoId, 1);
                 insertarTrabaja.insertarTrabajaBDD();
 
-                dgvLider.DataSource = ControladorEmpleado.listarUltimoLiderBDD(ultimoId);
+                dgvLider.DataSource = ControladorEmpleado.listarUltimoLiderBDD();
             }
         }
 
-        private void btnModificarEmpleado_Click(object sender, EventArgs e)
+       
+
+        private void btnModificarEmpleado_Click_1(object sender, EventArgs e)
         {
             int indiceTablaLider = dgvLider.CurrentCell.RowIndex;
             int idLider = Convert.ToInt32(dgvLider[0, indiceTablaLider].Value);
-
-            int idProyecto = Convert.ToInt32(dgvProyecto[0, dgvProyecto.CurrentCell.RowIndex].Value);
 
             string nombreLider = txtNombreLider.Text.Trim();
             string apellidoLider = txtApellidoLider.Text.Trim();
             string celularLider = txtCelularLider.Text.Trim();
             string emailLider = txtCorreoLider.Text.Trim();
-            string fechaIngresoLider = dgvLider[6, indiceTablaLider].Value.ToString();
 
+            ControladorEmpleado insertarLider = new ControladorEmpleado(idLider, nombreLider, apellidoLider, celularLider, emailLider,"0000-00-00");
+
+            if (insertarLider.ValidarDatos() != false)
+            {
+                insertarLider.ModificarDatosLiderBDD();
+                dgvLider.DataSource = ControladorEmpleado.listarEmpleadoLiderBDD();
+
+
+                LimpiarCamposLider();
+            }
+            else
+            {
+                Validar.mError("El mail ingresado no es valido o faltan completar campos.");
+            }
         }
 
         private void btnBajaEmpleado_Click(object sender, EventArgs e)
@@ -550,5 +567,7 @@ namespace TPIntegrador
         {
 
         }
+
+        
     }
 }

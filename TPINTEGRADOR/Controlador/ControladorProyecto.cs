@@ -48,6 +48,13 @@ namespace TPIntegrador.Controlador
                 return true;
             }
         }
+
+
+        public static DataTable listarProyectoPropietarioBDD(int idPropietario)
+        {
+            DataTable proyectoPropietario = DatosProyecto.listarProyectosPropietario(idPropietario);
+            return proyectoPropietario;
+        }
     }
 
 }

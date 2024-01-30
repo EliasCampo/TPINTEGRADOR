@@ -13,13 +13,13 @@ namespace TPIntegrador.Datos
         public static DataTable listarLider()
         {
             DataTable listarNoBaja = new DataTable("Listatodos");
-            String sql = "select E.legajo, E.fecha_ingreso, E.nombre, E.apellido,E.celular, E.email " +
-                "from Proyecto P " +
-                "INNER JOIN Empleado E ON P.legajo_FK = E.legajo " +
-                "INNER JOIN Trabaja T ON  E.legajo = T.legajo AND P.id_proyecto = T.id_proyecto " +
-                "WHERE P.baja_proyecto = 0 " +
-                "Group by E.legajo, E.fecha_ingreso, E.nombre, E.apellido,E.celular, E.email " +
-                "HAVING COUNT (P.id_proyecto) < 3 ";    
+            String sql = "SELECT E.legajo, E.nombre, E.apellido, E.celular, E.email, E.fecha_ingreso " +
+                "FROM Empleado E " +
+                "LEFT JOIN Trabaja T ON E.legajo = T.legajo " +
+                "LEFT JOIN Proyecto P ON T.id_proyecto = P.id_proyecto " +
+                "WHERE P.baja_proyecto = 0 OR P.id_proyecto IS NULL " +
+                "GROUP BY E.legajo, E.fecha_ingreso, E.nombre, E.apellido, E.celular, E.email, E.baja_empleado " +
+                "HAVING COUNT(T.id_proyecto) < 3 OR COUNT(T.id_proyecto) IS NULL ";    
 
 
             try
@@ -87,6 +87,29 @@ namespace TPIntegrador.Datos
         }
 
 
+        public static DataTable ModificarDatosLider(int idLider, string nombre, string apellido, string celular,  string email)
+        {
+            DataTable listarNoBaja = new DataTable("Listatodos");
+            String sql = "UPDATE Empleado SET nombre = '" + nombre + "', " + "apellido = '" + apellido + "', " + "celular = '" + celular + "', " + "email = '" + email + "' " +
+                "WHERE legajo = " + idLider;
+
+            try
+            {
+                Conexion Cx = new Conexion();
+                Cx.AbrirConexion();
+                Cx.SetComnadoSQL(sql);
+
+                SqlDataAdapter sqlDat = new SqlDataAdapter(Cx.Comando());
+                sqlDat.Fill(listarNoBaja);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error por excepción " + e.ToString());
+                listarNoBaja = null;
+            }
+            return listarNoBaja;
+        }
+
         public static int obtenerUltimoId() 
         {
             int id_empleado = -1;
@@ -119,28 +142,7 @@ namespace TPIntegrador.Datos
             }
         }
 
-        public static DataTable listarUltimoIdLider(int idLider)
-        {
-            DataTable listarNoBaja = new DataTable("Listatodos");
-            String sql = "SELECT [legajo],[nombre],[apellido],[celular],[email],[fecha_ingreso] FROM[Empleado] WHERE [baja_empleado] = 0 AND legajo = " + idLider;
-
-            try
-            {
-                Conexion Cx = new Conexion();
-                Cx.AbrirConexion();
-                Cx.SetComnadoSQL(sql);
-
-                SqlDataAdapter sqlDat = new SqlDataAdapter(Cx.Comando());
-                sqlDat.Fill(listarNoBaja);
-                Cx.CerrarConexion();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Error por excepción " + e.ToString());
-                listarNoBaja = null;
-            }
-            return listarNoBaja;
-        }
+       
 
     }
 }
