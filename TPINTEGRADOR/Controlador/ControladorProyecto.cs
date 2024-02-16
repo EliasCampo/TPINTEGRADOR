@@ -15,25 +15,30 @@ namespace TPIntegrador.Controlador
         private int idProyecto;
         private string nombreProyecto;
         private string empresa;
+        private decimal montoEstimado; 
         private decimal costoEstimado;
         private decimal costoReal;
         private decimal desvioProyecto;
-        private int id_propietario;
-        private int id_empleado;
+        private int legajoFk;
+        private int idPropietarioFK;
+        
 
 		public ControladorProyecto()
 		{
 
 		}
-		public ControladorProyecto(int id_proyecto, string nombre_proyecto, string empresa_proyecto, decimal costo_estimado, decimal costo_real, decimal desvio_proyecto)
+		public ControladorProyecto(string nombre_proyecto, string empresa_proyecto, decimal monto_estimado, decimal costo_estimado, decimal costo_real, decimal desvio_proyecto, int legajo_FK, int id_propietario_FK)
         {
-            idProyecto = id_proyecto;
+            
             nombreProyecto = nombre_proyecto;
             empresa = empresa_proyecto;
+            montoEstimado = monto_estimado;
             //gradoAvance = grado_avance;
             costoEstimado = costo_estimado;
             costoReal = costo_real;
             desvioProyecto = desvio_proyecto;
+            legajoFk = legajo_FK;
+            idPropietarioFK = id_propietario_FK; 
         }
 
         public bool ValidarDatosProyecto()
@@ -49,12 +54,32 @@ namespace TPIntegrador.Controlador
             }
         }
 
+        public void insertarProyectoBDD()
+        {
+            DatosProyecto.insertarProyecto(this.nombreProyecto, this.empresa, this.montoEstimado, this.costoEstimado, this.costoReal, this.desvioProyecto, this.legajoFk, this.idPropietarioFK);
+
+        }
+
 
         public static DataTable listarProyectoPropietarioBDD(int idPropietario)
         {
             DataTable proyectoPropietario = DatosProyecto.listarProyectosPropietario(idPropietario);
             return proyectoPropietario;
         }
+
+        public static DataTable listarProyectosLiderBDD(int idLider)
+        {
+            DataTable proyectoLider = DatosProyecto.listarProyectosLider(idLider);
+            return proyectoLider;
+        }
+
+        public static int obtenerUltimoIdProyectoBDD()
+        {
+            int ultimoId = DatosProyecto.obtenerUltimoIdProyecto();
+            return ultimoId;
+        }
+
+
     }
 
 }

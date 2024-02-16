@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +27,13 @@ namespace TPIntegrador.Controlador
         public void insertarTrabajaBDD() 
         {
             DatosTrabaja.insertarTrabaja(this.idProyecto, this.idTarea, this.legajo, this.idFuncion);
+        }
+
+        public DataTable ModificarDatosTrabajaBDD()
+        {
+
+            DataTable listarTrabaja = DatosTrabaja.ModificarDatosTrabaja(this.idProyecto, this.legajo);
+            return listarTrabaja;
         }
     }
 }

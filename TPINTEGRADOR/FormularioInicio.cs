@@ -36,7 +36,10 @@ namespace TPIntegrador
             gbxPrincipalProyecto.BackColor = Color.Black;
         }
 
-
+        private bool banderaAgregarLider = false; // esta bandera se activa cuando agregamos un nuevo lider y
+                                                  // para ese lider agregar un nuevo proyecto para actualizar
+                                                  // la tabla trabaja ya que al agregar un nuevo lider hay que
+                                                  // actualizar la tabla trabaja con los datos del id proyecto
         private void FormularioInicio_Load(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Maximized;
@@ -268,10 +271,41 @@ namespace TPIntegrador
         {
             string nombreProyecto = txtNombreProyecto.Text.Trim();
             string empresaProyecto = txtEmpresa.Text.Trim();
+            int indiceTablaPropietario = dgvPropietario.CurrentCell.RowIndex;
+            int idPropietario = Convert.ToInt32(dgvPropietario[0, indiceTablaPropietario].Value);
+            
+            int indiceTablaLider = dgvLider.CurrentCell.RowIndex;
+            int  nroLegajoLider = Convert.ToInt32(dgvLider[0, indiceTablaLider].Value.ToString());
 
+            ControladorProyecto insertarProyecto = new ControladorProyecto(nombreProyecto, empresaProyecto, 0 , 0 , 0 , 0 , nroLegajoLider, idPropietario);
 
+            if (insertarProyecto.ValidarDatosProyecto() != false)
+            {
+                insertarProyecto.insertarProyectoBDD();
+                dgvProyecto.DataSource = ControladorProyecto.listarProyectosLiderBDD(nroLegajoLider);
+                LimpiarCamposProyecto();
+            }
 
+            if (banderaAgregarLider == true)
+            {
+                int ultimoIdProyecto = ControladorProyecto.obtenerUltimoIdProyectoBDD();
+
+                int ultimoIdLider = ControladorEmpleado.obtenerUltimoIdBDD();
+
+                ControladorTrabaja actualizarTrabaja = new ControladorTrabaja(ultimoIdProyecto, 0, ultimoIdLider, 1);
+
+                actualizarTrabaja.ModificarDatosTrabajaBDD();
+            }
+            else 
+            {
+                int ultimoIdProyecto = ControladorProyecto.obtenerUltimoIdProyectoBDD();
+
+                ControladorTrabaja insertarTrabaja = new ControladorTrabaja(ultimoIdProyecto, 0, nroLegajoLider, 1);
+
+                insertarTrabaja.insertarTrabajaBDD();
+            }
         }
+            
 
         //////BOTON MODIFICAR PROYECTO/////
         private void btnModificarProyecto_Click(object sender, EventArgs e)
@@ -351,6 +385,8 @@ namespace TPIntegrador
                 insertarTrabaja.insertarTrabajaBDD();
 
                 dgvLider.DataSource = ControladorEmpleado.listarUltimoLiderBDD();
+
+                banderaAgregarLider = true;
             }
         }
 
@@ -387,19 +423,29 @@ namespace TPIntegrador
             if (e.RowIndex != -1 && e.ColumnIndex >= 0)
             {
 
-                int indiceTablaLider = dgvLider.CurrentCell.RowIndex;
-                string nroLegajoLider = dgvLider[0, indiceTablaLider].Value.ToString();
-                string nombreLider = dgvLider[1, indiceTablaLider].Value.ToString();
-                string apellidoLider = dgvLider[2, indiceTablaLider].Value.ToString();
-                string celularLider = dgvLider[3, indiceTablaLider].Value.ToString();
-                string emailLider = dgvLider[4, indiceTablaLider].Value.ToString();
+                
+
+                if (e.RowIndex != -1 && e.ColumnIndex >= 0)
+                {
+
+                    int indiceTablaLider = dgvLider.CurrentCell.RowIndex;
+                    int nroLegajoLider = Convert.ToInt32(dgvLider[0, indiceTablaLider].Value.ToString());
+                    string nombreLider = dgvLider[1, indiceTablaLider].Value.ToString();
+                    string apellidoLider = dgvLider[2, indiceTablaLider].Value.ToString();
+                    string celularLider = dgvLider[3, indiceTablaLider].Value.ToString();
+                    string emailLider = dgvLider[4, indiceTablaLider].Value.ToString();
 
 
-                txtNumeroLegajo.Text = nroLegajoLider;
-                txtNombreLider.Text = nombreLider;
-                txtApellidoLider.Text = apellidoLider;
-                txtCelularLider.Text = celularLider;
-                txtCorreoLider.Text = emailLider;
+                    txtNumeroLegajo.Text = nroLegajoLider.ToString();
+                    txtNombreLider.Text = nombreLider;
+                    txtApellidoLider.Text = apellidoLider;
+                    txtCelularLider.Text = celularLider;
+                    txtCorreoLider.Text = emailLider;
+
+
+                    dgvProyecto.DataSource = ControladorProyecto.listarProyectosLiderBDD(nroLegajoLider);
+
+                }
 
             }
         }

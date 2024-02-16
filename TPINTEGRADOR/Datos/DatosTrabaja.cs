@@ -50,5 +50,28 @@ namespace TPIntegrador.Datos
             }
 
         }
+
+        public static DataTable ModificarDatosTrabaja(int idProyecto, int legajo)
+        {
+            DataTable listarNoBaja = new DataTable("Listatodos");
+            String sql = "UPDATE Trabaja SET id_proyecto = '" + idProyecto +  " WHERE legajo = " + legajo;
+
+            try
+            {
+                Conexion Cx = new Conexion();
+                Cx.AbrirConexion();
+                Cx.SetComnadoSQL(sql);
+
+                SqlDataAdapter sqlDat = new SqlDataAdapter(Cx.Comando());
+                sqlDat.Fill(listarNoBaja);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error por excepción " + e.ToString());
+                listarNoBaja = null;
+            }
+            return listarNoBaja;
+        }
+
     }
 }
