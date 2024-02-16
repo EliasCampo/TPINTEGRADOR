@@ -41,30 +41,32 @@ namespace TPIntegrador.Controlador
 
         public bool ValidarDatos()
         {
+            bool bandera ;
 
             if ((Validar.validarCorreo(this.emailEmpleado) == true) && (Validar.validarFecha(this.fechaIngresoEmpleado) == true))
             {
-                return true;
+                bandera = true;
             }
             else
             {
-                return false;
+                return bandera = false;
+                
             }
 			
             if ((this.fechaIngresoEmpleado == "") | (this.nombreEmpleado == "") | (this.apellidoEmpleado == "") | (this.celularEmpleado == "") | (this.emailEmpleado == ""))
             {
-                return false;
+                return bandera = false;
             }
             else
             {
 				if ((this.fechaIngresoEmpleado == "Ingrese Fecha") | (this.nombreEmpleado == "Ingrese Nombre") | (this.apellidoEmpleado == "Ingrese Apellido") | (this.celularEmpleado == "Ingrese N° Celular") | (this.emailEmpleado == "Ingrese Correo"))
 				{
-					return false;
-				}
+                    return bandera = false;
+                }
 				else
 				{
-					return true;
-				}
+					return bandera = true;
+                }
             }
         }
 
@@ -88,6 +90,13 @@ namespace TPIntegrador.Controlador
 
             DataTable listarLider = DatosEmpleado.ModificarDatosLider(this.legajoEmpleado, this.nombreEmpleado, this.apellidoEmpleado, this.celularEmpleado, this.emailEmpleado);
             return listarLider;
+        }
+
+        public static void BajaDatosLiderBDD(int idLider)
+        {
+
+            DatosEmpleado.BajaDatosLider(idLider);
+
         }
 
         public static DataTable listarUltimoLiderBDD()

@@ -17,7 +17,7 @@ namespace TPIntegrador.Datos
                 "FROM Empleado E " +
                 "LEFT JOIN Trabaja T ON E.legajo = T.legajo " +
                 "LEFT JOIN Proyecto P ON T.id_proyecto = P.id_proyecto " +
-                "WHERE P.baja_proyecto = 0 OR P.id_proyecto IS NULL " +
+                "WHERE P.baja_proyecto = 0 OR P.id_proyecto IS NULL AND E.baja_empleado = 0 " +
                 "GROUP BY E.legajo, E.fecha_ingreso, E.nombre, E.apellido, E.celular, E.email, E.baja_empleado " +
                 "HAVING COUNT(T.id_proyecto) < 3 OR COUNT(T.id_proyecto) IS NULL ";    
 
@@ -108,6 +108,28 @@ namespace TPIntegrador.Datos
                 listarNoBaja = null;
             }
             return listarNoBaja;
+        }
+
+        public static bool BajaDatosLider(int idLider)
+        {
+            string sql = "UPDATE Empleado SET baja_empleado = 1 WHERE legajo = " + idLider;
+            try
+            {
+                Conexion Cx = new Conexion();
+                Cx.AbrirConexion();
+                Cx.SetComnadoSQL(sql);
+                SqlCommand cmd = Cx.Comando();
+
+                Object nro = cmd.ExecuteScalar(); //.ExecuteNonQuery();
+                Cx.CerrarConexion();
+                return true;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error por excepción " + e.ToString());
+                return false;
+
+            }
         }
 
         public static int obtenerUltimoId() 

@@ -214,7 +214,7 @@ namespace TPIntegrador
 
             if (Validar.mConsulta("Si da de baja este propietario dara de baja todo el proyecto completo ¿Desea Continuar?"))
             {
-                DatosPropietario.BajaDatosPropietario(idPropietario);
+                ControladorPropietario.BajaDatosPropietarioBDD(idPropietario);
 
 
                 dgvPropietario.DataSource = ControladorPropietario.obtenerPropietariosBDD();
@@ -354,7 +354,7 @@ namespace TPIntegrador
             }
         }
 
-       
+
 
         private void btnModificarEmpleado_Click_1(object sender, EventArgs e)
         {
@@ -366,7 +366,7 @@ namespace TPIntegrador
             string celularLider = txtCelularLider.Text.Trim();
             string emailLider = txtCorreoLider.Text.Trim();
 
-            ControladorEmpleado insertarLider = new ControladorEmpleado(idLider, nombreLider, apellidoLider, celularLider, emailLider,"0000-00-00");
+            ControladorEmpleado insertarLider = new ControladorEmpleado(idLider, nombreLider, apellidoLider, celularLider, emailLider, "0000-00-00");
 
             if (insertarLider.ValidarDatos() != false)
             {
@@ -380,21 +380,6 @@ namespace TPIntegrador
             {
                 Validar.mError("El mail ingresado no es valido o faltan completar campos.");
             }
-        }
-
-        private void btnBajaEmpleado_Click(object sender, EventArgs e)
-        {
-            int indiceTablaProyecto = dgvProyecto.CurrentCell.RowIndex;
-            int idProyecto = Convert.ToInt32(dgvProyecto[0, indiceTablaProyecto].Value);
-
-            int indiceTablaLider = dgvLider.CurrentCell.RowIndex;
-            int idLider = Convert.ToInt32(dgvLider[0, indiceTablaLider].Value);
-
-        }
-
-        private void btnLimpiarEmpleado_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void dgvLider_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -417,20 +402,6 @@ namespace TPIntegrador
                 txtCorreoLider.Text = emailLider;
 
             }
-        }
-
-
-
-
-
-        /////////////////////////////////////////////
-        ////////////      CARGAR TAREA   ////////////
-        ////////////////////////////////////////////
-
-        //BOTÓN CARGAR TAREA
-        private void btnCargarTarea_Click(object sender, EventArgs e)
-        {
-
         }
 
 
@@ -568,6 +539,35 @@ namespace TPIntegrador
 
         }
 
-        
+        private void btnBajaEmpleado_Click_1(object sender, EventArgs e)
+        {
+
+            int indiceTablaLider = dgvLider.CurrentCell.RowIndex;
+            int idLider = Convert.ToInt32(dgvLider[0, indiceTablaLider].Value);
+
+
+
+            if (Validar.mConsulta("Si da de baja este lider, debera cargar uno nuevo."))
+            {
+                ControladorEmpleado.BajaDatosLiderBDD(idLider);
+                dgvLider.DataSource = ControladorEmpleado.listarEmpleadoLiderBDD();
+
+                btnAgregarEmpleado.Enabled = true;
+
+            }
+            else
+            {
+                Validar.mOk("No se dio de baja el lider.");
+                btnAgregarEmpleado.Enabled = false;
+
+            }
+            LimpiarCamposLider();
+
+        }
+
+        private void btnLimpiarEmpleado_Click(object sender, EventArgs e)
+        {
+            LimpiarCamposLider();
+        }
     }
 }
