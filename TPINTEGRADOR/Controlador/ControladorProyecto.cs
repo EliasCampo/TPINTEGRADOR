@@ -41,6 +41,14 @@ namespace TPIntegrador.Controlador
             idPropietarioFK = id_propietario_FK; 
         }
 
+        public ControladorProyecto(int id_proyecto, string nombre_proyecto, string empresa_proyecto)
+        {
+            idProyecto = id_proyecto;
+            nombreProyecto = nombre_proyecto;
+            empresa = empresa_proyecto;
+
+        }
+
         public bool ValidarDatosProyecto()
         {
             if ( ((this.nombreProyecto == "") | (this.empresa == "")) | ((this.nombreProyecto == "Ingrese Nombre Proyecto") | (this.empresa == "Ingrese Nombre Empresa")) )
@@ -77,6 +85,18 @@ namespace TPIntegrador.Controlador
         {
             int ultimoId = DatosProyecto.obtenerUltimoIdProyecto();
             return ultimoId;
+        }
+
+        public DataTable ModificarDatosProyectoBDD()
+        {
+
+            DataTable listarProyecto = DatosProyecto.ModificarDatosProyecto(this.idProyecto, this.nombreProyecto, this.empresa);
+            return listarProyecto;
+        }
+
+        public static void BajaDatosProyectoBDD(int idProyecto)
+        {
+            DatosProyecto.BajaDatosProyecto(idProyecto);
         }
 
 

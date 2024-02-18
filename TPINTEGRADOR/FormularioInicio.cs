@@ -40,6 +40,15 @@ namespace TPIntegrador
                                                   // para ese lider agregar un nuevo proyecto para actualizar
                                                   // la tabla trabaja ya que al agregar un nuevo lider hay que
                                                   // actualizar la tabla trabaja con los datos del id proyecto
+
+
+        /*estas banderas son para cuando modificamos algun dato de un proyecto
+         y no sabemos si el proyecto se muestra en base al id de un propietario
+         o de un lider */ 
+
+        private bool banderaListarLider = false; 
+
+
         private void FormularioInicio_Load(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Maximized;
@@ -172,13 +181,6 @@ namespace TPIntegrador
                 Validar.mError("Falta completar campos");
 
             }
-
-
-
-
-
-
-
         }
 
         private void btnModificarPropietario_Click(object sender, EventArgs e)
@@ -235,9 +237,14 @@ namespace TPIntegrador
         private void btnLimpiarPropietario_Click(object sender, EventArgs e)
         {
             LimpiarCamposPropietario();
+            btnAgregarPropietario.Enabled = true;
         }
 
+
+
         // rellenar campos al seleccionar x fila de la tabla propietario ( dgvPropietario)
+
+
         private void dgvPropietario_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.RowIndex != -1 && e.ColumnIndex >= 0)
@@ -252,6 +259,11 @@ namespace TPIntegrador
 
 
                 dgvProyecto.DataSource = ControladorProyecto.listarProyectoPropietarioBDD(idPropietario);
+
+                btnAgregarProyecto.Enabled= false;
+                btnAgregarPropietario.Enabled= false;
+
+                banderaListarLider = false;
 
             }
         }
@@ -304,13 +316,46 @@ namespace TPIntegrador
 
                 insertarTrabaja.insertarTrabajaBDD();
             }
+
+            dgvLider.DataSource = ControladorEmpleado.listarEmpleadoLiderBDD();
         }
             
 
         //////BOTON MODIFICAR PROYECTO/////
         private void btnModificarProyecto_Click(object sender, EventArgs e)
         {
+            string nombreProyecto = txtNombreProyecto.Text.Trim();
+            string empresaProyecto = txtEmpresa.Text.Trim();
+            int indiceTablaProyecto = dgvProyecto.CurrentCell.RowIndex;
+            int idProyecto = Convert.ToInt32(dgvProyecto[0, indiceTablaProyecto].Value);
 
+            ControladorProyecto insertarProyecto = new ControladorProyecto(idProyecto, nombreProyecto, empresaProyecto);
+
+            if (insertarProyecto.ValidarDatosProyecto() != false)
+            {
+                insertarProyecto.ModificarDatosProyectoBDD();
+
+                if (banderaListarLider == true)
+                {
+                    int indiceTablaLider = dgvLider.CurrentCell.RowIndex;
+                    int idLider = Convert.ToInt32(dgvLider[0, indiceTablaLider].Value);
+
+                    dgvProyecto.DataSource = ControladorProyecto.listarProyectosLiderBDD(idLider);
+                }
+                else 
+                {
+                    int indiceTablaPropietario = dgvPropietario.CurrentCell.RowIndex;
+                    int idPropietario = Convert.ToInt32(dgvPropietario[0, indiceTablaPropietario].Value);
+
+                    dgvProyecto.DataSource = ControladorProyecto.listarProyectoPropietarioBDD(idPropietario);
+
+                }
+                LimpiarCamposProyecto();
+            }
+            else
+            {
+                Validar.mError("Faltan completar campos.");
+            }
         }
 
         private void btnBajaProyecto_Click(object sender, EventArgs e)
@@ -318,17 +363,59 @@ namespace TPIntegrador
             int indiceTablaProyecto = dgvProyecto.CurrentCell.RowIndex;
             int idProyecto = Convert.ToInt32(dgvProyecto[0, indiceTablaProyecto].Value);
 
+
+            if (Validar.mConsulta("Si da de baja este proyecto, dara de baja todo el proyecto completo ¿Desea Continuar?"))
+            {
+                ControladorProyecto.BajaDatosProyectoBDD(idProyecto);
+
+
+                if (banderaListarLider == true)
+                {
+                    int indiceTablaLider = dgvLider.CurrentCell.RowIndex;
+                    int idLider = Convert.ToInt32(dgvLider[0, indiceTablaLider].Value);
+
+                    dgvProyecto.DataSource = ControladorProyecto.listarProyectosLiderBDD(idLider);
+                }
+                else
+                {
+                    int indiceTablaPropietario = dgvPropietario.CurrentCell.RowIndex;
+                    int idPropietario = Convert.ToInt32(dgvPropietario[0, indiceTablaPropietario].Value);
+
+                    dgvProyecto.DataSource = ControladorProyecto.listarProyectoPropietarioBDD(idPropietario);
+
+                }
+                LimpiarCamposProyecto();
+                dgvLider.DataSource = ControladorEmpleado.listarEmpleadoLiderBDD();
+            }
+            else
+            {
+                Validar.mError("No se pudo dar de baja los datos");
+
+            }
+
         }
 
 
         private void btnLimpiarProyecto_Click(object sender, EventArgs e)
         {
-
+            LimpiarCamposProyecto();
         }
 
         private void dgvProyecto_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            if (e.RowIndex != -1 && e.ColumnIndex >= 0)
+            {
+                int indiceTablaProyecto = dgvProyecto.CurrentCell.RowIndex;
+                int idProyecto = Convert.ToInt32(dgvProyecto[0, indiceTablaProyecto].Value);
 
+                string nombreProyecto = dgvProyecto[1, indiceTablaProyecto].Value.ToString();
+                string empresaProyecto = dgvProyecto[2, indiceTablaProyecto].Value.ToString();
+
+                txtNombreProyecto.Text = nombreProyecto;
+                txtEmpresa.Text = empresaProyecto;
+
+                btnAgregarProyecto.Enabled = false;
+            }
         }
 
 
@@ -420,34 +507,35 @@ namespace TPIntegrador
 
         private void dgvLider_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+                
+
             if (e.RowIndex != -1 && e.ColumnIndex >= 0)
             {
 
-                
-
-                if (e.RowIndex != -1 && e.ColumnIndex >= 0)
-                {
-
-                    int indiceTablaLider = dgvLider.CurrentCell.RowIndex;
-                    int nroLegajoLider = Convert.ToInt32(dgvLider[0, indiceTablaLider].Value.ToString());
-                    string nombreLider = dgvLider[1, indiceTablaLider].Value.ToString();
-                    string apellidoLider = dgvLider[2, indiceTablaLider].Value.ToString();
-                    string celularLider = dgvLider[3, indiceTablaLider].Value.ToString();
-                    string emailLider = dgvLider[4, indiceTablaLider].Value.ToString();
+                int indiceTablaLider = dgvLider.CurrentCell.RowIndex;
+                int nroLegajoLider = Convert.ToInt32(dgvLider[0, indiceTablaLider].Value.ToString());
+                string nombreLider = dgvLider[1, indiceTablaLider].Value.ToString();
+                string apellidoLider = dgvLider[2, indiceTablaLider].Value.ToString();
+                string celularLider = dgvLider[3, indiceTablaLider].Value.ToString();
+                string emailLider = dgvLider[4, indiceTablaLider].Value.ToString();
 
 
-                    txtNumeroLegajo.Text = nroLegajoLider.ToString();
-                    txtNombreLider.Text = nombreLider;
-                    txtApellidoLider.Text = apellidoLider;
-                    txtCelularLider.Text = celularLider;
-                    txtCorreoLider.Text = emailLider;
+                txtNumeroLegajo.Text = nroLegajoLider.ToString();
+                txtNombreLider.Text = nombreLider;
+                txtApellidoLider.Text = apellidoLider;
+                txtCelularLider.Text = celularLider;
+                txtCorreoLider.Text = emailLider;
 
 
-                    dgvProyecto.DataSource = ControladorProyecto.listarProyectosLiderBDD(nroLegajoLider);
+                dgvProyecto.DataSource = ControladorProyecto.listarProyectosLiderBDD(nroLegajoLider);
 
-                }
+                btnAgregarProyecto.Enabled = true;
+
+                banderaListarLider = true;
 
             }
+
+            
         }
 
 

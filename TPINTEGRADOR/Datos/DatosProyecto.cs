@@ -147,5 +147,50 @@ namespace TPIntegrador.Datos
             }
         }
 
+        public static DataTable ModificarDatosProyecto(int idProyecto, string nombreProyecto, string nombreEmpresa)
+        {
+            DataTable listarNoBaja = new DataTable("Listatodos");
+            String sql = "UPDATE Proyecto SET nombre = '" + nombreProyecto + "', " + "empresa = '" + nombreEmpresa + "' WHERE id_proyecto = " + idProyecto;
+
+            try
+            {
+                Conexion Cx = new Conexion();
+                Cx.AbrirConexion();
+                Cx.SetComnadoSQL(sql);
+
+                SqlDataAdapter sqlDat = new SqlDataAdapter(Cx.Comando());
+                sqlDat.Fill(listarNoBaja);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error por excepción " + e.ToString());
+                listarNoBaja = null;
+            }
+            return listarNoBaja;
+        }
+
+        public static bool BajaDatosProyecto(int idProyecto)
+        {
+            string sql = "UPDATE Proyecto SET baja_proyecto = 1 WHERE id_proyecto = " + idProyecto;
+            try
+            {
+                Conexion Cx = new Conexion();
+                Cx.AbrirConexion();
+                Cx.SetComnadoSQL(sql);
+                SqlCommand cmd = Cx.Comando();
+
+                Object nro = cmd.ExecuteScalar(); //.ExecuteNonQuery();
+                Cx.CerrarConexion();
+                return true;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error por excepción " + e.ToString());
+                return false;
+
+            }
+        }
+
+
     }
 }
