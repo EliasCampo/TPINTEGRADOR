@@ -20,17 +20,16 @@ namespace TPIntegrador.Controlador
         private string costoEstimadoTarea;
         private string horaRealTarea;
         private string costoRealTarea;
-        private string fechaFinalTarea;
+        private DateTime fechaFinalTarea;
         private string estadoTarea;
         private string desvioTarea;
 
 
 
-		public ControladorTarea(int id_tarea, string orden_tarea, string descripcion_tarea, string horaEstimada_tarea, string costoEstimado_tarea,
-								string horaReal_tarea, string costoReal_tarea, string fechaFinal_tarea, string estado_tarea, string desvio)
+		public ControladorTarea(int id_proyecto, string descripcion_tarea, string horaEstimada_tarea, string costoEstimado_tarea,
+								string horaReal_tarea, string costoReal_tarea, DateTime fechaFinal_tarea, string estado_tarea, string desvio) 
         {
-            idTarea = id_tarea;
-            ordenTarea = orden_tarea;
+            idProyecto = id_proyecto; 
             descripcionTarea = descripcion_tarea;
             horaEstimadaTarea = horaEstimada_tarea;
             costoEstimadoTarea = costoEstimado_tarea;
@@ -45,9 +44,10 @@ namespace TPIntegrador.Controlador
 
         public bool validarTarea()
         {
-            if (((this.ordenTarea == null) || (this.descripcionTarea == null) || (this.horaEstimadaTarea == null) ||
+            if (((this.descripcionTarea == null) || (this.horaEstimadaTarea == null) ||
                     (this.costoEstimadoTarea == null) || (this.horaRealTarea == null) || (this.costoRealTarea == null) ||
-                    (this.fechaFinalTarea == null) || (this.estadoTarea == null)) && (Validar.validarFecha(this.fechaFinalTarea) == false))
+                    (this.fechaFinalTarea == null) || (this.estadoTarea == null)) || (this.desvioTarea == null) && (Validar.validarFecha(this.fechaFinalTarea.ToString("yyyy-mm-dd")) == false))
+
             {
                 return false;
             }
@@ -57,6 +57,24 @@ namespace TPIntegrador.Controlador
             }
         }
 
+        public void insertarTarea()
+        {
+            DatosTarea.insertarTarea(this.idProyecto, this.descripcionTarea, Convert.ToInt32(this.horaEstimadaTarea), Convert.ToDecimal(this.costoEstimadoTarea), Convert.ToInt32(this.horaRealTarea), Convert.ToDecimal(this.costoRealTarea), this.fechaFinalTarea, Convert.ToDecimal(this.desvioTarea), this.estadoTarea);
+
+        }
+
+        public static DataTable obtenerTareaProyectoBDD(int idProyecto)
+        {
+            DataTable listaTareasBDD = DatosTarea.listarTareaNoBaja(idProyecto);
+            return listaTareasBDD;
+        }
+
+
+        public static int obtenerUltimoIdTareaBDD()
+        {
+            int ultimoId = DatosTarea.obtenerUltimoIdTarea();
+            return ultimoId;
+        }
     }
 }
 

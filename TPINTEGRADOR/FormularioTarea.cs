@@ -13,24 +13,70 @@ namespace TPIntegrador
 {
     public partial class FormularioTarea : Form
     {
-        public FormularioTarea()
+
+        public FormularioTarea(int idProyecto)
         {
             InitializeComponent();
-
-            
+            txtHoraReal.Enabled = false;
+            txtCostoReal.Enabled = false;
+            idProyectoTarea = idProyecto;
+            dgvTarea.DataSource = ControladorTarea.obtenerTareaProyectoBDD(idProyectoTarea);
 
         }
-        
+
+        private static int idProyectoTarea;
 
 
         ///////////////////////////////////////////////////////////
         //////////////        T A R E A S        /////////////////
         /////////////////////////////////////////////////////////
 
-        //BOTÓN AGREGAR TAREA
+        
+
+
+       // public void obtenerIdProyectoSeleccionado(int idProyecto)
+        //{
+         //    idProyectoTarea = idProyecto;
+        //}
+
+
+
         private void btnAgregarTarea_Click(object sender, EventArgs e)
         {
+            try
+            {
+                FormularioInicio obtenerIdProyecto = new FormularioInicio();
 
+                string ordenTarea = txtOrdenTarea.Text.Trim();
+                string descripcionTarea = txtDescripcion.Text.Trim();
+                string horaEstimada = txtHoraEstimada.Text.Trim();
+                string costoEstimado = txtCostoEstimado.Text.Trim();
+
+                DateTime fechaFinal = DateTime.Now;
+
+                ControladorTarea insertarTarea = new ControladorTarea(idProyectoTarea, descripcionTarea, horaEstimada, costoEstimado, "0", "0", fechaFinal , "EN CURSO", "0.0");
+
+                if (insertarTarea.validarTarea() != false)
+                {
+                    int nroTarea = ControladorTarea.obtenerUltimoIdTareaBDD();
+
+                    insertarTarea.insertarTarea();
+                    dgvTarea.DataSource = ControladorTarea.obtenerTareaProyectoBDD(idProyectoTarea);
+                    ControladorTrabaja insertarTrabaja = new ControladorTrabaja(idProyectoTarea, nroTarea, 0, 0);
+                    insertarTrabaja.insertarTrabajaBDD();
+
+                    LimpiarCamposTarea();
+                }
+                else
+                {
+                    throw new Exception();
+                }
+            }
+            catch (Exception ex)
+            {
+                Validar.mError("Falta completar campos");
+
+            }
         }
 
         //BOTÓN MODIFICAR TAREA
@@ -316,11 +362,6 @@ namespace TPIntegrador
 
         private void pbCostoRealTarea_Click(object sender, EventArgs e)
         {
-        }
-
-        private void btnAgregarTarea_Click_1(object sender, EventArgs e)
-        {
-
         }
     }
 }

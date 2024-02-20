@@ -44,9 +44,9 @@ namespace TPIntegrador
 
         /*estas banderas son para cuando modificamos algun dato de un proyecto
          y no sabemos si el proyecto se muestra en base al id de un propietario
-         o de un lider */ 
+         o de un lider */
 
-        private bool banderaListarLider = false; 
+        private bool banderaListarLider = false;
 
 
         private void FormularioInicio_Load(object sender, EventArgs e)
@@ -96,16 +96,6 @@ namespace TPIntegrador
             PanelPrincipal.Controls.Add(gbxPrincipalProyecto);
 
         }
-
-        private void tareasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            gbxPrincipalProyecto.Visible = false;
-            FormularioTarea formularioTarea = new FormularioTarea();
-            formularioTarea.TopLevel = false;
-            PanelPrincipal.Controls.Add(formularioTarea);
-            formularioTarea.Show();
-        }
-
         ///////////////////////////////////////////////////////////////////////////
         ///////////////          P R O P I E T A R I O              ///////////////
         ///////////////////////////////////////////////////////////////////////////
@@ -260,8 +250,8 @@ namespace TPIntegrador
 
                 dgvProyecto.DataSource = ControladorProyecto.listarProyectoPropietarioBDD(idPropietario);
 
-                btnAgregarProyecto.Enabled= false;
-                btnAgregarPropietario.Enabled= false;
+                btnAgregarProyecto.Enabled = false;
+                btnAgregarPropietario.Enabled = false;
 
                 banderaListarLider = false;
 
@@ -285,11 +275,11 @@ namespace TPIntegrador
             string empresaProyecto = txtEmpresa.Text.Trim();
             int indiceTablaPropietario = dgvPropietario.CurrentCell.RowIndex;
             int idPropietario = Convert.ToInt32(dgvPropietario[0, indiceTablaPropietario].Value);
-            
-            int indiceTablaLider = dgvLider.CurrentCell.RowIndex;
-            int  nroLegajoLider = Convert.ToInt32(dgvLider[0, indiceTablaLider].Value.ToString());
 
-            ControladorProyecto insertarProyecto = new ControladorProyecto(nombreProyecto, empresaProyecto, 0 , 0 , 0 , 0 , nroLegajoLider, idPropietario);
+            int indiceTablaLider = dgvLider.CurrentCell.RowIndex;
+            int nroLegajoLider = Convert.ToInt32(dgvLider[0, indiceTablaLider].Value.ToString());
+
+            ControladorProyecto insertarProyecto = new ControladorProyecto(nombreProyecto, empresaProyecto, 0, 0, 0, 0, nroLegajoLider, idPropietario);
 
             if (insertarProyecto.ValidarDatosProyecto() != false)
             {
@@ -308,7 +298,7 @@ namespace TPIntegrador
 
                 actualizarTrabaja.ModificarDatosTrabajaBDD();
             }
-            else 
+            else
             {
                 int ultimoIdProyecto = ControladorProyecto.obtenerUltimoIdProyectoBDD();
 
@@ -319,7 +309,7 @@ namespace TPIntegrador
 
             dgvLider.DataSource = ControladorEmpleado.listarEmpleadoLiderBDD();
         }
-            
+
 
         //////BOTON MODIFICAR PROYECTO/////
         private void btnModificarProyecto_Click(object sender, EventArgs e)
@@ -342,7 +332,7 @@ namespace TPIntegrador
 
                     dgvProyecto.DataSource = ControladorProyecto.listarProyectosLiderBDD(idLider);
                 }
-                else 
+                else
                 {
                     int indiceTablaPropietario = dgvPropietario.CurrentCell.RowIndex;
                     int idPropietario = Convert.ToInt32(dgvPropietario[0, indiceTablaPropietario].Value);
@@ -507,7 +497,7 @@ namespace TPIntegrador
 
         private void dgvLider_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-                
+
 
             if (e.RowIndex != -1 && e.ColumnIndex >= 0)
             {
@@ -535,7 +525,7 @@ namespace TPIntegrador
 
             }
 
-            
+
         }
 
 
@@ -702,6 +692,35 @@ namespace TPIntegrador
         private void btnLimpiarEmpleado_Click(object sender, EventArgs e)
         {
             LimpiarCamposLider();
+        } 
+
+        private void dgvProyecto_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            gbxPrincipalProyecto.Visible = false;
+            int indiceTablaProyecto = dgvProyecto.CurrentCell.RowIndex;
+            int IdProyecto = Convert.ToInt32(dgvLider[0, indiceTablaProyecto].Value.ToString());
+            FormularioTarea formularioTarea = new FormularioTarea(IdProyecto);
+
+
+            formularioTarea.TopLevel = false;
+            PanelPrincipal.Controls.Add(formularioTarea);
+            formularioTarea.Show();
+
+
+
+
+
+
+
+        }
+
+        private void PanelPrincipal_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
         }
     }
 }
