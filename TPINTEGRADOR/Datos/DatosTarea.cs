@@ -120,5 +120,30 @@ namespace TPIntegrador.Datos
                 return nro_tarea;
             }
         }
+
+
+
+        public static DataTable ModificarDatosTarea(int idTarea, int horaRealTarea, decimal costoRealTarea, DateTime fechaFinalTarea, decimal desvioTarea, string estadoTarea)
+        {
+            DataTable listarNoBaja = new DataTable("Listatodos");
+            String sql = "UPDATE Tarea SET horas_reales = '" + horaRealTarea + "', costo_real = '" + costoRealTarea + "', fecha_final = '" + fechaFinalTarea + "', desvio = '" + desvioTarea + "', estado = '" + estadoTarea + "'  WHERE nro_tarea = " + idTarea;
+
+            try
+            {
+                Conexion Cx = new Conexion();
+                Cx.AbrirConexion();
+                Cx.SetComnadoSQL(sql);
+
+                SqlDataAdapter sqlDat = new SqlDataAdapter(Cx.Comando());
+                sqlDat.Fill(listarNoBaja);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error por excepción " + e.ToString());
+                listarNoBaja = null;
+            }
+            return listarNoBaja;
+        }
+
     }
 }

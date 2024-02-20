@@ -41,6 +41,17 @@ namespace TPIntegrador.Controlador
         }
 
 
+        public ControladorTarea(int id_tarea, string horaReal_tarea, string costoReal_tarea, DateTime fechaFinal_tarea, string estado_tarea, string desvio)
+        {
+            idTarea = id_tarea;
+            horaRealTarea = horaReal_tarea;
+            costoRealTarea = costoReal_tarea;
+            fechaFinalTarea = fechaFinal_tarea;
+            estadoTarea = estado_tarea;
+            desvioTarea = desvio;
+        }
+
+
 
         public bool validarTarea()
         {
@@ -52,6 +63,18 @@ namespace TPIntegrador.Controlador
                 return false;
             }
             else
+            {
+                return true;
+            }
+        }
+
+        public bool validarHoraCostoReal()
+        {
+            if ((this.horaRealTarea == "") || (this.costoRealTarea == ""))
+            {
+                return false;
+            }
+            else 
             {
                 return true;
             }
@@ -74,6 +97,13 @@ namespace TPIntegrador.Controlador
         {
             int ultimoId = DatosTarea.obtenerUltimoIdTarea();
             return ultimoId;
+        }
+
+
+        public DataTable ModificarDatosTareaBDD()
+        {
+            DataTable listarTareas = DatosTarea.ModificarDatosTarea(this.idTarea, Convert.ToInt32(this.horaRealTarea), Convert.ToDecimal(this.costoRealTarea), this.fechaFinalTarea, Convert.ToDecimal(this.desvioTarea), this.estadoTarea);
+            return listarTareas;
         }
     }
 }

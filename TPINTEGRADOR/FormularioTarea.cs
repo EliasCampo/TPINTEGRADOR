@@ -31,12 +31,12 @@ namespace TPIntegrador
         //////////////        T A R E A S        /////////////////
         /////////////////////////////////////////////////////////
 
-        
 
 
-       // public void obtenerIdProyectoSeleccionado(int idProyecto)
+
+        // public void obtenerIdProyectoSeleccionado(int idProyecto)
         //{
-         //    idProyectoTarea = idProyecto;
+        //    idProyectoTarea = idProyecto;
         //}
 
 
@@ -54,7 +54,7 @@ namespace TPIntegrador
 
                 DateTime fechaFinal = DateTime.Now;
 
-                ControladorTarea insertarTarea = new ControladorTarea(idProyectoTarea, descripcionTarea, horaEstimada, costoEstimado, "0", "0", fechaFinal , "EN CURSO", "0.0");
+                ControladorTarea insertarTarea = new ControladorTarea(idProyectoTarea, descripcionTarea, horaEstimada, costoEstimado, "0", "0", fechaFinal, "EN CURSO", "0.0");
 
                 if (insertarTarea.validarTarea() != false)
                 {
@@ -62,8 +62,6 @@ namespace TPIntegrador
 
                     insertarTarea.insertarTarea();
                     dgvTarea.DataSource = ControladorTarea.obtenerTareaProyectoBDD(idProyectoTarea);
-                    ControladorTrabaja insertarTrabaja = new ControladorTrabaja(idProyectoTarea, nroTarea, 0, 0);
-                    insertarTrabaja.insertarTrabajaBDD();
 
                     LimpiarCamposTarea();
                 }
@@ -82,29 +80,74 @@ namespace TPIntegrador
         //BOTÓN MODIFICAR TAREA
         private void btnModificarTarea_Click(object sender, EventArgs e)
         {
+            int indiceTablaTarea = dgvTarea.CurrentCell.RowIndex;
+            int idTarea = Convert.ToInt32(dgvTarea[0, indiceTablaTarea].Value);
+
+            string horaReal = txtHoraReal.Text.Trim();
+            string costoReal = txtCostoReal.Text.Trim();
+
+
+
+            if (string.IsNullOrEmpty(txtCostoReal.Text) && string.IsNullOrEmpty(txtHoraReal.Text))
+            {
+                Validar.mError("Faltan completar campos hora real y costo real.");
+            }
+            else
+            {
+                ControladorTarea insertarTarea = new ControladorTarea(idTarea, horaReal, costoReal, DateTime.Now, "FINALIZADO", "0");
+                if (insertarTarea.validarHoraCostoReal() != false)
+                {
+                    insertarTarea.ModificarDatosTareaBDD();
+                    dgvTarea.DataSource = ControladorTarea.obtenerTareaProyectoBDD(idTarea);
+
+                    LimpiarCamposTarea();
+                }
+                else
+                {
+                    Validar.mError("Faltan completar uno o mas campos. (hora real o costo real)");
+                }
+            }
+            dgvTarea.DataSource = ControladorTarea.obtenerTareaProyectoBDD(idProyectoTarea);
         }
 
         //BOTÓN CANCELAR TAREA
         private void btnCancelarTarea_Click(object sender, EventArgs e)
         {
-            txtOrdenTarea.Text = string.Empty;
             txtDescripcion.Text = string.Empty;
             txtCostoReal.Text = string.Empty;
             txtHoraEstimada.Text = string.Empty;
             txtHoraReal.Text = string.Empty;
             txtCostoEstimado.Text = string.Empty;
+
+            txtDescripcion.Enabled = true;
+            txtCostoReal.Enabled = false; 
+            txtHoraEstimada.Enabled = true;
+            txtHoraReal.Enabled = false;
+            txtCostoEstimado.Enabled = true;
+            btnAgregarTarea.Enabled = true;
         }
 
         private void dgvTarea_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            if (e.RowIndex != -1 && e.ColumnIndex >= 0)
+            {
+                int indiceTablaTarea = dgvTarea.CurrentCell.RowIndex;
+                txtDescripcion.Text = dgvTarea[2, indiceTablaTarea].Value.ToString();
+                txtHoraEstimada.Text = dgvTarea[3, indiceTablaTarea].Value.ToString();
+                txtCostoEstimado.Text = dgvTarea[4, indiceTablaTarea].Value.ToString();
+                txtHoraReal.Text = string.Empty;
+                txtCostoReal.Text = string.Empty;
 
+
+                txtDescripcion.Enabled = false;
+                txtHoraEstimada.Enabled = false;
+                txtCostoEstimado.Enabled = false;
+                txtHoraReal.Enabled = true;
+                txtCostoReal.Enabled = true;
+
+                btnAgregarTarea.Enabled = false; 
+            }
         }
-
-
-
-
-
-
 
         /////////////////////////////////////////
         //    PARA SACAR EL BORDE A LOS GROUP BOX  (Evento Paint)
