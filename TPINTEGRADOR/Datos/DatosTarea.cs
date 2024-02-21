@@ -145,5 +145,52 @@ namespace TPIntegrador.Datos
             return listarNoBaja;
         }
 
+
+        public static DataTable obtenerCostos(int idTarea)
+        {
+            DataTable listaCostos = new DataTable("Listatodos");
+            String sql = "SELECT [costo_estimado],[costo_real] FROM[Tarea] WHERE [nro_tarea] = " + idTarea + "AND [baja_tarea] = 0";
+
+            try
+            {
+                Conexion Cx = new Conexion();
+                Cx.AbrirConexion();
+                Cx.SetComnadoSQL(sql);
+
+                SqlDataAdapter sqlDat = new SqlDataAdapter(Cx.Comando());
+                sqlDat.Fill(listaCostos);
+                Cx.CerrarConexion();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error por excepción " + e.ToString());
+                listaCostos = null;
+            }
+            return listaCostos;
+        }
+
+
+        public static DataTable ModificarCostoTarea(int idTarea, decimal desvioTarea)
+        {
+            DataTable listarNoBaja = new DataTable("Listatodos");
+            String sql = "UPDATE Tarea SET desvio = '" + desvioTarea + "'  WHERE nro_tarea = " + idTarea;
+
+            try
+            {
+                Conexion Cx = new Conexion();
+                Cx.AbrirConexion();
+                Cx.SetComnadoSQL(sql);
+
+                SqlDataAdapter sqlDat = new SqlDataAdapter(Cx.Comando());
+                sqlDat.Fill(listarNoBaja);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error por excepción " + e.ToString());
+                listarNoBaja = null;
+            }
+            return listarNoBaja;
+        }
+
     }
 }

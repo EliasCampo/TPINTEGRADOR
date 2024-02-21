@@ -51,6 +51,11 @@ namespace TPIntegrador.Controlador
             desvioTarea = desvio;
         }
 
+        public ControladorTarea(string desvio) 
+        {
+            this.desvioTarea = desvio; 
+        }
+
 
 
         public bool validarTarea()
@@ -104,6 +109,19 @@ namespace TPIntegrador.Controlador
         {
             DataTable listarTareas = DatosTarea.ModificarDatosTarea(this.idTarea, Convert.ToInt32(this.horaRealTarea), Convert.ToDecimal(this.costoRealTarea), this.fechaFinalTarea, Convert.ToDecimal(this.desvioTarea), this.estadoTarea);
             return listarTareas;
+        }
+
+
+        public static DataTable obtenerCostosBDD(int idTarea)
+        {
+            DataTable listarCostos = DatosTarea.obtenerCostos(idTarea);
+            return listarCostos;
+        }
+
+        public DataTable modificarDesvioBDD(int idTarea, decimal desvio)
+        {
+            DataTable listarCostos = DatosTarea.ModificarCostoTarea(idTarea, desvio);
+            return listarCostos;
         }
     }
 }

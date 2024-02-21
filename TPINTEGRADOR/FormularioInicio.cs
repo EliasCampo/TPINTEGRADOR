@@ -671,7 +671,7 @@ namespace TPIntegrador
         {
             gbxPrincipalProyecto.Visible = false;
             int indiceTablaProyecto = dgvProyecto.CurrentCell.RowIndex;
-            int IdProyecto = Convert.ToInt32(dgvLider[0, indiceTablaProyecto].Value.ToString());
+            int IdProyecto = Convert.ToInt32(dgvProyecto[0, indiceTablaProyecto].Value.ToString());
             FormularioTarea formularioTarea = new FormularioTarea(IdProyecto);
 
             formularioTarea.TopLevel = false;

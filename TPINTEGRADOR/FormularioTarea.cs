@@ -94,12 +94,19 @@ namespace TPIntegrador
             }
             else
             {
+                
                 ControladorTarea insertarTarea = new ControladorTarea(idTarea, horaReal, costoReal, DateTime.Now, "FINALIZADO", "0");
+                
                 if (insertarTarea.validarHoraCostoReal() != false)
                 {
                     insertarTarea.ModificarDatosTareaBDD();
-                    dgvTarea.DataSource = ControladorTarea.obtenerTareaProyectoBDD(idTarea);
 
+                    DataTable obtenerCostos = new DataTable();
+                    obtenerCostos = ControladorTarea.obtenerCostosBDD(idTarea);
+                    decimal costoTotal = Convert.ToDecimal(obtenerCostos.Rows[0]["costo_estimado"]) - Convert.ToDecimal(obtenerCostos.Rows[0]["costo_real"]);
+                    insertarTarea.modificarDesvioBDD(idTarea, costoTotal);
+
+                    dgvTarea.DataSource = ControladorTarea.obtenerTareaProyectoBDD(idTarea);
                     LimpiarCamposTarea();
                 }
                 else
