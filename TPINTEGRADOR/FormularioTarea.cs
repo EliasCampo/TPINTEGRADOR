@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -104,6 +105,8 @@ namespace TPIntegrador
                     DataTable obtenerCostos = new DataTable();
                     obtenerCostos = ControladorTarea.obtenerCostosBDD(idTarea);
                     decimal costoTotal = Convert.ToDecimal(obtenerCostos.Rows[0]["costo_estimado"]) - Convert.ToDecimal(obtenerCostos.Rows[0]["costo_real"]);
+
+                    
                     insertarTarea.modificarDesvioBDD(idTarea, costoTotal);
 
                     dgvTarea.DataSource = ControladorTarea.obtenerTareaProyectoBDD(idTarea);

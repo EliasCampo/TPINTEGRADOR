@@ -173,7 +173,7 @@ namespace TPIntegrador.Datos
         public static DataTable ModificarCostoTarea(int idTarea, decimal desvioTarea)
         {
             DataTable listarNoBaja = new DataTable("Listatodos");
-            String sql = "UPDATE Tarea SET desvio = '" + desvioTarea + "'  WHERE nro_tarea = " + idTarea;
+            String sql = $"UPDATE Tarea SET desvio={desvioTarea.ToString().Replace(",", ".")} WHERE nro_tarea={idTarea}";
 
             try
             {
