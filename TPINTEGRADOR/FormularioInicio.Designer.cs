@@ -85,13 +85,6 @@
             txtEmpresa = new TextBox();
             lbNombreEmpresa = new Label();
             dgvProyecto = new DataGridView();
-            IdProyecto = new DataGridViewTextBoxColumn();
-            Nombre = new DataGridViewTextBoxColumn();
-            Empresa = new DataGridViewTextBoxColumn();
-            monto_estimado = new DataGridViewTextBoxColumn();
-            CostoEstimado = new DataGridViewTextBoxColumn();
-            CostoReal = new DataGridViewTextBoxColumn();
-            Desvio = new DataGridViewTextBoxColumn();
             pictureBox8 = new PictureBox();
             pbNombreProyecto = new PictureBox();
             pxNombreEmpresa = new PictureBox();
@@ -131,6 +124,13 @@
             pictureBox3 = new PictureBox();
             pbtxtRazonSocialProp = new PictureBox();
             pblimpiardatos = new PictureBox();
+            IdProyecto = new DataGridViewTextBoxColumn();
+            Nombre = new DataGridViewTextBoxColumn();
+            Empresa = new DataGridViewTextBoxColumn();
+            monto_estimado = new DataGridViewTextBoxColumn();
+            CostoEstimado = new DataGridViewTextBoxColumn();
+            CostoReal = new DataGridViewTextBoxColumn();
+            Desvio = new DataGridViewTextBoxColumn();
             menuStrip1.SuspendLayout();
             PanelPrincipal.SuspendLayout();
             gbxPrincipalProyecto.SuspendLayout();
@@ -845,76 +845,6 @@
             dgvProyecto.CellMouseClick += dgvProyecto_CellMouseClick;
             dgvProyecto.CellMouseDoubleClick += dgvProyecto_CellMouseDoubleClick;
             // 
-            // IdProyecto
-            // 
-            IdProyecto.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            IdProyecto.DataPropertyName = "id_proyecto";
-            IdProyecto.FillWeight = 71.06599F;
-            IdProyecto.HeaderText = "ID";
-            IdProyecto.MinimumWidth = 6;
-            IdProyecto.Name = "IdProyecto";
-            IdProyecto.ReadOnly = true;
-            IdProyecto.Width = 35;
-            // 
-            // Nombre
-            // 
-            Nombre.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Nombre.DataPropertyName = "nombre";
-            Nombre.FillWeight = 104.822342F;
-            Nombre.HeaderText = "Nombre";
-            Nombre.MinimumWidth = 6;
-            Nombre.Name = "Nombre";
-            Nombre.ReadOnly = true;
-            // 
-            // Empresa
-            // 
-            Empresa.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Empresa.DataPropertyName = "empresa";
-            Empresa.FillWeight = 104.822342F;
-            Empresa.HeaderText = "Empresa";
-            Empresa.MinimumWidth = 6;
-            Empresa.Name = "Empresa";
-            Empresa.ReadOnly = true;
-            // 
-            // monto_estimado
-            // 
-            monto_estimado.DataPropertyName = "monto_estimado";
-            monto_estimado.HeaderText = "Monto estimado";
-            monto_estimado.MinimumWidth = 6;
-            monto_estimado.Name = "monto_estimado";
-            monto_estimado.ReadOnly = true;
-            monto_estimado.Width = 125;
-            // 
-            // CostoEstimado
-            // 
-            CostoEstimado.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            CostoEstimado.DataPropertyName = "costo_estimado";
-            CostoEstimado.FillWeight = 104.822342F;
-            CostoEstimado.HeaderText = "Costo Estimado";
-            CostoEstimado.MinimumWidth = 6;
-            CostoEstimado.Name = "CostoEstimado";
-            CostoEstimado.ReadOnly = true;
-            // 
-            // CostoReal
-            // 
-            CostoReal.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            CostoReal.DataPropertyName = "costo_real";
-            CostoReal.FillWeight = 104.822342F;
-            CostoReal.HeaderText = "Costo Real Parcial/ Total";
-            CostoReal.MinimumWidth = 6;
-            CostoReal.Name = "CostoReal";
-            CostoReal.ReadOnly = true;
-            // 
-            // Desvio
-            // 
-            Desvio.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Desvio.DataPropertyName = "desvio";
-            Desvio.FillWeight = 104.822342F;
-            Desvio.HeaderText = "Desvio";
-            Desvio.MinimumWidth = 6;
-            Desvio.Name = "Desvio";
-            Desvio.ReadOnly = true;
-            // 
             // pictureBox8
             // 
             pictureBox8.Location = new Point(20, 23);
@@ -1384,6 +1314,76 @@
             pblimpiardatos.Size = new Size(100, 50);
             pblimpiardatos.TabIndex = 0;
             pblimpiardatos.TabStop = false;
+            // 
+            // IdProyecto
+            // 
+            IdProyecto.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            IdProyecto.DataPropertyName = "id_proyecto";
+            IdProyecto.FillWeight = 71.06599F;
+            IdProyecto.HeaderText = "ID";
+            IdProyecto.MinimumWidth = 6;
+            IdProyecto.Name = "IdProyecto";
+            IdProyecto.ReadOnly = true;
+            IdProyecto.Width = 35;
+            // 
+            // Nombre
+            // 
+            Nombre.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Nombre.DataPropertyName = "nombre";
+            Nombre.FillWeight = 104.822342F;
+            Nombre.HeaderText = "Nombre";
+            Nombre.MinimumWidth = 6;
+            Nombre.Name = "Nombre";
+            Nombre.ReadOnly = true;
+            // 
+            // Empresa
+            // 
+            Empresa.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Empresa.DataPropertyName = "empresa";
+            Empresa.FillWeight = 104.822342F;
+            Empresa.HeaderText = "Empresa";
+            Empresa.MinimumWidth = 6;
+            Empresa.Name = "Empresa";
+            Empresa.ReadOnly = true;
+            // 
+            // monto_estimado
+            // 
+            monto_estimado.DataPropertyName = "monto_estimado";
+            monto_estimado.HeaderText = "Monto estimado";
+            monto_estimado.MinimumWidth = 6;
+            monto_estimado.Name = "monto_estimado";
+            monto_estimado.ReadOnly = true;
+            monto_estimado.Width = 125;
+            // 
+            // CostoEstimado
+            // 
+            CostoEstimado.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            CostoEstimado.DataPropertyName = "costo_estimado";
+            CostoEstimado.FillWeight = 104.822342F;
+            CostoEstimado.HeaderText = "Costo Estimado";
+            CostoEstimado.MinimumWidth = 6;
+            CostoEstimado.Name = "CostoEstimado";
+            CostoEstimado.ReadOnly = true;
+            // 
+            // CostoReal
+            // 
+            CostoReal.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            CostoReal.DataPropertyName = "costo_real";
+            CostoReal.FillWeight = 104.822342F;
+            CostoReal.HeaderText = "Costo Real Parcial/Total";
+            CostoReal.MinimumWidth = 6;
+            CostoReal.Name = "CostoReal";
+            CostoReal.ReadOnly = true;
+            // 
+            // Desvio
+            // 
+            Desvio.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Desvio.DataPropertyName = "desvio";
+            Desvio.FillWeight = 104.822342F;
+            Desvio.HeaderText = "Desvio";
+            Desvio.MinimumWidth = 6;
+            Desvio.Name = "Desvio";
+            Desvio.ReadOnly = true;
             // 
             // FormularioInicio
             // 

@@ -14,7 +14,6 @@ namespace TPIntegrador.Datos
 
         public static void insertarTrabaja(int idProyecto, int idTarea, int legajo, int idFuncion)
         {
-
             string sql = "INSERT INTO Trabaja(id_proyecto, id_tarea, legajo, id_funcion_fk) VALUES " +
                                 "(@id_proyecto, @id_tarea,@legajo,@id_funcion_fk)";
 
@@ -54,7 +53,7 @@ namespace TPIntegrador.Datos
         public static DataTable ModificarDatosTrabaja(int idProyecto, int legajo)
         {
             DataTable listarNoBaja = new DataTable("Listatodos");
-            String sql = "UPDATE Trabaja SET id_proyecto = '" + idProyecto +  " WHERE legajo = " + legajo;
+            String sql = "UPDATE Trabaja SET id_proyecto = '" + idProyecto + "' WHERE legajo = " + legajo;
 
             try
             {

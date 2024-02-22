@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace TPIntegrador.Datos
 {
@@ -13,14 +14,13 @@ namespace TPIntegrador.Datos
         public static DataTable listarLider()
         {
             DataTable listarNoBaja = new DataTable("Listatodos");
-            String sql = "SELECT E.legajo, E.nombre, E.apellido, E.celular, E.email, E.fecha_ingreso " +
-                "FROM Empleado E " +
-                "LEFT JOIN Trabaja T ON E.legajo = T.legajo " +
-                "LEFT JOIN Proyecto P ON T.id_proyecto = P.id_proyecto " +
-                "WHERE P.baja_proyecto = 0 OR P.id_proyecto IS NULL AND E.baja_empleado = 0 " +
-                "GROUP BY E.legajo, E.fecha_ingreso, E.nombre, E.apellido, E.celular, E.email, E.baja_empleado " +
-                "HAVING COUNT(T.id_proyecto) < 3 OR COUNT(T.id_proyecto) IS NULL ";    
-
+            String sql= " SELECT E.legajo, E.nombre, E.apellido, E.celular, E.email, E.fecha_ingreso" +
+                        " FROM Empleado E" +
+                        " LEFT JOIN Trabaja T ON E.legajo = T.legajo" +
+                        " LEFT JOIN Proyecto P ON T.id_proyecto = P.id_proyecto AND P.baja_proyecto = 0" +
+                        " WHERE E.baja_empleado = 0" +
+                        " GROUP BY E.legajo, E.fecha_ingreso, E.nombre, E.apellido, E.celular, E.email" +
+                        " HAVING COUNT(P.id_proyecto) < 3 OR COUNT(P.id_proyecto) IS NULL";
 
             try
             {
@@ -40,7 +40,7 @@ namespace TPIntegrador.Datos
             return listarNoBaja;
         }
 
-
+        //estos metodo se utiliza tanto para lider como para empleado (insertar, modificar y dar de baja)
 
         public static void insertarLider(string nombreEmpleado, string apellidoEmpleado, string celular, string email, string fechaIngreso)
         {
@@ -90,8 +90,8 @@ namespace TPIntegrador.Datos
         public static DataTable ModificarDatosLider(int idLider, string nombre, string apellido, string celular,  string email)
         {
             DataTable listarNoBaja = new DataTable("Listatodos");
-            String sql = "UPDATE Empleado SET nombre = '" + nombre + "', " + "apellido = '" + apellido + "', " + "celular = '" + celular + "', " + "email = '" + email + "' " +
-                "WHERE legajo = " + idLider;
+            String sql = " UPDATE Empleado SET nombre = '" + nombre + "', " + "apellido = '" + apellido + "', " + "celular = '" + celular + "', " + "email = '" + email + "' " +
+                        " WHERE legajo = " + idLider;
 
             try
             {
@@ -164,7 +164,33 @@ namespace TPIntegrador.Datos
             }
         }
 
-       
 
+
+        /// //////////////////////////////////////////////EMPLEADO///////////////////////////////////
+        /// ///////////////////////////////////////////////EMPLEADO///////////////////////////////////
+        /// //////////////////////////////////////////////EMPLEADO///////////////////////////////////
+
+        public static DataTable listarEmpleado()
+        {
+            DataTable listarNoBaja = new DataTable("Listatodos");
+            String sql = " SELECT E.legajo, E.nombre, E.apellido, E.celular, E.email, E.fecha_ingreso FROM Empleado WHERE baja_empleado = 0";
+
+            try
+            {
+                Conexion Cx = new Conexion();
+                Cx.AbrirConexion();
+                Cx.SetComnadoSQL(sql);
+
+                SqlDataAdapter sqlDat = new SqlDataAdapter(Cx.Comando());
+                sqlDat.Fill(listarNoBaja);
+                Cx.CerrarConexion();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error por excepción " + e.ToString());
+                listarNoBaja = null;
+            }
+            return listarNoBaja;
+        }
     }
 }

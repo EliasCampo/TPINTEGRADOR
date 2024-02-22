@@ -192,5 +192,28 @@ namespace TPIntegrador.Datos
             return listarNoBaja;
         }
 
+
+        public static bool BajaDatosTarea(int nroTarea)
+        {
+            string sql = "UPDATE Tarea SET baja_tarea = 1 WHERE nro_tarea = " + nroTarea; // 1 = true -- dado de baja
+            try
+            {
+                Conexion Cx = new Conexion();
+                Cx.AbrirConexion();
+                Cx.SetComnadoSQL(sql);
+                SqlCommand cmd = Cx.Comando();
+
+                Object nro = cmd.ExecuteScalar(); //.ExecuteNonQuery();
+                Cx.CerrarConexion();
+                return true;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error por excepción " + e.ToString());
+                return false;
+
+            }
+        }
+
     }
 }

@@ -1,4 +1,5 @@
 using System.Data;
+using System.Numerics;
 using System.Windows.Forms;
 using TPIntegrador.Controlador;
 using TPIntegrador.Datos;
@@ -46,6 +47,14 @@ namespace TPIntegrador
 
         private bool banderaListarLider = false;
 
+        public DataTable limpiarDgvProyecto()
+        {
+
+            DataTable dt = (DataTable)dgvProyecto.DataSource;
+            dt.Rows.Clear();
+
+            return dt;
+        }
 
         private void FormularioInicio_Load(object sender, EventArgs e)
         {
@@ -202,9 +211,11 @@ namespace TPIntegrador
 
             if (Validar.mConsulta("Si da de baja este propietario dara de baja todo el proyecto completo ¿Desea Continuar?"))
             {
-                ControladorPropietario.BajaDatosPropietarioBDD(idPropietario);
+                ControladorPropietario.BajaDatosPropietarioBDD(idPropietario); // doy de baja propietario
 
-                dgvPropietario.DataSource = ControladorPropietario.obtenerPropietariosBDD();
+                dgvPropietario.DataSource = ControladorPropietario.obtenerPropietariosBDD(); //actualizo
+
+                dgvProyecto.DataSource = limpiarDgvProyecto();  // cuando damos de baja un lider que no se recupere el proyecto y deja vacio el dgv
                 LimpiarCamposPropietario();
             }
             else
@@ -279,7 +290,7 @@ namespace TPIntegrador
 
                 actualizarTrabaja.ModificarDatosTrabajaBDD();
             }
-            else 
+            else
             {
                 int ultimoIdProyecto = ControladorProyecto.obtenerUltimoIdProyectoBDD();
 
@@ -289,6 +300,13 @@ namespace TPIntegrador
             }
 
             dgvLider.DataSource = ControladorEmpleado.listarEmpleadoLiderBDD();
+            LimpiarCamposLider();
+
+
+            if (dgvLider.Rows.Count == 0) 
+            {
+                btnAgregarEmpleado.Enabled = true;
+            }
         }
 
 
@@ -322,6 +340,7 @@ namespace TPIntegrador
 
                 }
                 LimpiarCamposProyecto();
+                btnAgregarProyecto.Enabled = true;
             }
             else
             {
@@ -356,12 +375,12 @@ namespace TPIntegrador
 
                 }
                 LimpiarCamposProyecto();
+                btnAgregarProyecto.Enabled = true;
                 dgvLider.DataSource = ControladorEmpleado.listarEmpleadoLiderBDD();
             }
             else
             {
                 Validar.mError("No se pudo dar de baja los datos");
-
             }
 
         }
@@ -401,7 +420,6 @@ namespace TPIntegrador
             txtApellidoLider.Text = string.Empty;
             txtCelularLider.Text = string.Empty;
             txtCorreoLider.Text = string.Empty;
-
         }
 
         private void txtCelularLider_KeyPress(object sender, KeyPressEventArgs e)
@@ -441,7 +459,6 @@ namespace TPIntegrador
                 insertarTrabaja.insertarTrabajaBDD();
 
                 dgvLider.DataSource = ControladorEmpleado.listarUltimoLiderBDD();
-
                 banderaAgregarLider = true;
             }
         }
@@ -499,6 +516,7 @@ namespace TPIntegrador
                 dgvProyecto.DataSource = ControladorProyecto.listarProyectosLiderBDD(nroLegajoLider);
 
                 btnAgregarProyecto.Enabled = true;
+                btnAgregarEmpleado.Enabled = false;
 
                 banderaListarLider = true;
 
@@ -647,11 +665,11 @@ namespace TPIntegrador
             int indiceTablaLider = dgvLider.CurrentCell.RowIndex;
             int idLider = Convert.ToInt32(dgvLider[0, indiceTablaLider].Value);
 
-            if (Validar.mConsulta("Si da de baja este lider, debera cargar uno nuevo."))
+            if (Validar.mConsulta("Si da de baja este lider, perdera el proyecto."))
             {
                 ControladorEmpleado.BajaDatosLiderBDD(idLider);
                 dgvLider.DataSource = ControladorEmpleado.listarEmpleadoLiderBDD();
-
+                dgvProyecto.DataSource = limpiarDgvProyecto();
                 btnAgregarEmpleado.Enabled = true;
             }
             else
@@ -665,7 +683,7 @@ namespace TPIntegrador
         private void btnLimpiarEmpleado_Click(object sender, EventArgs e)
         {
             LimpiarCamposLider();
-        } 
+        }
 
         private void dgvProyecto_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {

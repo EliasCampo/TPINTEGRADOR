@@ -113,5 +113,37 @@ namespace TPIntegrador.Controlador
 
 
 
+
+
+
+        /// //////////////////////////////////////////////EMPLEADO///////////////////////////////////
+        /// ///////////////////////////////////////////////EMPLEADO///////////////////////////////////
+        /// //////////////////////////////////////////////EMPLEADO///////////////////////////////////
+
+
+        public void insertarEmpleadoBDD()
+        {
+            DatosEmpleado.insertarLider(this.nombreEmpleado, this.apellidoEmpleado, this.celularEmpleado, this.emailEmpleado, this.fechaIngresoEmpleado);
+        }
+
+
+
+        public DataTable ModificarDatosEmpleadoBDD()
+        {
+            DataTable listarLider = DatosEmpleado.ModificarDatosLider(this.legajoEmpleado, this.nombreEmpleado, this.apellidoEmpleado, this.celularEmpleado, this.emailEmpleado);
+            return listarLider;
+        }
+
+        public static void BajaDatosEmpleadoBDD(int idEmpleado)
+        {
+            DatosEmpleado.BajaDatosLider(idEmpleado);
+        }
+
+        public static DataTable listarUltimoEmpleadoBDD()
+        {
+            DataTable ultimoLider = DatosEmpleado.listarEmpleado();
+            return ultimoLider;
+        }
+
     }
 }

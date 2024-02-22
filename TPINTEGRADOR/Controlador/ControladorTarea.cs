@@ -123,6 +123,12 @@ namespace TPIntegrador.Controlador
             DataTable listarCostos = DatosTarea.ModificarCostoTarea(idTarea, desvio);
             return listarCostos;
         }
+
+        public static void BajaDatosTareaBDD(int idTarea)
+        {
+            DatosTarea.BajaDatosTarea(idTarea);
+        }
+
     }
 }
 

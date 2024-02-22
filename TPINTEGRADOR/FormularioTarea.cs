@@ -22,11 +22,13 @@ namespace TPIntegrador
             txtCostoReal.Enabled = false;
             idProyectoTarea = idProyecto;
             dgvTarea.DataSource = ControladorTarea.obtenerTareaProyectoBDD(idProyectoTarea);
-
+            btnAgregarEmpleado.Enabled = true;
+            btnAgregarFuncion.Enabled = false;
+            btnAgregarObservacion.Enabled = false;
         }
 
         private static int idProyectoTarea;
-
+        private int idTarea;
 
         ///////////////////////////////////////////////////////////
         //////////////        T A R E A S        /////////////////
@@ -35,20 +37,11 @@ namespace TPIntegrador
 
 
 
-        // public void obtenerIdProyectoSeleccionado(int idProyecto)
-        //{
-        //    idProyectoTarea = idProyecto;
-        //}
-
-
-
         private void btnAgregarTarea_Click(object sender, EventArgs e)
         {
             try
             {
                 FormularioInicio obtenerIdProyecto = new FormularioInicio();
-
-                string ordenTarea = txtOrdenTarea.Text.Trim();
                 string descripcionTarea = txtDescripcion.Text.Trim();
                 string horaEstimada = txtHoraEstimada.Text.Trim();
                 string costoEstimado = txtCostoEstimado.Text.Trim();
@@ -59,10 +52,16 @@ namespace TPIntegrador
 
                 if (insertarTarea.validarTarea() != false)
                 {
-                    int nroTarea = ControladorTarea.obtenerUltimoIdTareaBDD();
+                    idTarea = ControladorTarea.obtenerUltimoIdTareaBDD();
+
+                    ControladorTrabaja insertarTrabaja = new ControladorTrabaja(idProyectoTarea, idTarea, 1, 1);
+                    insertarTrabaja.insertarTrabajaBDD();
 
                     insertarTarea.insertarTarea();
                     dgvTarea.DataSource = ControladorTarea.obtenerTareaProyectoBDD(idProyectoTarea);
+
+                    btnAgregarTarea.Enabled = false;
+                    btnAgregarEmpleado.Enabled = true;
 
                     LimpiarCamposTarea();
                 }
@@ -95,9 +94,9 @@ namespace TPIntegrador
             }
             else
             {
-                
+
                 ControladorTarea insertarTarea = new ControladorTarea(idTarea, horaReal, costoReal, DateTime.Now, "FINALIZADO", "0");
-                
+
                 if (insertarTarea.validarHoraCostoReal() != false)
                 {
                     insertarTarea.ModificarDatosTareaBDD();
@@ -106,7 +105,7 @@ namespace TPIntegrador
                     obtenerCostos = ControladorTarea.obtenerCostosBDD(idTarea);
                     decimal costoTotal = Convert.ToDecimal(obtenerCostos.Rows[0]["costo_estimado"]) - Convert.ToDecimal(obtenerCostos.Rows[0]["costo_real"]);
 
-                    
+
                     insertarTarea.modificarDesvioBDD(idTarea, costoTotal);
 
                     dgvTarea.DataSource = ControladorTarea.obtenerTareaProyectoBDD(idTarea);
@@ -130,7 +129,7 @@ namespace TPIntegrador
             txtCostoEstimado.Text = string.Empty;
 
             txtDescripcion.Enabled = true;
-            txtCostoReal.Enabled = false; 
+            txtCostoReal.Enabled = false;
             txtHoraEstimada.Enabled = true;
             txtHoraReal.Enabled = false;
             txtCostoEstimado.Enabled = true;
@@ -155,7 +154,7 @@ namespace TPIntegrador
                 txtHoraReal.Enabled = true;
                 txtCostoReal.Enabled = true;
 
-                btnAgregarTarea.Enabled = false; 
+                btnAgregarTarea.Enabled = false;
             }
         }
 
@@ -197,11 +196,7 @@ namespace TPIntegrador
 
         private string textoPlaceholder(TextBox textBox)
         {
-            if (textBox == txtOrdenTarea)
-            {
-                return "Ingrese n° de orden";
-            }
-            else if (textBox == txtDescripcion)
+            if (textBox == txtDescripcion)
             {
                 return "Ingrese descripción";
             }
@@ -220,10 +215,6 @@ namespace TPIntegrador
             else if (textBox == txtCostoReal)
             {
                 return "Ingrese costo real";
-            }
-            else if (textBox == txtFechaIngreso)
-            {
-                return "Ingrese fecha";
             }
             else if (textBox == txtNombreEmpleado)
             {
@@ -271,8 +262,6 @@ namespace TPIntegrador
         {
             switch (textBox.Name)
             {
-                case "txtOrdenTarea":
-                    return "Ingrese n° de orden";
                 case "txtDescripcion":
                     return "Ingrese descripción";
                 case "txtHorasEstimadasTarea":
@@ -283,10 +272,6 @@ namespace TPIntegrador
                     return "Ingrese horas reales";
                 case "txtCostoReal":
                     return "Ingrese costo real";
-                case "txtNumeroLegajoEmpleado":
-                    return "Ingrese n°";
-                case "txtFechaIngresoEmpelado":
-                    return "Ingrese fecha";
                 case "txtNombreEmpleado":
                     return "Ingrese nombre";
                 case "txtApellidoEmpleado":
@@ -306,7 +291,6 @@ namespace TPIntegrador
 
         private void LimpiarCamposTarea()
         {
-            txtOrdenTarea.Text = string.Empty;
             txtDescripcion.Text = string.Empty;
             txtCostoReal.Text = string.Empty;
             txtHoraEstimada.Text = string.Empty;
@@ -415,6 +399,68 @@ namespace TPIntegrador
 
         private void pbCostoRealTarea_Click(object sender, EventArgs e)
         {
+        }
+
+        private void btnBajaTarea_Click(object sender, EventArgs e)
+        {
+            int indiceTablaTarea = dgvTarea.CurrentCell.RowIndex;
+            int idTarea = Convert.ToInt32(dgvTarea[0, indiceTablaTarea].Value);
+
+            if (Validar.mConsulta("Si da de baja esta tarea, dara de baja todo el proyecto completo ¿Desea Continuar?"))
+            {
+                ControladorTarea.BajaDatosTareaBDD(idTarea); // doy de baja propietario
+
+                dgvTarea.DataSource = ControladorTarea.obtenerTareaProyectoBDD(idProyectoTarea); //actualizo
+                LimpiarCamposTarea();
+            }
+            else
+            {
+                Validar.mError("No se pudo dar de baja los datos");
+            }
+        }
+
+        private void btnAgregarEmpleado_Click(object sender, EventArgs e)
+        {
+            string nombreLider = txtNombreEmpleado.Text.Trim();
+            string apellidoLider = txtApellidoEmpleado.Text.Trim();
+            string celularLider = txtTelefonoEmpleado.Text.Trim();
+            string emailLider = txtCorreoEmpleado.Text.Trim();
+            string fechaIngreso = DateTime.Now.ToString("yyyy-MM-dd");
+
+            if (dgvEmpleado.Rows.Count == 0)
+            {
+                ControladorEmpleado insertarEmpleado = new ControladorEmpleado(0, nombreLider, apellidoLider, celularLider, emailLider, fechaIngreso);
+                insertarEmpleado.insertarEmpleadoBDD();
+                dgvEmpleado.DataSource = ControladorEmpleado.listarUltimoEmpleadoBDD();
+                int legajo = ControladorEmpleado.obtenerUltimoIdBDD();
+
+                ControladorTrabaja modificarTrabaja = new ControladorTrabaja(idProyectoTarea, idTarea, legajo, 1);
+                btnAgregarEmpleado.Enabled = false;
+                btnAgregarFuncion.Enabled = true;
+                LimpiarCamposEmpleado();
+            }
+            else
+            {
+                ControladorEmpleado insertarEmpleado = new ControladorEmpleado(0, nombreLider, apellidoLider, celularLider, emailLider, fechaIngreso);
+                insertarEmpleado.insertarEmpleadoBDD();
+
+                int legajo = ControladorEmpleado.obtenerUltimoIdBDD();
+
+                ControladorTrabaja modificarTrabaja = new ControladorTrabaja(idProyectoTarea, idTarea, legajo, 1);
+                btnAgregarEmpleado.Enabled = false;
+                btnAgregarFuncion.Enabled = true;
+                LimpiarCamposEmpleado();
+            }
+
+
+    }
+
+        private void LimpiarCamposEmpleado()
+        {
+            txtNombreEmpleado.Text = string.Empty;
+            txtApellidoEmpleado.Text = string.Empty;
+            txtTelefonoEmpleado.Text = string.Empty;
+            txtCorreoEmpleado.Text = string.Empty;
         }
     }
 }
