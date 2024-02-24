@@ -133,6 +133,36 @@ namespace TPIntegrador.Controlador
             }
 
         }
+
+        public static int validarFuncion(string funcion) 
+        {
+            switch (funcion)
+            {
+                case "Señor":
+                    return 2;
+                case "Semi Señor":
+                    return 3;
+                case "Junior":
+                    return 4;
+                default:
+                    return 0;
+            }
+        }
+
+        public static string validarFuncionObtenida(int funcion)  // se utiliza para mostrar el combobox la funcion que tiene un empleado
+        {
+            switch (funcion)
+            {
+                case 2:
+                    return "Señor";
+                case 3: 
+                    return "Semi Señor";
+                case 4:
+                    return "Junior";
+                default:
+                    return "";
+            }
+        }
     }
 }
 

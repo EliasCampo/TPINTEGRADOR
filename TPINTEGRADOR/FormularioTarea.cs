@@ -23,13 +23,13 @@ namespace TPIntegrador
             idProyectoTarea = idProyecto;
             dgvTarea.DataSource = ControladorTarea.obtenerTareaProyectoBDD(idProyectoTarea);
             btnAgregarEmpleado.Enabled = true;
-            btnAgregarFuncion.Enabled = false;
             btnAgregarObservacion.Enabled = false;
         }
 
         private static int idProyectoTarea;
         private int idTarea;
         private int legajoEmpleadoTarea;
+        private int idFuncion;
 
         ///////////////////////////////////////////////////////////
         //////////////        T A R E A S        /////////////////
@@ -428,29 +428,36 @@ namespace TPIntegrador
             string emailLider = txtCorreoEmpleado.Text.Trim();
             string fechaIngreso = DateTime.Now.ToString("yyyy-MM-dd");
 
-            if (dgvEmpleado.Rows.Count == 0)
+            if (idFuncion != 0)
             {
-                ControladorEmpleado insertarEmpleado = new ControladorEmpleado(0, nombreLider, apellidoLider, celularLider, emailLider, fechaIngreso);
-                insertarEmpleado.insertarEmpleadoBDD();
-                legajoEmpleadoTarea = ControladorEmpleado.obtenerUltimoIdBDD(); // obtenemos el ultimo legajo para agregar la funcion a dicho empleado
+                if (dgvEmpleado.Rows.Count == 0)
+                {
+                    ControladorEmpleado insertarEmpleado = new ControladorEmpleado(0, nombreLider, apellidoLider, celularLider, emailLider, fechaIngreso);
+                    insertarEmpleado.insertarEmpleadoBDD();
+                    legajoEmpleadoTarea = ControladorEmpleado.obtenerUltimoIdBDD(); // obtenemos el ultimo legajo para agregar la funcion a dicho empleado
 
-                ControladorTrabaja modificarTrabaja = new ControladorTrabaja(idProyectoTarea, idTarea, legajoEmpleadoTarea, 1);
-                modificarTrabaja.ModificarEmpleadoTrabajaBDD(); // reemplazamos el legajo por el valor del empleado
-                btnAgregarEmpleado.Enabled = false;
-                btnAgregarFuncion.Enabled = true;
-                LimpiarCamposEmpleado();
+                    ControladorTrabaja modificarTrabaja = new ControladorTrabaja(idProyectoTarea, idTarea, legajoEmpleadoTarea, idFuncion);
+                    modificarTrabaja.ModificarEmpleadoTrabajaBDD(); // reemplazamos el legajo = 1 por el legajo del empleado
+                    modificarTrabaja.ModificarEmpleadoFuncionBDD(); // reemplazamos el idFuncion = 1 con el valor correspondiente
+                    btnAgregarEmpleado.Enabled = false;
+                    LimpiarCamposEmpleado();
+                }
+                else
+                {
+                    ControladorEmpleado insertarEmpleado = new ControladorEmpleado(0, nombreLider, apellidoLider, celularLider, emailLider, fechaIngreso);
+                    insertarEmpleado.insertarEmpleadoBDD();
+
+                    legajoEmpleadoTarea = ControladorEmpleado.obtenerUltimoIdBDD();
+                    ControladorTrabaja modificarTrabaja = new ControladorTrabaja(idProyectoTarea, idTarea, legajoEmpleadoTarea, idFuncion);
+                    modificarTrabaja.insertarTrabajaBDD();
+                    modificarTrabaja.ModificarEmpleadoFuncionBDD();
+                    btnAgregarEmpleado.Enabled = false;
+                    LimpiarCamposEmpleado();
+                }
             }
             else
             {
-                ControladorEmpleado insertarEmpleado = new ControladorEmpleado(0, nombreLider, apellidoLider, celularLider, emailLider, fechaIngreso);
-                insertarEmpleado.insertarEmpleadoBDD();
-
-                legajoEmpleadoTarea = ControladorEmpleado.obtenerUltimoIdBDD();
-                ControladorTrabaja modificarTrabaja = new ControladorTrabaja(idProyectoTarea, idTarea, legajoEmpleadoTarea, 1);
-                modificarTrabaja.insertarTrabajaBDD();
-                btnAgregarEmpleado.Enabled = false;
-                btnAgregarFuncion.Enabled = true;
-                LimpiarCamposEmpleado();
+                Validar.mError("Debe seleccionar un campo de la lista desplegable");
             }
             dgvEmpleado.DataSource = ControladorEmpleado.listarEmpleadoTrabajaBDD(idTarea);
         }
@@ -465,7 +472,53 @@ namespace TPIntegrador
 
         private void btnModificarEmpleado_Click(object sender, EventArgs e)
         {
+            int indiceTablaEmpleado = dgvEmpleado.CurrentCell.RowIndex;
+            legajoEmpleadoTarea = Convert.ToInt32(dgvEmpleado[0, indiceTablaEmpleado].Value.ToString());
+            string nombreLider = txtNombreEmpleado.Text.Trim();
+            string apellidoLider = txtApellidoEmpleado.Text.Trim();
+            string celularLider = txtTelefonoEmpleado.Text.Trim();
+            string emailLider = txtCorreoEmpleado.Text.Trim();
 
+            ControladorEmpleado modificarEmpleado = new ControladorEmpleado(legajoEmpleadoTarea, nombreLider, apellidoLider, celularLider, emailLider);
+            modificarEmpleado.ModificarDatosLiderBDD();
+            dgvEmpleado.DataSource = ControladorEmpleado.listarEmpleadoTrabajaBDD(idTarea);
+            string nombreFuncion = cbxFuncion.Text.Trim();
+            idFuncion = Validar.validarFuncion(nombreFuncion);
+            ControladorTrabaja modificarTrabaja = new ControladorTrabaja(legajoEmpleadoTarea, idFuncion);
+            modificarTrabaja.ModificarEmpleadoFuncionBDD();
+            LimpiarCamposEmpleado();
+        }
+
+        private void dgvEmpleado_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex != -1 && e.ColumnIndex >= 0)
+            {
+                int indiceTablaEmpleado = dgvEmpleado.CurrentCell.RowIndex;
+                legajoEmpleadoTarea = Convert.ToInt32(dgvEmpleado[0, indiceTablaEmpleado].Value.ToString());
+                txtNombreEmpleado.Text = dgvEmpleado[1, indiceTablaEmpleado].Value.ToString();
+                txtApellidoEmpleado.Text = dgvEmpleado[2, indiceTablaEmpleado].Value.ToString();
+                txtTelefonoEmpleado.Text = dgvEmpleado[3, indiceTablaEmpleado].Value.ToString();
+                txtCorreoEmpleado.Text = dgvEmpleado[4, indiceTablaEmpleado].Value.ToString();
+
+                dgvEmpleado.DataSource = ControladorEmpleado.listarEmpleadoTrabajaBDD(idTarea);
+                cbxFuncion.Text = Validar.validarFuncionObtenida(ControladorTrabaja.obtenerIdFuncionEmpleadoBDD(legajoEmpleadoTarea));
+                txtHoraReal.Text = string.Empty;
+                txtCostoReal.Text = string.Empty;
+
+                txtDescripcion.Enabled = false;
+                txtHoraEstimada.Enabled = false;
+                txtCostoEstimado.Enabled = false;
+                txtHoraReal.Enabled = true;
+                txtCostoReal.Enabled = true;
+
+                btnAgregarTarea.Enabled = false;
+            }
+        }
+
+        private void cbxFuncion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string nombreFuncion = cbxFuncion.Text.Trim();
+            idFuncion = Validar.validarFuncion(nombreFuncion);
         }
     }
 }

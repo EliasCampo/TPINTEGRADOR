@@ -94,5 +94,64 @@ namespace TPIntegrador.Datos
             return listarNoBaja;
         }
 
+
+
+        public static DataTable ModificarEmpleadoFuncion(int legajo, int funcion)
+        {
+            DataTable listarNoBaja = new DataTable("Listatodos");
+            String sql = "UPDATE Trabaja SET id_funcion_fk = '" + funcion + "' WHERE legajo = " + legajo;
+
+            try
+            {
+                Conexion Cx = new Conexion();
+                Cx.AbrirConexion();
+                Cx.SetComnadoSQL(sql);
+
+                SqlDataAdapter sqlDat = new SqlDataAdapter(Cx.Comando());
+                sqlDat.Fill(listarNoBaja);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error por excepción " + e.ToString());
+                listarNoBaja = null;
+            }
+            return listarNoBaja;
+        }
+
+
+        public static int obtenerIdFuncionEmpleado(int legajo)
+        {
+            int id_funcion = -1;
+            var resultado = "";
+            string sql = "SELECT TOP 1 id_funcion_fk FROM Trabaja " +
+                " WHERE legajo = '" + legajo +
+                "' ORDER BY id_funcion_fk DESC "; 
+            try
+            {
+                Conexion Cx = new Conexion();
+                Cx.AbrirConexion();
+                Cx.SetComnadoSQL(sql);
+                SqlCommand cmd = Cx.Comando();
+
+                if (cmd.ExecuteScalar() != null)
+                {
+                    resultado = cmd.ExecuteScalar().ToString(); //.ExecuteNonQuery();
+                    id_funcion = Convert.ToInt32(resultado);
+                    Cx.CerrarConexion();
+                    return id_funcion;
+                }
+                else
+                {
+                    return -1;
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error por excepción " + e.ToString());
+                return id_funcion;
+            }
+        }
+
     }
 }

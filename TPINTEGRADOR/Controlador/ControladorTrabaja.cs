@@ -23,6 +23,12 @@ namespace TPIntegrador.Controlador
             this.idFuncion = id_funcion;
         }
 
+        public ControladorTrabaja(int legajo_trabaja, int id_funcion)
+        {
+            this.legajo = legajo_trabaja;
+            this.idFuncion = id_funcion;
+        }
+
 
         public void insertarTrabajaBDD() 
         {
@@ -39,6 +45,19 @@ namespace TPIntegrador.Controlador
         {
             DataTable listarTrabaja = DatosTrabaja.ModificarEmpleadoTrabaja(this.idTarea, this.legajo);
             return listarTrabaja;
+        }
+
+        public DataTable ModificarEmpleadoFuncionBDD()
+        {
+            DataTable listarTrabaja = DatosTrabaja.ModificarEmpleadoFuncion(this.legajo, this.idFuncion);
+            return listarTrabaja;
+        }
+
+
+        public static int obtenerIdFuncionEmpleadoBDD(int legajo)
+        {
+            int ultimoId = DatosTrabaja.obtenerIdFuncionEmpleado(legajo);
+            return ultimoId;
         }
     }
 }

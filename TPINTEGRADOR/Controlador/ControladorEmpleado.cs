@@ -34,10 +34,14 @@ namespace TPIntegrador.Controlador
 
         }
 
-		public ControladorEmpleado()
+		public ControladorEmpleado(int legajo_empleado, string nombre_empleado, string apellido_empleado, string celular_empleado, string email_empleado)
 		{
-
-		}
+            legajoEmpleado = legajo_empleado;
+            nombreEmpleado = nombre_empleado;
+            apellidoEmpleado = apellido_empleado;
+            celularEmpleado = celular_empleado;
+            emailEmpleado = email_empleado;
+        }
 
         public bool ValidarDatos()
         {
