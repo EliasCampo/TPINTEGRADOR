@@ -29,6 +29,7 @@ namespace TPIntegrador
 
         private static int idProyectoTarea;
         private int idTarea;
+        private int legajoEmpleadoTarea;
 
         ///////////////////////////////////////////////////////////
         //////////////        T A R E A S        /////////////////
@@ -52,12 +53,13 @@ namespace TPIntegrador
 
                 if (insertarTarea.validarTarea() != false)
                 {
+                    insertarTarea.insertarTarea();
                     idTarea = ControladorTarea.obtenerUltimoIdTareaBDD();
+
 
                     ControladorTrabaja insertarTrabaja = new ControladorTrabaja(idProyectoTarea, idTarea, 1, 1);
                     insertarTrabaja.insertarTrabajaBDD();
 
-                    insertarTarea.insertarTarea();
                     dgvTarea.DataSource = ControladorTarea.obtenerTareaProyectoBDD(idProyectoTarea);
 
                     btnAgregarTarea.Enabled = false;
@@ -94,7 +96,6 @@ namespace TPIntegrador
             }
             else
             {
-
                 ControladorTarea insertarTarea = new ControladorTarea(idTarea, horaReal, costoReal, DateTime.Now, "FINALIZADO", "0");
 
                 if (insertarTarea.validarHoraCostoReal() != false)
@@ -107,8 +108,6 @@ namespace TPIntegrador
 
 
                     insertarTarea.modificarDesvioBDD(idTarea, costoTotal);
-
-                    dgvTarea.DataSource = ControladorTarea.obtenerTareaProyectoBDD(idTarea);
                     LimpiarCamposTarea();
                 }
                 else
@@ -141,12 +140,14 @@ namespace TPIntegrador
             if (e.RowIndex != -1 && e.ColumnIndex >= 0)
             {
                 int indiceTablaTarea = dgvTarea.CurrentCell.RowIndex;
+                idTarea = Convert.ToInt32(dgvTarea[0, indiceTablaTarea].Value.ToString());
                 txtDescripcion.Text = dgvTarea[2, indiceTablaTarea].Value.ToString();
                 txtHoraEstimada.Text = dgvTarea[3, indiceTablaTarea].Value.ToString();
                 txtCostoEstimado.Text = dgvTarea[4, indiceTablaTarea].Value.ToString();
+
+                dgvEmpleado.DataSource = ControladorEmpleado.listarEmpleadoTrabajaBDD(idTarea);
                 txtHoraReal.Text = string.Empty;
                 txtCostoReal.Text = string.Empty;
-
 
                 txtDescripcion.Enabled = false;
                 txtHoraEstimada.Enabled = false;
@@ -431,10 +432,10 @@ namespace TPIntegrador
             {
                 ControladorEmpleado insertarEmpleado = new ControladorEmpleado(0, nombreLider, apellidoLider, celularLider, emailLider, fechaIngreso);
                 insertarEmpleado.insertarEmpleadoBDD();
-                dgvEmpleado.DataSource = ControladorEmpleado.listarUltimoEmpleadoBDD();
-                int legajo = ControladorEmpleado.obtenerUltimoIdBDD();
+                legajoEmpleadoTarea = ControladorEmpleado.obtenerUltimoIdBDD(); // obtenemos el ultimo legajo para agregar la funcion a dicho empleado
 
-                ControladorTrabaja modificarTrabaja = new ControladorTrabaja(idProyectoTarea, idTarea, legajo, 1);
+                ControladorTrabaja modificarTrabaja = new ControladorTrabaja(idProyectoTarea, idTarea, legajoEmpleadoTarea, 1);
+                modificarTrabaja.ModificarEmpleadoTrabajaBDD(); // reemplazamos el legajo por el valor del empleado
                 btnAgregarEmpleado.Enabled = false;
                 btnAgregarFuncion.Enabled = true;
                 LimpiarCamposEmpleado();
@@ -444,16 +445,15 @@ namespace TPIntegrador
                 ControladorEmpleado insertarEmpleado = new ControladorEmpleado(0, nombreLider, apellidoLider, celularLider, emailLider, fechaIngreso);
                 insertarEmpleado.insertarEmpleadoBDD();
 
-                int legajo = ControladorEmpleado.obtenerUltimoIdBDD();
-
-                ControladorTrabaja modificarTrabaja = new ControladorTrabaja(idProyectoTarea, idTarea, legajo, 1);
+                legajoEmpleadoTarea = ControladorEmpleado.obtenerUltimoIdBDD();
+                ControladorTrabaja modificarTrabaja = new ControladorTrabaja(idProyectoTarea, idTarea, legajoEmpleadoTarea, 1);
+                modificarTrabaja.insertarTrabajaBDD();
                 btnAgregarEmpleado.Enabled = false;
                 btnAgregarFuncion.Enabled = true;
                 LimpiarCamposEmpleado();
             }
-
-
-    }
+            dgvEmpleado.DataSource = ControladorEmpleado.listarEmpleadoTrabajaBDD(idTarea);
+        }
 
         private void LimpiarCamposEmpleado()
         {
@@ -461,6 +461,11 @@ namespace TPIntegrador
             txtApellidoEmpleado.Text = string.Empty;
             txtTelefonoEmpleado.Text = string.Empty;
             txtCorreoEmpleado.Text = string.Empty;
+        }
+
+        private void btnModificarEmpleado_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -28,11 +28,16 @@ namespace TPIntegrador.Controlador
         {
             DatosTrabaja.insertarTrabaja(this.idProyecto, this.idTarea, this.legajo, this.idFuncion);
         }
-
+        
         public DataTable ModificarDatosTrabajaBDD()
         {
-
             DataTable listarTrabaja = DatosTrabaja.ModificarDatosTrabaja(this.idProyecto, this.legajo);
+            return listarTrabaja;
+        }
+
+        public DataTable ModificarEmpleadoTrabajaBDD()
+        {
+            DataTable listarTrabaja = DatosTrabaja.ModificarEmpleadoTrabaja(this.idTarea, this.legajo);
             return listarTrabaja;
         }
     }

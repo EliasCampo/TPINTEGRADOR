@@ -13,15 +13,14 @@ namespace TPIntegrador.Datos
     {
         public static DataTable listarLider()
         {
-            DataTable listarNoBaja = new DataTable("Listatodos");
+            DataTable listarNoBaja = new DataTable("Listatodos");    // agrupamos las 3 tablas (proyecto, empleado, trabaja) y recuperamos los lideres que tienen menos de 3 proyectos ACTIVOS. Un lider si diferencia de un empleado con el id_funcion 1. 
             String sql= " SELECT E.legajo, E.nombre, E.apellido, E.celular, E.email, E.fecha_ingreso" +
                         " FROM Empleado E" +
                         " LEFT JOIN Trabaja T ON E.legajo = T.legajo" +
                         " LEFT JOIN Proyecto P ON T.id_proyecto = P.id_proyecto AND P.baja_proyecto = 0" +
-                        " WHERE E.baja_empleado = 0" +
+                        " WHERE E.baja_empleado = 0 AND T.id_funcion_fk = 1" +
                         " GROUP BY E.legajo, E.fecha_ingreso, E.nombre, E.apellido, E.celular, E.email" +
-                        " HAVING COUNT(P.id_proyecto) < 3 OR COUNT(P.id_proyecto) IS NULL";
-
+                        " HAVING COUNT(P.id_proyecto) < 3 OR COUNT(P.id_proyecto) IS NULL"; 
             try
             {
                 Conexion Cx = new Conexion();
@@ -175,6 +174,32 @@ namespace TPIntegrador.Datos
             DataTable listarNoBaja = new DataTable("Listatodos");
             String sql = " SELECT E.legajo, E.nombre, E.apellido, E.celular, E.email, E.fecha_ingreso FROM Empleado WHERE baja_empleado = 0";
 
+            try
+            {
+                Conexion Cx = new Conexion();
+                Cx.AbrirConexion();
+                Cx.SetComnadoSQL(sql);
+
+                SqlDataAdapter sqlDat = new SqlDataAdapter(Cx.Comando());
+                sqlDat.Fill(listarNoBaja);
+                Cx.CerrarConexion();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error por excepción " + e.ToString());
+                listarNoBaja = null;
+            }
+            return listarNoBaja;
+        }
+
+
+        public static DataTable listarEmpleadoTrabaja(int nro_tarea)
+        {
+            DataTable listarNoBaja = new DataTable("Listatodos");
+            String sql = "SELECT E.legajo, E.nombre, E.apellido, E.celular, E.email, E.fecha_ingreso" +
+                        " FROM Empleado E" +
+                        " INNER JOIN Trabaja T ON E.legajo = T.legajo" +
+                        " WHERE T.id_tarea = '" + nro_tarea + "' AND E.baja_empleado = 0 AND T.legajo != 1"; 
             try
             {
                 Conexion Cx = new Conexion();

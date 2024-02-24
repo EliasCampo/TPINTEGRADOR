@@ -126,8 +126,6 @@ namespace TPIntegrador.Controlador
             DatosEmpleado.insertarLider(this.nombreEmpleado, this.apellidoEmpleado, this.celularEmpleado, this.emailEmpleado, this.fechaIngresoEmpleado);
         }
 
-
-
         public DataTable ModificarDatosEmpleadoBDD()
         {
             DataTable listarLider = DatosEmpleado.ModificarDatosLider(this.legajoEmpleado, this.nombreEmpleado, this.apellidoEmpleado, this.celularEmpleado, this.emailEmpleado);
@@ -145,5 +143,10 @@ namespace TPIntegrador.Controlador
             return ultimoLider;
         }
 
+        public static DataTable listarEmpleadoTrabajaBDD(int idTarea)
+        {
+            DataTable ultimoLider = DatosEmpleado.listarEmpleadoTrabaja(idTarea);
+            return ultimoLider;
+        }
     }
 }
