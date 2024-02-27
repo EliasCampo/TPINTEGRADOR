@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             gpxFormularioTarea = new GroupBox();
             cbxFuncion = new ComboBox();
             lbTituloSeccionEmpleado = new Label();
@@ -81,9 +81,6 @@
             btnModificarObservacion = new Button();
             btnAgregarObservacion = new Button();
             dgvObservacion = new DataGridView();
-            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
-            IdEmpleadoFk = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
             txtObservacion = new TextBox();
             txtCostoReal = new TextBox();
             txtHoraEstimada = new TextBox();
@@ -115,6 +112,9 @@
             FechaFinalizacion = new DataGridViewTextBoxColumn();
             Desvio = new DataGridViewTextBoxColumn();
             Estado = new DataGridViewTextBoxColumn();
+            FechaObservacion = new DataGridViewTextBoxColumn();
+            IdEmpleadoFk = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewTextBoxColumn();
             gpxFormularioTarea.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbEmpleado).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvEmpleado).BeginInit();
@@ -325,25 +325,27 @@
             // 
             dgvEmpleado.AllowUserToAddRows = false;
             dgvEmpleado.AllowUserToDeleteRows = false;
+            dgvEmpleado.AllowUserToResizeColumns = false;
+            dgvEmpleado.AllowUserToResizeRows = false;
             dgvEmpleado.BackgroundColor = Color.White;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = Color.DarkSlateBlue;
-            dataGridViewCellStyle7.Font = new Font("Franklin Gothic Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle7.ForeColor = Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            dgvEmpleado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.DarkSlateBlue;
+            dataGridViewCellStyle1.Font = new Font("Franklin Gothic Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvEmpleado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvEmpleado.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvEmpleado.Columns.AddRange(new DataGridViewColumn[] { legajo, NombreEmpleado, ApellidoEmpleado, TelefonoEmpleado, CorreoEmpleado, FechaIngresoEmpleado });
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = Color.Plum;
-            dataGridViewCellStyle8.Font = new Font("Franklin Gothic Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle8.ForeColor = Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            dgvEmpleado.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.Plum;
+            dataGridViewCellStyle2.Font = new Font("Franklin Gothic Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvEmpleado.DefaultCellStyle = dataGridViewCellStyle2;
             dgvEmpleado.EnableHeadersVisualStyles = false;
             dgvEmpleado.GridColor = Color.DarkSlateBlue;
             dgvEmpleado.Location = new Point(122, 262);
@@ -354,6 +356,7 @@
             dgvEmpleado.Size = new Size(1027, 150);
             dgvEmpleado.TabIndex = 14;
             dgvEmpleado.TabStop = false;
+            dgvEmpleado.CellContentClick += dgvEmpleado_CellContentClick;
             dgvEmpleado.CellMouseClick += dgvEmpleado_CellMouseClick;
             // 
             // legajo
@@ -424,6 +427,7 @@
             btnBajaEmpleado.Text = "DAR BAJA";
             btnBajaEmpleado.TextAlign = ContentAlignment.MiddleLeft;
             btnBajaEmpleado.UseVisualStyleBackColor = false;
+            btnBajaEmpleado.Click += btnBajaEmpleado_Click;
             // 
             // txtCorreoEmpleado
             // 
@@ -450,6 +454,7 @@
             btnCancelarEmpleado.Text = "LIMPIAR";
             btnCancelarEmpleado.TextAlign = ContentAlignment.MiddleLeft;
             btnCancelarEmpleado.UseVisualStyleBackColor = false;
+            btnCancelarEmpleado.Click += btnCancelarEmpleado_Click;
             // 
             // btnModificarEmpleado
             // 
@@ -737,6 +742,7 @@
             btnModificarObservacion.Text = "MODIFICAR";
             btnModificarObservacion.TextAlign = ContentAlignment.MiddleLeft;
             btnModificarObservacion.UseVisualStyleBackColor = false;
+            btnModificarObservacion.Click += btnModificarObservacion_Click;
             // 
             // btnAgregarObservacion
             // 
@@ -752,30 +758,31 @@
             btnAgregarObservacion.Text = "AGREGAR";
             btnAgregarObservacion.TextAlign = ContentAlignment.MiddleLeft;
             btnAgregarObservacion.UseVisualStyleBackColor = false;
+            btnAgregarObservacion.Click += btnAgregarObservacion_Click;
             // 
             // dgvObservacion
             // 
             dgvObservacion.AllowUserToAddRows = false;
             dgvObservacion.AllowUserToDeleteRows = false;
             dgvObservacion.BackgroundColor = Color.White;
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = Color.DeepSkyBlue;
-            dataGridViewCellStyle9.Font = new Font("Franklin Gothic Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle9.ForeColor = Color.White;
-            dataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
-            dgvObservacion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = Color.DeepSkyBlue;
+            dataGridViewCellStyle3.Font = new Font("Franklin Gothic Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvObservacion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvObservacion.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvObservacion.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn2, IdEmpleadoFk, Column4 });
-            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = Color.SkyBlue;
-            dataGridViewCellStyle10.Font = new Font("Franklin Gothic Medium", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle10.ForeColor = Color.White;
-            dataGridViewCellStyle10.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.False;
-            dgvObservacion.DefaultCellStyle = dataGridViewCellStyle10;
+            dgvObservacion.Columns.AddRange(new DataGridViewColumn[] { FechaObservacion, IdEmpleadoFk, Column4 });
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.SkyBlue;
+            dataGridViewCellStyle4.Font = new Font("Franklin Gothic Medium", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            dgvObservacion.DefaultCellStyle = dataGridViewCellStyle4;
             dgvObservacion.EnableHeadersVisualStyles = false;
             dgvObservacion.GridColor = Color.DeepSkyBlue;
             dgvObservacion.Location = new Point(122, 440);
@@ -786,33 +793,6 @@
             dgvObservacion.Size = new Size(345, 136);
             dgvObservacion.TabIndex = 99;
             dgvObservacion.TabStop = false;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            dataGridViewTextBoxColumn2.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            dataGridViewTextBoxColumn2.HeaderText = "Fecha";
-            dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            dataGridViewTextBoxColumn2.ReadOnly = true;
-            dataGridViewTextBoxColumn2.Width = 50;
-            // 
-            // IdEmpleadoFk
-            // 
-            IdEmpleadoFk.DataPropertyName = "id_empleado";
-            IdEmpleadoFk.HeaderText = "ID Empleado";
-            IdEmpleadoFk.MinimumWidth = 6;
-            IdEmpleadoFk.Name = "IdEmpleadoFk";
-            IdEmpleadoFk.ReadOnly = true;
-            IdEmpleadoFk.Visible = false;
-            IdEmpleadoFk.Width = 125;
-            // 
-            // Column4
-            // 
-            Column4.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Column4.HeaderText = "Observacion";
-            Column4.MinimumWidth = 6;
-            Column4.Name = "Column4";
-            Column4.ReadOnly = true;
             // 
             // txtObservacion
             // 
@@ -1044,24 +1024,24 @@
             dgvTarea.AllowUserToAddRows = false;
             dgvTarea.AllowUserToDeleteRows = false;
             dgvTarea.BackgroundColor = Color.White;
-            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = Color.Teal;
-            dataGridViewCellStyle11.Font = new Font("Franklin Gothic Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle11.ForeColor = Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.True;
-            dgvTarea.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = Color.Teal;
+            dataGridViewCellStyle5.Font = new Font("Franklin Gothic Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dgvTarea.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dgvTarea.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvTarea.Columns.AddRange(new DataGridViewColumn[] { nro_tarea, id_proyecto, Descripcion, HorasEstimadas, CostoEstimado, HorasReales, CostoReal, FechaFinalizacion, Desvio, Estado });
-            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = Color.MediumTurquoise;
-            dataGridViewCellStyle12.Font = new Font("Franklin Gothic Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle12.ForeColor = Color.White;
-            dataGridViewCellStyle12.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = DataGridViewTriState.False;
-            dgvTarea.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.MediumTurquoise;
+            dataGridViewCellStyle6.Font = new Font("Franklin Gothic Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            dgvTarea.DefaultCellStyle = dataGridViewCellStyle6;
             dgvTarea.EnableHeadersVisualStyles = false;
             dgvTarea.GridColor = Color.Teal;
             dgvTarea.Location = new Point(122, 56);
@@ -1165,6 +1145,34 @@
             Estado.MinimumWidth = 6;
             Estado.Name = "Estado";
             Estado.ReadOnly = true;
+            // 
+            // FechaObservacion
+            // 
+            FechaObservacion.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            FechaObservacion.DataPropertyName = "fecha";
+            FechaObservacion.HeaderText = "Fecha";
+            FechaObservacion.MinimumWidth = 6;
+            FechaObservacion.Name = "FechaObservacion";
+            FechaObservacion.ReadOnly = true;
+            FechaObservacion.Width = 50;
+            // 
+            // IdEmpleadoFk
+            // 
+            IdEmpleadoFk.DataPropertyName = "id_empleado";
+            IdEmpleadoFk.HeaderText = "ID Empleado";
+            IdEmpleadoFk.MinimumWidth = 6;
+            IdEmpleadoFk.Name = "IdEmpleadoFk";
+            IdEmpleadoFk.ReadOnly = true;
+            IdEmpleadoFk.Visible = false;
+            IdEmpleadoFk.Width = 125;
+            // 
+            // Column4
+            // 
+            Column4.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Column4.HeaderText = "Observacion";
+            Column4.MinimumWidth = 6;
+            Column4.Name = "Column4";
+            Column4.ReadOnly = true;
             // 
             // FormularioTarea
             // 
@@ -1271,9 +1279,6 @@
         private PictureBox pbApellidoEmpelado;
         private PictureBox pbNombreEmpleado;
         private ComboBox cbxFuncion;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn IdEmpleadoFk;
-        private DataGridViewTextBoxColumn Column4;
         private DataGridViewTextBoxColumn nro_tarea;
         private DataGridViewTextBoxColumn id_proyecto;
         private DataGridViewTextBoxColumn Descripcion;
@@ -1290,5 +1295,8 @@
         private DataGridViewTextBoxColumn TelefonoEmpleado;
         private DataGridViewTextBoxColumn CorreoEmpleado;
         private DataGridViewTextBoxColumn FechaIngresoEmpleado;
+        private DataGridViewTextBoxColumn FechaObservacion;
+        private DataGridViewTextBoxColumn IdEmpleadoFk;
+        private DataGridViewTextBoxColumn Column4;
     }
 }

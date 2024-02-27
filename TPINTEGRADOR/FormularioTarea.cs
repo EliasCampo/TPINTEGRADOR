@@ -300,9 +300,14 @@ namespace TPIntegrador
 
         }
 
+        private void LimpiarCampoObservacion()
+        {
+            txtObservacion.Text = string.Empty;
+        }
+
         private void btnCancelarObservacion_Click(object sender, EventArgs e)
         {
-
+            LimpiarCampoObservacion();
         }
 
         private void gpxFormularioTarea_Enter(object sender, EventArgs e)
@@ -468,6 +473,7 @@ namespace TPIntegrador
             txtApellidoEmpleado.Text = string.Empty;
             txtTelefonoEmpleado.Text = string.Empty;
             txtCorreoEmpleado.Text = string.Empty;
+            cbxFuncion.Text = string.Empty;
         }
 
         private void btnModificarEmpleado_Click(object sender, EventArgs e)
@@ -491,6 +497,7 @@ namespace TPIntegrador
 
         private void dgvEmpleado_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+
             if (e.RowIndex != -1 && e.ColumnIndex >= 0)
             {
                 int indiceTablaEmpleado = dgvEmpleado.CurrentCell.RowIndex;
@@ -510,6 +517,8 @@ namespace TPIntegrador
                 txtCostoEstimado.Enabled = false;
                 txtHoraReal.Enabled = true;
                 txtCostoReal.Enabled = true;
+                btnAgregarEmpleado.Enabled = false;
+                btnAgregarObservacion.Enabled = true;
 
                 btnAgregarTarea.Enabled = false;
             }
@@ -519,6 +528,96 @@ namespace TPIntegrador
         {
             string nombreFuncion = cbxFuncion.Text.Trim();
             idFuncion = Validar.validarFuncion(nombreFuncion);
+        }
+
+        private void btnCancelarEmpleado_Click(object sender, EventArgs e)
+        {
+            LimpiarCamposEmpleado();
+        }
+
+        private void btnBajaEmpleado_Click(object sender, EventArgs e)
+        {
+            int indiceTablaEmpleado = dgvEmpleado.CurrentCell.RowIndex;
+            legajoEmpleadoTarea = Convert.ToInt32(dgvEmpleado[0, indiceTablaEmpleado].Value);
+
+
+            if (dgvEmpleado.Rows.Count == 1)
+            {
+                if (Validar.mConsulta("Si da de baja esta empleado, debera asignar otro empleado a la tarea ¿Desea Continuar?"))
+                {
+                    ControladorEmpleado.BajaDatosLiderBDD(legajoEmpleadoTarea); // doy de baja el empleado
+
+                    dgvEmpleado.DataSource = ControladorEmpleado.listarEmpleadoTrabajaBDD(idTarea); //actualizo
+                    btnAgregarEmpleado.Enabled = true;
+                    LimpiarCamposEmpleado();
+                }
+                else
+                {
+                    Validar.mError("No se pudo dar de baja los datos");
+                }
+            }
+            else
+            {
+                if (Validar.mConsulta("Si da de baja esta empleado, debera asignar otro empleado a la tarea ¿Desea Continuar?"))
+                {
+                    ControladorEmpleado.BajaDatosLiderBDD(legajoEmpleadoTarea); // doy de baja el empleado
+
+                    dgvEmpleado.DataSource = ControladorEmpleado.listarEmpleadoTrabajaBDD(idTarea); //actualizo
+                    btnAgregarEmpleado.Enabled = false;
+                    LimpiarCamposEmpleado();
+                }
+                else
+                {
+                    Validar.mError("No se pudo dar de baja los datos");
+                }
+            }
+
+        }
+
+        private void dgvEmpleado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnAgregarObservacion_Click(object sender, EventArgs e)
+        {
+            int indiceTablaEmpleado = dgvEmpleado.CurrentCell.RowIndex;
+            legajoEmpleadoTarea = Convert.ToInt32(dgvEmpleado[0, indiceTablaEmpleado].Value.ToString());
+
+            string observacionEmpleado = txtObservacion.Text.Trim();
+            DateTime fechaFinal = DateTime.Now;
+
+            ControladorObservacion insertarObservacion = new ControladorObservacion(0, legajoEmpleadoTarea, fechaFinal, observacionEmpleado);
+
+            if (insertarObservacion.validacionFecha() == false)
+            {
+                Validar.mError("Debe completar una observacion.");
+            }
+            else
+            {
+                insertarObservacion.insertarObservacionBDD(legajoEmpleadoTarea, fechaFinal, observacionEmpleado);
+                dgvObservacion.DataSource = ControladorObservacion.obtenerObservacionBDD(legajoEmpleadoTarea);
+
+                btnAgregarTarea.Enabled = false;
+                btnAgregarEmpleado.Enabled = true;
+
+                LimpiarCampoObservacion();
+            }
+        }
+
+        private void btnModificarObservacion_Click(object sender, EventArgs e)
+        {
+            int indiceTablaObservacion = dgvObservacion.CurrentCell.RowIndex;
+            int idObservacion = Convert.ToInt32(dgvObservacion[0, indiceTablaObservacion].Value.ToString());
+
+            string observacion = txtObservacion.Text.Trim();
+            DateTime fechaObservacion = DateTime.Now;
+
+            ControladorObservacion modificarObservacion = new ControladorObservacion(idObservacion, legajoEmpleadoTarea, fechaObservacion, observacion);
+            modificarObservacion.ModificarDatosObservacionBDD();
+            dgvObservacion.DataSource = ControladorObservacion.obtenerObservacionBDD(legajoEmpleadoTarea); 
+
+            LimpiarCampoObservacion();
         }
     }
 }
