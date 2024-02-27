@@ -500,6 +500,7 @@ namespace TPIntegrador
 
             if (e.RowIndex != -1 && e.ColumnIndex >= 0)
             {
+
                 int indiceTablaEmpleado = dgvEmpleado.CurrentCell.RowIndex;
                 legajoEmpleadoTarea = Convert.ToInt32(dgvEmpleado[0, indiceTablaEmpleado].Value.ToString());
                 txtNombreEmpleado.Text = dgvEmpleado[1, indiceTablaEmpleado].Value.ToString();
@@ -509,6 +510,15 @@ namespace TPIntegrador
 
                 dgvEmpleado.DataSource = ControladorEmpleado.listarEmpleadoTrabajaBDD(idTarea);
                 cbxFuncion.Text = Validar.validarFuncionObtenida(ControladorTrabaja.obtenerIdFuncionEmpleadoBDD(legajoEmpleadoTarea));
+                dgvObservacion.DataSource = ControladorObservacion.obtenerObservacionBDD(legajoEmpleadoTarea);
+
+                if (indiceTablaEmpleado >= 0 && indiceTablaEmpleado >= 0 &&
+                        indiceTablaEmpleado < dgvEmpleado.Rows.Count && indiceTablaEmpleado < dgvEmpleado.Columns.Count)
+                {
+                    dgvEmpleado.CurrentCell = dgvEmpleado[indiceTablaEmpleado, indiceTablaEmpleado];
+                    dgvEmpleado.Rows[indiceTablaEmpleado].Selected = true;
+                }
+
                 txtHoraReal.Text = string.Empty;
                 txtCostoReal.Text = string.Empty;
 
@@ -519,8 +529,10 @@ namespace TPIntegrador
                 txtCostoReal.Enabled = true;
                 btnAgregarEmpleado.Enabled = false;
                 btnAgregarObservacion.Enabled = true;
-
                 btnAgregarTarea.Enabled = false;
+
+
+
             }
         }
 
@@ -615,9 +627,20 @@ namespace TPIntegrador
 
             ControladorObservacion modificarObservacion = new ControladorObservacion(idObservacion, legajoEmpleadoTarea, fechaObservacion, observacion);
             modificarObservacion.ModificarDatosObservacionBDD();
-            dgvObservacion.DataSource = ControladorObservacion.obtenerObservacionBDD(legajoEmpleadoTarea); 
+            dgvObservacion.DataSource = ControladorObservacion.obtenerObservacionBDD(legajoEmpleadoTarea);
 
             LimpiarCampoObservacion();
+        }
+
+        private void dgvObservacion_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1 && e.ColumnIndex >= 0)
+            {
+                int indiceTablaObservacion = dgvObservacion.CurrentCell.RowIndex;
+                int idObservacion = Convert.ToInt32(dgvObservacion[0, indiceTablaObservacion].Value.ToString());
+                txtObservacion.Text = dgvObservacion[2, indiceTablaObservacion].Value.ToString();
+
+            }
         }
     }
 }

@@ -46,7 +46,7 @@ namespace TPIntegrador.Datos
         public static DataTable listarObservacion(int legajo)
         {
             DataTable listarObservacion = new DataTable("Listatodos");
-            String sql = "SELECT [id_observacion],[fecha],[observacion],[legajo_FK] FROM[observaciones] WHERE [legajo_FK] = " + legajo;
+            String sql = "SELECT [id_observacion],[fecha],[observacion] FROM[observaciones] WHERE [legajo_FK] = " + legajo;
 
             try
             {
@@ -69,7 +69,7 @@ namespace TPIntegrador.Datos
         public static DataTable ModificarDatosObservacion(string observacion, DateTime fecha, int idObservacion)
         {
             DataTable listarObservacion = new DataTable("Listatodos");
-            String sql = "UPDATE observaciones SET fecha = '" + fecha + "', " + "observacion = '" + observacion + "', " + "WHERE id_observacion = " + idObservacion;
+            String sql = "UPDATE observaciones SET fecha = '" + fecha + "', " + "observacion = '" + observacion + "' WHERE id_observacion = " + idObservacion;
 
             try
             {

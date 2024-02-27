@@ -141,12 +141,6 @@ namespace TPIntegrador.Controlador
             DatosEmpleado.BajaDatosLider(idEmpleado);
         }
 
-        public static DataTable listarUltimoEmpleadoBDD()
-        {
-            DataTable ultimoLider = DatosEmpleado.listarEmpleado();
-            return ultimoLider;
-        }
-
         public static DataTable listarEmpleadoTrabajaBDD(int idTarea)
         {
             DataTable ultimoLider = DatosEmpleado.listarEmpleadoTrabaja(idTarea);

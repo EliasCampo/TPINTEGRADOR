@@ -112,9 +112,9 @@
             FechaFinalizacion = new DataGridViewTextBoxColumn();
             Desvio = new DataGridViewTextBoxColumn();
             Estado = new DataGridViewTextBoxColumn();
+            IdObservacion = new DataGridViewTextBoxColumn();
             FechaObservacion = new DataGridViewTextBoxColumn();
-            IdEmpleadoFk = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
+            observacion = new DataGridViewTextBoxColumn();
             gpxFormularioTarea.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbEmpleado).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvEmpleado).BeginInit();
@@ -213,10 +213,8 @@
             gpxFormularioTarea.Font = new Font("Franklin Gothic Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             gpxFormularioTarea.ForeColor = Color.White;
             gpxFormularioTarea.Location = new Point(0, 0);
-            gpxFormularioTarea.Margin = new Padding(3, 2, 3, 2);
             gpxFormularioTarea.Name = "gpxFormularioTarea";
-            gpxFormularioTarea.Padding = new Padding(3, 2, 3, 2);
-            gpxFormularioTarea.Size = new Size(1265, 617);
+            gpxFormularioTarea.Size = new Size(1446, 823);
             gpxFormularioTarea.TabIndex = 1;
             gpxFormularioTarea.TabStop = false;
             gpxFormularioTarea.Enter += gpxFormularioTarea_Enter;
@@ -227,9 +225,10 @@
             cbxFuncion.ForeColor = Color.Indigo;
             cbxFuncion.FormattingEnabled = true;
             cbxFuncion.Items.AddRange(new object[] { "Señor", "Semi Señor", "Junior" });
-            cbxFuncion.Location = new Point(721, 228);
+            cbxFuncion.Location = new Point(824, 304);
+            cbxFuncion.Margin = new Padding(3, 4, 3, 4);
             cbxFuncion.Name = "cbxFuncion";
-            cbxFuncion.Size = new Size(193, 25);
+            cbxFuncion.Size = new Size(220, 29);
             cbxFuncion.TabIndex = 937;
             cbxFuncion.SelectedIndexChanged += cbxFuncion_SelectedIndexChanged;
             // 
@@ -240,9 +239,9 @@
             lbTituloSeccionEmpleado.FlatStyle = FlatStyle.Flat;
             lbTituloSeccionEmpleado.Font = new Font("Franklin Gothic Medium", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lbTituloSeccionEmpleado.ForeColor = Color.SlateGray;
-            lbTituloSeccionEmpleado.Location = new Point(12, 352);
+            lbTituloSeccionEmpleado.Location = new Point(14, 469);
             lbTituloSeccionEmpleado.Name = "lbTituloSeccionEmpleado";
-            lbTituloSeccionEmpleado.Size = new Size(97, 21);
+            lbTituloSeccionEmpleado.Size = new Size(118, 25);
             lbTituloSeccionEmpleado.TabIndex = 931;
             lbTituloSeccionEmpleado.Text = "EMPLEADO";
             // 
@@ -251,9 +250,10 @@
             txtNombreEmpleado.BackColor = Color.White;
             txtNombreEmpleado.BorderStyle = BorderStyle.None;
             txtNombreEmpleado.Font = new Font("Franklin Gothic Medium", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtNombreEmpleado.Location = new Point(131, 234);
+            txtNombreEmpleado.Location = new Point(150, 312);
+            txtNombreEmpleado.Margin = new Padding(3, 4, 3, 4);
             txtNombreEmpleado.Name = "txtNombreEmpleado";
-            txtNombreEmpleado.Size = new Size(95, 14);
+            txtNombreEmpleado.Size = new Size(109, 18);
             txtNombreEmpleado.TabIndex = 12;
             // 
             // txtApellidoEmpleado
@@ -261,18 +261,20 @@
             txtApellidoEmpleado.BackColor = Color.White;
             txtApellidoEmpleado.BorderStyle = BorderStyle.None;
             txtApellidoEmpleado.Font = new Font("Franklin Gothic Medium", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtApellidoEmpleado.Location = new Point(247, 234);
+            txtApellidoEmpleado.Location = new Point(282, 312);
+            txtApellidoEmpleado.Margin = new Padding(3, 4, 3, 4);
             txtApellidoEmpleado.Name = "txtApellidoEmpleado";
-            txtApellidoEmpleado.Size = new Size(109, 14);
+            txtApellidoEmpleado.Size = new Size(125, 18);
             txtApellidoEmpleado.TabIndex = 13;
             // 
             // pbEmpleado
             // 
             pbEmpleado.BackColor = Color.White;
             pbEmpleado.Image = Resource1.empleado;
-            pbEmpleado.Location = new Point(14, 274);
+            pbEmpleado.Location = new Point(16, 365);
+            pbEmpleado.Margin = new Padding(3, 4, 3, 4);
             pbEmpleado.Name = "pbEmpleado";
-            pbEmpleado.Size = new Size(70, 70);
+            pbEmpleado.Size = new Size(80, 93);
             pbEmpleado.SizeMode = PictureBoxSizeMode.CenterImage;
             pbEmpleado.TabIndex = 930;
             pbEmpleado.TabStop = false;
@@ -282,9 +284,9 @@
             lbCorreoEmpleado.AutoSize = true;
             lbCorreoEmpleado.Font = new Font("Franklin Gothic Medium", 10F, FontStyle.Regular, GraphicsUnit.Point);
             lbCorreoEmpleado.ForeColor = Color.DarkSlateBlue;
-            lbCorreoEmpleado.Location = new Point(540, 214);
+            lbCorreoEmpleado.Location = new Point(617, 285);
             lbCorreoEmpleado.Name = "lbCorreoEmpleado";
-            lbCorreoEmpleado.Size = new Size(41, 18);
+            lbCorreoEmpleado.Size = new Size(50, 21);
             lbCorreoEmpleado.TabIndex = 919;
             lbCorreoEmpleado.Text = "Email";
             // 
@@ -293,9 +295,9 @@
             lbCelularEmpleado.AutoSize = true;
             lbCelularEmpleado.Font = new Font("Franklin Gothic Medium", 10F, FontStyle.Regular, GraphicsUnit.Point);
             lbCelularEmpleado.ForeColor = Color.DarkSlateBlue;
-            lbCelularEmpleado.Location = new Point(379, 214);
+            lbCelularEmpleado.Location = new Point(433, 285);
             lbCelularEmpleado.Name = "lbCelularEmpleado";
-            lbCelularEmpleado.Size = new Size(50, 18);
+            lbCelularEmpleado.Size = new Size(61, 21);
             lbCelularEmpleado.TabIndex = 918;
             lbCelularEmpleado.Text = "Celular";
             // 
@@ -304,9 +306,9 @@
             lbApellidoEmpleado.AutoSize = true;
             lbApellidoEmpleado.Font = new Font("Franklin Gothic Medium", 10F, FontStyle.Regular, GraphicsUnit.Point);
             lbApellidoEmpleado.ForeColor = Color.DarkSlateBlue;
-            lbApellidoEmpleado.Location = new Point(246, 216);
+            lbApellidoEmpleado.Location = new Point(281, 288);
             lbApellidoEmpleado.Name = "lbApellidoEmpleado";
-            lbApellidoEmpleado.Size = new Size(55, 18);
+            lbApellidoEmpleado.Size = new Size(68, 21);
             lbApellidoEmpleado.TabIndex = 917;
             lbApellidoEmpleado.Text = "Apellido";
             // 
@@ -315,9 +317,9 @@
             lbNombreEmpleado.AutoSize = true;
             lbNombreEmpleado.Font = new Font("Franklin Gothic Medium", 10F, FontStyle.Regular, GraphicsUnit.Point);
             lbNombreEmpleado.ForeColor = Color.DarkSlateBlue;
-            lbNombreEmpleado.Location = new Point(131, 216);
+            lbNombreEmpleado.Location = new Point(150, 288);
             lbNombreEmpleado.Name = "lbNombreEmpleado";
-            lbNombreEmpleado.Size = new Size(55, 18);
+            lbNombreEmpleado.Size = new Size(68, 21);
             lbNombreEmpleado.TabIndex = 916;
             lbNombreEmpleado.Text = "Nombre";
             // 
@@ -348,12 +350,13 @@
             dgvEmpleado.DefaultCellStyle = dataGridViewCellStyle2;
             dgvEmpleado.EnableHeadersVisualStyles = false;
             dgvEmpleado.GridColor = Color.DarkSlateBlue;
-            dgvEmpleado.Location = new Point(122, 262);
+            dgvEmpleado.Location = new Point(139, 349);
+            dgvEmpleado.Margin = new Padding(3, 4, 3, 4);
             dgvEmpleado.Name = "dgvEmpleado";
             dgvEmpleado.ReadOnly = true;
             dgvEmpleado.RowHeadersWidth = 51;
             dgvEmpleado.RowTemplate.Height = 25;
-            dgvEmpleado.Size = new Size(1027, 150);
+            dgvEmpleado.Size = new Size(1174, 200);
             dgvEmpleado.TabIndex = 14;
             dgvEmpleado.TabStop = false;
             dgvEmpleado.CellContentClick += dgvEmpleado_CellContentClick;
@@ -420,9 +423,10 @@
             btnBajaEmpleado.ForeColor = Color.Black;
             btnBajaEmpleado.Image = Resource1.eliminar_empleado;
             btnBajaEmpleado.ImageAlign = ContentAlignment.MiddleRight;
-            btnBajaEmpleado.Location = new Point(1157, 325);
+            btnBajaEmpleado.Location = new Point(1322, 433);
+            btnBajaEmpleado.Margin = new Padding(3, 4, 3, 4);
             btnBajaEmpleado.Name = "btnBajaEmpleado";
-            btnBajaEmpleado.Size = new Size(103, 34);
+            btnBajaEmpleado.Size = new Size(118, 45);
             btnBajaEmpleado.TabIndex = 18;
             btnBajaEmpleado.Text = "DAR BAJA";
             btnBajaEmpleado.TextAlign = ContentAlignment.MiddleLeft;
@@ -434,9 +438,10 @@
             txtCorreoEmpleado.BackColor = Color.White;
             txtCorreoEmpleado.BorderStyle = BorderStyle.None;
             txtCorreoEmpleado.Font = new Font("Franklin Gothic Medium", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtCorreoEmpleado.Location = new Point(541, 232);
+            txtCorreoEmpleado.Location = new Point(618, 309);
+            txtCorreoEmpleado.Margin = new Padding(3, 4, 3, 4);
             txtCorreoEmpleado.Name = "txtCorreoEmpleado";
-            txtCorreoEmpleado.Size = new Size(141, 14);
+            txtCorreoEmpleado.Size = new Size(161, 18);
             txtCorreoEmpleado.TabIndex = 15;
             // 
             // btnCancelarEmpleado
@@ -447,9 +452,10 @@
             btnCancelarEmpleado.ForeColor = Color.Black;
             btnCancelarEmpleado.Image = Resource1.limpiar_datos;
             btnCancelarEmpleado.ImageAlign = ContentAlignment.MiddleRight;
-            btnCancelarEmpleado.Location = new Point(1157, 375);
+            btnCancelarEmpleado.Location = new Point(1322, 500);
+            btnCancelarEmpleado.Margin = new Padding(3, 4, 3, 4);
             btnCancelarEmpleado.Name = "btnCancelarEmpleado";
-            btnCancelarEmpleado.Size = new Size(103, 33);
+            btnCancelarEmpleado.Size = new Size(118, 44);
             btnCancelarEmpleado.TabIndex = 19;
             btnCancelarEmpleado.Text = "LIMPIAR";
             btnCancelarEmpleado.TextAlign = ContentAlignment.MiddleLeft;
@@ -463,9 +469,10 @@
             btnModificarEmpleado.ForeColor = Color.Black;
             btnModificarEmpleado.Image = Resource1.editar_empleado;
             btnModificarEmpleado.ImageAlign = ContentAlignment.MiddleRight;
-            btnModificarEmpleado.Location = new Point(1157, 275);
+            btnModificarEmpleado.Location = new Point(1322, 367);
+            btnModificarEmpleado.Margin = new Padding(3, 4, 3, 4);
             btnModificarEmpleado.Name = "btnModificarEmpleado";
-            btnModificarEmpleado.Size = new Size(103, 34);
+            btnModificarEmpleado.Size = new Size(118, 45);
             btnModificarEmpleado.TabIndex = 17;
             btnModificarEmpleado.Text = "MODIFICAR";
             btnModificarEmpleado.TextAlign = ContentAlignment.MiddleLeft;
@@ -479,9 +486,10 @@
             btnAgregarEmpleado.ForeColor = Color.Black;
             btnAgregarEmpleado.Image = Resource1.agregar_empleado;
             btnAgregarEmpleado.ImageAlign = ContentAlignment.MiddleRight;
-            btnAgregarEmpleado.Location = new Point(1156, 225);
+            btnAgregarEmpleado.Location = new Point(1321, 300);
+            btnAgregarEmpleado.Margin = new Padding(3, 4, 3, 4);
             btnAgregarEmpleado.Name = "btnAgregarEmpleado";
-            btnAgregarEmpleado.Size = new Size(103, 34);
+            btnAgregarEmpleado.Size = new Size(118, 45);
             btnAgregarEmpleado.TabIndex = 16;
             btnAgregarEmpleado.Text = "AGREGAR";
             btnAgregarEmpleado.TextAlign = ContentAlignment.MiddleLeft;
@@ -493,76 +501,85 @@
             txtTelefonoEmpleado.BackColor = Color.White;
             txtTelefonoEmpleado.BorderStyle = BorderStyle.None;
             txtTelefonoEmpleado.Font = new Font("Franklin Gothic Medium", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtTelefonoEmpleado.Location = new Point(379, 232);
+            txtTelefonoEmpleado.Location = new Point(433, 309);
+            txtTelefonoEmpleado.Margin = new Padding(3, 4, 3, 4);
             txtTelefonoEmpleado.Name = "txtTelefonoEmpleado";
-            txtTelefonoEmpleado.Size = new Size(123, 14);
+            txtTelefonoEmpleado.Size = new Size(141, 18);
             txtTelefonoEmpleado.TabIndex = 14;
             // 
             // pictureBox13
             // 
-            pictureBox13.Location = new Point(537, 228);
+            pictureBox13.Location = new Point(614, 304);
+            pictureBox13.Margin = new Padding(3, 4, 3, 4);
             pictureBox13.Name = "pictureBox13";
-            pictureBox13.Size = new Size(152, 23);
+            pictureBox13.Size = new Size(174, 31);
             pictureBox13.TabIndex = 922;
             pictureBox13.TabStop = false;
             // 
             // pictureBox12
             // 
-            pictureBox12.Location = new Point(376, 228);
+            pictureBox12.Location = new Point(430, 304);
+            pictureBox12.Margin = new Padding(3, 4, 3, 4);
             pictureBox12.Name = "pictureBox12";
-            pictureBox12.Size = new Size(133, 23);
+            pictureBox12.Size = new Size(152, 31);
             pictureBox12.TabIndex = 923;
             pictureBox12.TabStop = false;
             // 
             // pictureBox11
             // 
-            pictureBox11.Location = new Point(243, 230);
+            pictureBox11.Location = new Point(278, 307);
+            pictureBox11.Margin = new Padding(3, 4, 3, 4);
             pictureBox11.Name = "pictureBox11";
-            pictureBox11.Size = new Size(116, 23);
+            pictureBox11.Size = new Size(133, 31);
             pictureBox11.TabIndex = 920;
             pictureBox11.TabStop = false;
             // 
             // pbCorreoEmpleado
             // 
             pbCorreoEmpleado.BackColor = Color.DarkSlateBlue;
-            pbCorreoEmpleado.Location = new Point(535, 226);
+            pbCorreoEmpleado.Location = new Point(611, 301);
+            pbCorreoEmpleado.Margin = new Padding(3, 4, 3, 4);
             pbCorreoEmpleado.Name = "pbCorreoEmpleado";
-            pbCorreoEmpleado.Size = new Size(156, 27);
+            pbCorreoEmpleado.Size = new Size(178, 36);
             pbCorreoEmpleado.TabIndex = 929;
             pbCorreoEmpleado.TabStop = false;
             // 
             // pictureBox10
             // 
-            pictureBox10.Location = new Point(128, 230);
+            pictureBox10.Location = new Point(146, 307);
+            pictureBox10.Margin = new Padding(3, 4, 3, 4);
             pictureBox10.Name = "pictureBox10";
-            pictureBox10.Size = new Size(101, 23);
+            pictureBox10.Size = new Size(115, 31);
             pictureBox10.TabIndex = 924;
             pictureBox10.TabStop = false;
             // 
             // pbCelularEmpleado
             // 
             pbCelularEmpleado.BackColor = Color.DarkSlateBlue;
-            pbCelularEmpleado.Location = new Point(374, 226);
+            pbCelularEmpleado.Location = new Point(427, 301);
+            pbCelularEmpleado.Margin = new Padding(3, 4, 3, 4);
             pbCelularEmpleado.Name = "pbCelularEmpleado";
-            pbCelularEmpleado.Size = new Size(138, 27);
+            pbCelularEmpleado.Size = new Size(158, 36);
             pbCelularEmpleado.TabIndex = 925;
             pbCelularEmpleado.TabStop = false;
             // 
             // pbApellidoEmpelado
             // 
             pbApellidoEmpelado.BackColor = Color.DarkSlateBlue;
-            pbApellidoEmpelado.Location = new Point(241, 228);
+            pbApellidoEmpelado.Location = new Point(275, 304);
+            pbApellidoEmpelado.Margin = new Padding(3, 4, 3, 4);
             pbApellidoEmpelado.Name = "pbApellidoEmpelado";
-            pbApellidoEmpelado.Size = new Size(120, 27);
+            pbApellidoEmpelado.Size = new Size(137, 36);
             pbApellidoEmpelado.TabIndex = 926;
             pbApellidoEmpelado.TabStop = false;
             // 
             // pbNombreEmpleado
             // 
             pbNombreEmpleado.BackColor = Color.DarkSlateBlue;
-            pbNombreEmpleado.Location = new Point(126, 228);
+            pbNombreEmpleado.Location = new Point(144, 304);
+            pbNombreEmpleado.Margin = new Padding(3, 4, 3, 4);
             pbNombreEmpleado.Name = "pbNombreEmpleado";
-            pbNombreEmpleado.Size = new Size(105, 27);
+            pbNombreEmpleado.Size = new Size(120, 36);
             pbNombreEmpleado.TabIndex = 928;
             pbNombreEmpleado.TabStop = false;
             // 
@@ -573,9 +590,9 @@
             lbTitulioSeccionObservacion.FlatStyle = FlatStyle.Flat;
             lbTitulioSeccionObservacion.Font = new Font("Franklin Gothic Medium", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lbTitulioSeccionObservacion.ForeColor = Color.SlateGray;
-            lbTitulioSeccionObservacion.Location = new Point(-10, 528);
+            lbTitulioSeccionObservacion.Location = new Point(-11, 687);
             lbTitulioSeccionObservacion.Name = "lbTitulioSeccionObservacion";
-            lbTitulioSeccionObservacion.Size = new Size(121, 21);
+            lbTitulioSeccionObservacion.Size = new Size(149, 25);
             lbTitulioSeccionObservacion.TabIndex = 99;
             lbTitulioSeccionObservacion.Text = "OBSERVACIÓN";
             // 
@@ -583,9 +600,10 @@
             // 
             pbImagenObservacion.BackColor = Color.White;
             pbImagenObservacion.Image = Resource1.observacion;
-            pbImagenObservacion.Location = new Point(13, 453);
+            pbImagenObservacion.Location = new Point(15, 604);
+            pbImagenObservacion.Margin = new Padding(3, 4, 3, 4);
             pbImagenObservacion.Name = "pbImagenObservacion";
-            pbImagenObservacion.Size = new Size(70, 70);
+            pbImagenObservacion.Size = new Size(80, 93);
             pbImagenObservacion.SizeMode = PictureBoxSizeMode.CenterImage;
             pbImagenObservacion.TabIndex = 98;
             pbImagenObservacion.TabStop = false;
@@ -597,9 +615,9 @@
             lbTituloSeccionTareas.FlatStyle = FlatStyle.Flat;
             lbTituloSeccionTareas.Font = new Font("Franklin Gothic Medium", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lbTituloSeccionTareas.ForeColor = Color.SlateGray;
-            lbTituloSeccionTareas.Location = new Point(12, 154);
+            lbTituloSeccionTareas.Location = new Point(14, 205);
             lbTituloSeccionTareas.Name = "lbTituloSeccionTareas";
-            lbTituloSeccionTareas.Size = new Size(72, 21);
+            lbTituloSeccionTareas.Size = new Size(86, 25);
             lbTituloSeccionTareas.TabIndex = 95;
             lbTituloSeccionTareas.Text = "TAREAS";
             // 
@@ -607,9 +625,10 @@
             // 
             pbImagenTareas.BackColor = Color.White;
             pbImagenTareas.Image = Resource1.tarea;
-            pbImagenTareas.Location = new Point(13, 76);
+            pbImagenTareas.Location = new Point(15, 101);
+            pbImagenTareas.Margin = new Padding(3, 4, 3, 4);
             pbImagenTareas.Name = "pbImagenTareas";
-            pbImagenTareas.Size = new Size(70, 70);
+            pbImagenTareas.Size = new Size(80, 93);
             pbImagenTareas.SizeMode = PictureBoxSizeMode.CenterImage;
             pbImagenTareas.TabIndex = 94;
             pbImagenTareas.TabStop = false;
@@ -619,9 +638,9 @@
             lbDescripcionTarea.AutoSize = true;
             lbDescripcionTarea.Font = new Font("Franklin Gothic Medium", 10F, FontStyle.Regular, GraphicsUnit.Point);
             lbDescripcionTarea.ForeColor = Color.Teal;
-            lbDescripcionTarea.Location = new Point(136, 10);
+            lbDescripcionTarea.Location = new Point(155, 13);
             lbDescripcionTarea.Name = "lbDescripcionTarea";
-            lbDescripcionTarea.Size = new Size(78, 18);
+            lbDescripcionTarea.Size = new Size(95, 21);
             lbDescripcionTarea.TabIndex = 90;
             lbDescripcionTarea.Text = "Descripción";
             lbDescripcionTarea.Click += lbDescripcionTarea_Click;
@@ -631,10 +650,9 @@
             txtCostoEstimado.BorderStyle = BorderStyle.None;
             txtCostoEstimado.Font = new Font("Franklin Gothic Medium", 9F, FontStyle.Regular, GraphicsUnit.Point);
             txtCostoEstimado.ForeColor = Color.Black;
-            txtCostoEstimado.Location = new Point(421, 28);
-            txtCostoEstimado.Margin = new Padding(3, 2, 3, 2);
+            txtCostoEstimado.Location = new Point(481, 37);
             txtCostoEstimado.Name = "txtCostoEstimado";
-            txtCostoEstimado.Size = new Size(124, 14);
+            txtCostoEstimado.Size = new Size(142, 18);
             txtCostoEstimado.TabIndex = 3;
             txtCostoEstimado.Tag = "";
             txtCostoEstimado.TextChanged += txtCostoEstimado_TextChanged;
@@ -644,10 +662,9 @@
             txtDescripcion.BackColor = Color.White;
             txtDescripcion.BorderStyle = BorderStyle.None;
             txtDescripcion.Font = new Font("Franklin Gothic Medium", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtDescripcion.Location = new Point(135, 28);
-            txtDescripcion.Margin = new Padding(3, 2, 3, 2);
+            txtDescripcion.Location = new Point(154, 37);
             txtDescripcion.Name = "txtDescripcion";
-            txtDescripcion.Size = new Size(250, 14);
+            txtDescripcion.Size = new Size(286, 18);
             txtDescripcion.TabIndex = 2;
             txtDescripcion.Tag = "";
             txtDescripcion.TextChanged += txtDescripcion_TextChanged;
@@ -657,9 +674,9 @@
             lbCostoRealTarea.AutoSize = true;
             lbCostoRealTarea.Font = new Font("Franklin Gothic Medium", 10F, FontStyle.Regular, GraphicsUnit.Point);
             lbCostoRealTarea.ForeColor = Color.Teal;
-            lbCostoRealTarea.Location = new Point(847, 10);
+            lbCostoRealTarea.Location = new Point(968, 13);
             lbCostoRealTarea.Name = "lbCostoRealTarea";
-            lbCostoRealTarea.Size = new Size(67, 18);
+            lbCostoRealTarea.Size = new Size(83, 21);
             lbCostoRealTarea.TabIndex = 90;
             lbCostoRealTarea.Text = "Costo real";
             lbCostoRealTarea.Click += lbCostoRealTarea_Click;
@@ -669,9 +686,9 @@
             lbHorasRealesTarea.AutoSize = true;
             lbHorasRealesTarea.Font = new Font("Franklin Gothic Medium", 10F, FontStyle.Regular, GraphicsUnit.Point);
             lbHorasRealesTarea.ForeColor = Color.Teal;
-            lbHorasRealesTarea.Location = new Point(721, 10);
+            lbHorasRealesTarea.Location = new Point(824, 13);
             lbHorasRealesTarea.Name = "lbHorasRealesTarea";
-            lbHorasRealesTarea.Size = new Size(83, 18);
+            lbHorasRealesTarea.Size = new Size(102, 21);
             lbHorasRealesTarea.TabIndex = 90;
             lbHorasRealesTarea.Text = "Horas reales";
             lbHorasRealesTarea.Click += lbHorasRealesTarea_Click;
@@ -681,9 +698,9 @@
             lbCostoEstimadoTarea.AutoSize = true;
             lbCostoEstimadoTarea.Font = new Font("Franklin Gothic Medium", 10F, FontStyle.Regular, GraphicsUnit.Point);
             lbCostoEstimadoTarea.ForeColor = Color.Teal;
-            lbCostoEstimadoTarea.Location = new Point(422, 10);
+            lbCostoEstimadoTarea.Location = new Point(482, 13);
             lbCostoEstimadoTarea.Name = "lbCostoEstimadoTarea";
-            lbCostoEstimadoTarea.Size = new Size(98, 18);
+            lbCostoEstimadoTarea.Size = new Size(122, 21);
             lbCostoEstimadoTarea.TabIndex = 90;
             lbCostoEstimadoTarea.Text = "Costo estimado";
             lbCostoEstimadoTarea.Click += lbCostoEstimadoTarea_Click;
@@ -693,9 +710,9 @@
             lbHorasEstimadasTarea.AutoSize = true;
             lbHorasEstimadasTarea.Font = new Font("Franklin Gothic Medium", 10F, FontStyle.Regular, GraphicsUnit.Point);
             lbHorasEstimadasTarea.ForeColor = Color.Teal;
-            lbHorasEstimadasTarea.Location = new Point(574, 10);
+            lbHorasEstimadasTarea.Location = new Point(656, 13);
             lbHorasEstimadasTarea.Name = "lbHorasEstimadasTarea";
-            lbHorasEstimadasTarea.Size = new Size(108, 18);
+            lbHorasEstimadasTarea.Size = new Size(132, 21);
             lbHorasEstimadasTarea.TabIndex = 90;
             lbHorasEstimadasTarea.Text = "Horas estimadas";
             lbHorasEstimadasTarea.Click += lbHorasEstimadasTarea_Click;
@@ -705,9 +722,9 @@
             lbObservacion.AutoSize = true;
             lbObservacion.Font = new Font("Franklin Gothic Medium", 10F, FontStyle.Regular, GraphicsUnit.Point);
             lbObservacion.ForeColor = Color.DeepSkyBlue;
-            lbObservacion.Location = new Point(497, 433);
+            lbObservacion.Location = new Point(733, 560);
             lbObservacion.Name = "lbObservacion";
-            lbObservacion.Size = new Size(82, 18);
+            lbObservacion.Size = new Size(100, 21);
             lbObservacion.TabIndex = 900;
             lbObservacion.Text = "Observación";
             // 
@@ -719,9 +736,10 @@
             btnCancelarObservacion.ForeColor = Color.Black;
             btnCancelarObservacion.Image = Resource1.limpiar_datos;
             btnCancelarObservacion.ImageAlign = ContentAlignment.MiddleRight;
-            btnCancelarObservacion.Location = new Point(746, 542);
+            btnCancelarObservacion.Location = new Point(1018, 706);
+            btnCancelarObservacion.Margin = new Padding(3, 4, 3, 4);
             btnCancelarObservacion.Name = "btnCancelarObservacion";
-            btnCancelarObservacion.Size = new Size(103, 34);
+            btnCancelarObservacion.Size = new Size(118, 45);
             btnCancelarObservacion.TabIndex = 27;
             btnCancelarObservacion.Text = "LIMPIAR";
             btnCancelarObservacion.TextAlign = ContentAlignment.MiddleLeft;
@@ -735,9 +753,10 @@
             btnModificarObservacion.ForeColor = Color.Black;
             btnModificarObservacion.Image = Resource1.observacion_editar;
             btnModificarObservacion.ImageAlign = ContentAlignment.MiddleRight;
-            btnModificarObservacion.Location = new Point(746, 496);
+            btnModificarObservacion.Location = new Point(1018, 644);
+            btnModificarObservacion.Margin = new Padding(3, 4, 3, 4);
             btnModificarObservacion.Name = "btnModificarObservacion";
-            btnModificarObservacion.Size = new Size(103, 34);
+            btnModificarObservacion.Size = new Size(118, 45);
             btnModificarObservacion.TabIndex = 26;
             btnModificarObservacion.Text = "MODIFICAR";
             btnModificarObservacion.TextAlign = ContentAlignment.MiddleLeft;
@@ -751,9 +770,10 @@
             btnAgregarObservacion.ForeColor = Color.Black;
             btnAgregarObservacion.Image = Resource1.observacion_agregar;
             btnAgregarObservacion.ImageAlign = ContentAlignment.MiddleRight;
-            btnAgregarObservacion.Location = new Point(746, 442);
+            btnAgregarObservacion.Location = new Point(1018, 572);
+            btnAgregarObservacion.Margin = new Padding(3, 4, 3, 4);
             btnAgregarObservacion.Name = "btnAgregarObservacion";
-            btnAgregarObservacion.Size = new Size(103, 34);
+            btnAgregarObservacion.Size = new Size(118, 45);
             btnAgregarObservacion.TabIndex = 25;
             btnAgregarObservacion.Text = "AGREGAR";
             btnAgregarObservacion.TextAlign = ContentAlignment.MiddleLeft;
@@ -774,7 +794,7 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             dgvObservacion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvObservacion.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvObservacion.Columns.AddRange(new DataGridViewColumn[] { FechaObservacion, IdEmpleadoFk, Column4 });
+            dgvObservacion.Columns.AddRange(new DataGridViewColumn[] { IdObservacion, FechaObservacion, observacion });
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = Color.SkyBlue;
             dataGridViewCellStyle4.Font = new Font("Franklin Gothic Medium", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
@@ -785,24 +805,27 @@
             dgvObservacion.DefaultCellStyle = dataGridViewCellStyle4;
             dgvObservacion.EnableHeadersVisualStyles = false;
             dgvObservacion.GridColor = Color.DeepSkyBlue;
-            dgvObservacion.Location = new Point(122, 440);
+            dgvObservacion.Location = new Point(139, 570);
+            dgvObservacion.Margin = new Padding(3, 4, 3, 4);
             dgvObservacion.Name = "dgvObservacion";
             dgvObservacion.ReadOnly = true;
             dgvObservacion.RowHeadersWidth = 51;
             dgvObservacion.RowTemplate.Height = 25;
-            dgvObservacion.Size = new Size(345, 136);
+            dgvObservacion.Size = new Size(484, 181);
             dgvObservacion.TabIndex = 99;
             dgvObservacion.TabStop = false;
+            dgvObservacion.CellClick += dgvObservacion_CellClick;
             // 
             // txtObservacion
             // 
             txtObservacion.BackColor = Color.White;
             txtObservacion.BorderStyle = BorderStyle.None;
             txtObservacion.Font = new Font("Franklin Gothic Medium", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtObservacion.Location = new Point(492, 453);
+            txtObservacion.Location = new Point(727, 587);
+            txtObservacion.Margin = new Padding(3, 4, 3, 4);
             txtObservacion.Multiline = true;
             txtObservacion.Name = "txtObservacion";
-            txtObservacion.Size = new Size(200, 77);
+            txtObservacion.Size = new Size(229, 103);
             txtObservacion.TabIndex = 24;
             // 
             // txtCostoReal
@@ -810,10 +833,9 @@
             txtCostoReal.BackColor = Color.White;
             txtCostoReal.BorderStyle = BorderStyle.None;
             txtCostoReal.Font = new Font("Franklin Gothic Medium", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtCostoReal.Location = new Point(843, 28);
-            txtCostoReal.Margin = new Padding(3, 2, 3, 2);
+            txtCostoReal.Location = new Point(963, 37);
             txtCostoReal.Name = "txtCostoReal";
-            txtCostoReal.Size = new Size(110, 14);
+            txtCostoReal.Size = new Size(126, 18);
             txtCostoReal.TabIndex = 6;
             txtCostoReal.TextChanged += txtCostoReal_TextChanged;
             // 
@@ -822,10 +844,9 @@
             txtHoraEstimada.BackColor = Color.White;
             txtHoraEstimada.BorderStyle = BorderStyle.None;
             txtHoraEstimada.Font = new Font("Franklin Gothic Medium", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtHoraEstimada.Location = new Point(572, 28);
-            txtHoraEstimada.Margin = new Padding(3, 2, 3, 2);
+            txtHoraEstimada.Location = new Point(654, 37);
             txtHoraEstimada.Name = "txtHoraEstimada";
-            txtHoraEstimada.Size = new Size(120, 14);
+            txtHoraEstimada.Size = new Size(137, 18);
             txtHoraEstimada.TabIndex = 4;
             txtHoraEstimada.Tag = "";
             txtHoraEstimada.TextChanged += txtHoraEstimada_TextChanged;
@@ -835,10 +856,9 @@
             txtHoraReal.BackColor = Color.White;
             txtHoraReal.BorderStyle = BorderStyle.None;
             txtHoraReal.Font = new Font("Franklin Gothic Medium", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtHoraReal.Location = new Point(717, 28);
-            txtHoraReal.Margin = new Padding(3, 2, 3, 2);
+            txtHoraReal.Location = new Point(819, 37);
             txtHoraReal.Name = "txtHoraReal";
-            txtHoraReal.Size = new Size(100, 14);
+            txtHoraReal.Size = new Size(114, 18);
             txtHoraReal.TabIndex = 5;
             txtHoraReal.TextChanged += txtHoraReal_TextChanged;
             // 
@@ -849,9 +869,10 @@
             btnModificarTarea.ForeColor = Color.Black;
             btnModificarTarea.Image = Resource1.editar_tarea;
             btnModificarTarea.ImageAlign = ContentAlignment.MiddleRight;
-            btnModificarTarea.Location = new Point(1156, 70);
+            btnModificarTarea.Location = new Point(1321, 93);
+            btnModificarTarea.Margin = new Padding(3, 4, 3, 4);
             btnModificarTarea.Name = "btnModificarTarea";
-            btnModificarTarea.Size = new Size(103, 34);
+            btnModificarTarea.Size = new Size(118, 45);
             btnModificarTarea.TabIndex = 8;
             btnModificarTarea.Text = "MODIFICAR";
             btnModificarTarea.TextAlign = ContentAlignment.MiddleLeft;
@@ -866,9 +887,10 @@
             btnCancelarTarea.ForeColor = Color.Black;
             btnCancelarTarea.Image = Resource1.limpiar_datos;
             btnCancelarTarea.ImageAlign = ContentAlignment.MiddleRight;
-            btnCancelarTarea.Location = new Point(1156, 172);
+            btnCancelarTarea.Location = new Point(1321, 229);
+            btnCancelarTarea.Margin = new Padding(3, 4, 3, 4);
             btnCancelarTarea.Name = "btnCancelarTarea";
-            btnCancelarTarea.Size = new Size(103, 34);
+            btnCancelarTarea.Size = new Size(118, 45);
             btnCancelarTarea.TabIndex = 10;
             btnCancelarTarea.Text = "LIMPIAR";
             btnCancelarTarea.TextAlign = ContentAlignment.MiddleLeft;
@@ -882,9 +904,10 @@
             btnBajaTarea.ForeColor = Color.Black;
             btnBajaTarea.Image = Resource1.eliminar_tarea;
             btnBajaTarea.ImageAlign = ContentAlignment.MiddleRight;
-            btnBajaTarea.Location = new Point(1156, 121);
+            btnBajaTarea.Location = new Point(1321, 161);
+            btnBajaTarea.Margin = new Padding(3, 4, 3, 4);
             btnBajaTarea.Name = "btnBajaTarea";
-            btnBajaTarea.Size = new Size(103, 34);
+            btnBajaTarea.Size = new Size(118, 45);
             btnBajaTarea.TabIndex = 9;
             btnBajaTarea.Text = "DAR BAJA";
             btnBajaTarea.TextAlign = ContentAlignment.MiddleLeft;
@@ -893,9 +916,10 @@
             // 
             // pictureBox7
             // 
-            pictureBox7.Location = new Point(839, 24);
+            pictureBox7.Location = new Point(959, 32);
+            pictureBox7.Margin = new Padding(3, 4, 3, 4);
             pictureBox7.Name = "pictureBox7";
-            pictureBox7.Size = new Size(126, 23);
+            pictureBox7.Size = new Size(144, 31);
             pictureBox7.TabIndex = 91;
             pictureBox7.TabStop = false;
             pictureBox7.Click += pictureBox7_Click;
@@ -907,9 +931,10 @@
             btnAgregarTarea.ForeColor = Color.Black;
             btnAgregarTarea.Image = Resource1.agregar_tarea;
             btnAgregarTarea.ImageAlign = ContentAlignment.MiddleRight;
-            btnAgregarTarea.Location = new Point(1156, 19);
+            btnAgregarTarea.Location = new Point(1321, 25);
+            btnAgregarTarea.Margin = new Padding(3, 4, 3, 4);
             btnAgregarTarea.Name = "btnAgregarTarea";
-            btnAgregarTarea.Size = new Size(103, 34);
+            btnAgregarTarea.Size = new Size(118, 45);
             btnAgregarTarea.TabIndex = 7;
             btnAgregarTarea.Text = "AGREGAR";
             btnAgregarTarea.TextAlign = ContentAlignment.MiddleLeft;
@@ -918,27 +943,30 @@
             // 
             // pictureBox14
             // 
-            pictureBox14.Location = new Point(488, 442);
+            pictureBox14.Location = new Point(723, 572);
+            pictureBox14.Margin = new Padding(3, 4, 3, 4);
             pictureBox14.Name = "pictureBox14";
-            pictureBox14.Size = new Size(212, 96);
+            pictureBox14.Size = new Size(242, 128);
             pictureBox14.TabIndex = 91;
             pictureBox14.TabStop = false;
             // 
             // pbCostoRealTarea
             // 
             pbCostoRealTarea.BackColor = Color.Teal;
-            pbCostoRealTarea.Location = new Point(837, 22);
+            pbCostoRealTarea.Location = new Point(957, 29);
+            pbCostoRealTarea.Margin = new Padding(3, 4, 3, 4);
             pbCostoRealTarea.Name = "pbCostoRealTarea";
-            pbCostoRealTarea.Size = new Size(130, 27);
+            pbCostoRealTarea.Size = new Size(149, 36);
             pbCostoRealTarea.TabIndex = 92;
             pbCostoRealTarea.TabStop = false;
             pbCostoRealTarea.Click += pbCostoRealTarea_Click;
             // 
             // pictureBox6
             // 
-            pictureBox6.Location = new Point(713, 24);
+            pictureBox6.Location = new Point(815, 32);
+            pictureBox6.Margin = new Padding(3, 4, 3, 4);
             pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(106, 23);
+            pictureBox6.Size = new Size(121, 31);
             pictureBox6.TabIndex = 91;
             pictureBox6.TabStop = false;
             pictureBox6.Click += pictureBox6_Click;
@@ -946,18 +974,20 @@
             // pbHorasRealesTarea
             // 
             pbHorasRealesTarea.BackColor = Color.Teal;
-            pbHorasRealesTarea.Location = new Point(711, 22);
+            pbHorasRealesTarea.Location = new Point(813, 29);
+            pbHorasRealesTarea.Margin = new Padding(3, 4, 3, 4);
             pbHorasRealesTarea.Name = "pbHorasRealesTarea";
-            pbHorasRealesTarea.Size = new Size(110, 27);
+            pbHorasRealesTarea.Size = new Size(126, 36);
             pbHorasRealesTarea.TabIndex = 92;
             pbHorasRealesTarea.TabStop = false;
             pbHorasRealesTarea.Click += pbHorasRealesTarea_Click;
             // 
             // pictureBox5
             // 
-            pictureBox5.Location = new Point(414, 24);
+            pictureBox5.Location = new Point(473, 32);
+            pictureBox5.Margin = new Padding(3, 4, 3, 4);
             pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(136, 23);
+            pictureBox5.Size = new Size(155, 31);
             pictureBox5.TabIndex = 91;
             pictureBox5.TabStop = false;
             pictureBox5.Click += pictureBox5_Click;
@@ -965,9 +995,10 @@
             // pbCostoEstimadoTarea
             // 
             pbCostoEstimadoTarea.BackColor = Color.Teal;
-            pbCostoEstimadoTarea.Location = new Point(412, 22);
+            pbCostoEstimadoTarea.Location = new Point(471, 29);
+            pbCostoEstimadoTarea.Margin = new Padding(3, 4, 3, 4);
             pbCostoEstimadoTarea.Name = "pbCostoEstimadoTarea";
-            pbCostoEstimadoTarea.Size = new Size(140, 27);
+            pbCostoEstimadoTarea.Size = new Size(160, 36);
             pbCostoEstimadoTarea.TabIndex = 92;
             pbCostoEstimadoTarea.TabStop = false;
             pbCostoEstimadoTarea.Click += pbCostoEstimadoTarea_Click;
@@ -975,17 +1006,19 @@
             // pbObservacion
             // 
             pbObservacion.BackColor = Color.DeepSkyBlue;
-            pbObservacion.Location = new Point(486, 440);
+            pbObservacion.Location = new Point(720, 570);
+            pbObservacion.Margin = new Padding(3, 4, 3, 4);
             pbObservacion.Name = "pbObservacion";
-            pbObservacion.Size = new Size(216, 100);
+            pbObservacion.Size = new Size(247, 133);
             pbObservacion.TabIndex = 92;
             pbObservacion.TabStop = false;
             // 
             // pictureBox4
             // 
-            pictureBox4.Location = new Point(570, 24);
+            pictureBox4.Location = new Point(651, 32);
+            pictureBox4.Margin = new Padding(3, 4, 3, 4);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(126, 23);
+            pictureBox4.Size = new Size(144, 31);
             pictureBox4.TabIndex = 91;
             pictureBox4.TabStop = false;
             pictureBox4.Click += pictureBox4_Click;
@@ -993,18 +1026,20 @@
             // pbHorasEstimadasTareas
             // 
             pbHorasEstimadasTareas.BackColor = Color.Teal;
-            pbHorasEstimadasTareas.Location = new Point(568, 22);
+            pbHorasEstimadasTareas.Location = new Point(649, 29);
+            pbHorasEstimadasTareas.Margin = new Padding(3, 4, 3, 4);
             pbHorasEstimadasTareas.Name = "pbHorasEstimadasTareas";
-            pbHorasEstimadasTareas.Size = new Size(130, 27);
+            pbHorasEstimadasTareas.Size = new Size(149, 36);
             pbHorasEstimadasTareas.TabIndex = 92;
             pbHorasEstimadasTareas.TabStop = false;
             pbHorasEstimadasTareas.Click += pbHorasEstimadasTareas_Click;
             // 
             // pictureBox3
             // 
-            pictureBox3.Location = new Point(128, 24);
+            pictureBox3.Location = new Point(146, 32);
+            pictureBox3.Margin = new Padding(3, 4, 3, 4);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(263, 23);
+            pictureBox3.Size = new Size(301, 31);
             pictureBox3.TabIndex = 91;
             pictureBox3.TabStop = false;
             pictureBox3.Click += pictureBox3_Click;
@@ -1012,9 +1047,10 @@
             // pbDescripcionTarea
             // 
             pbDescripcionTarea.BackColor = Color.Teal;
-            pbDescripcionTarea.Location = new Point(126, 22);
+            pbDescripcionTarea.Location = new Point(144, 29);
+            pbDescripcionTarea.Margin = new Padding(3, 4, 3, 4);
             pbDescripcionTarea.Name = "pbDescripcionTarea";
-            pbDescripcionTarea.Size = new Size(267, 27);
+            pbDescripcionTarea.Size = new Size(305, 36);
             pbDescripcionTarea.TabIndex = 92;
             pbDescripcionTarea.TabStop = false;
             pbDescripcionTarea.Click += pbDescripcionTarea_Click;
@@ -1044,13 +1080,12 @@
             dgvTarea.DefaultCellStyle = dataGridViewCellStyle6;
             dgvTarea.EnableHeadersVisualStyles = false;
             dgvTarea.GridColor = Color.Teal;
-            dgvTarea.Location = new Point(122, 56);
-            dgvTarea.Margin = new Padding(3, 2, 3, 2);
+            dgvTarea.Location = new Point(139, 75);
             dgvTarea.Name = "dgvTarea";
             dgvTarea.ReadOnly = true;
             dgvTarea.RowHeadersWidth = 51;
             dgvTarea.RowTemplate.Height = 29;
-            dgvTarea.Size = new Size(1027, 150);
+            dgvTarea.Size = new Size(1174, 200);
             dgvTarea.TabIndex = 17;
             dgvTarea.TabStop = false;
             dgvTarea.CellMouseClick += dgvTarea_CellMouseClick;
@@ -1146,6 +1181,15 @@
             Estado.Name = "Estado";
             Estado.ReadOnly = true;
             // 
+            // IdObservacion
+            // 
+            IdObservacion.DataPropertyName = "id_observacion";
+            IdObservacion.HeaderText = "ID";
+            IdObservacion.MinimumWidth = 6;
+            IdObservacion.Name = "IdObservacion";
+            IdObservacion.ReadOnly = true;
+            IdObservacion.Width = 125;
+            // 
             // FechaObservacion
             // 
             FechaObservacion.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
@@ -1156,32 +1200,22 @@
             FechaObservacion.ReadOnly = true;
             FechaObservacion.Width = 50;
             // 
-            // IdEmpleadoFk
+            // observacion
             // 
-            IdEmpleadoFk.DataPropertyName = "id_empleado";
-            IdEmpleadoFk.HeaderText = "ID Empleado";
-            IdEmpleadoFk.MinimumWidth = 6;
-            IdEmpleadoFk.Name = "IdEmpleadoFk";
-            IdEmpleadoFk.ReadOnly = true;
-            IdEmpleadoFk.Visible = false;
-            IdEmpleadoFk.Width = 125;
-            // 
-            // Column4
-            // 
-            Column4.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Column4.HeaderText = "Observacion";
-            Column4.MinimumWidth = 6;
-            Column4.Name = "Column4";
-            Column4.ReadOnly = true;
+            observacion.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            observacion.DataPropertyName = "observacion";
+            observacion.HeaderText = "Observacion";
+            observacion.MinimumWidth = 6;
+            observacion.Name = "observacion";
+            observacion.ReadOnly = true;
             // 
             // FormularioTarea
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1265, 617);
+            ClientSize = new Size(1446, 823);
             Controls.Add(gpxFormularioTarea);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 2, 3, 2);
             Name = "FormularioTarea";
             Text = "FormularioTarea";
             gpxFormularioTarea.ResumeLayout(false);
@@ -1295,8 +1329,9 @@
         private DataGridViewTextBoxColumn TelefonoEmpleado;
         private DataGridViewTextBoxColumn CorreoEmpleado;
         private DataGridViewTextBoxColumn FechaIngresoEmpleado;
+        private DataGridViewTextBoxColumn IdObservacion;
         private DataGridViewTextBoxColumn FechaObservacion;
-        private DataGridViewTextBoxColumn IdEmpleadoFk;
         private DataGridViewTextBoxColumn Column4;
+        private DataGridViewTextBoxColumn observacion;
     }
 }

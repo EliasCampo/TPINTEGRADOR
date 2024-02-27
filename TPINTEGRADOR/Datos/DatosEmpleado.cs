@@ -169,29 +169,6 @@ namespace TPIntegrador.Datos
         /// ///////////////////////////////////////////////EMPLEADO///////////////////////////////////
         /// //////////////////////////////////////////////EMPLEADO///////////////////////////////////
 
-        public static DataTable listarEmpleado()
-        {
-            DataTable listarNoBaja = new DataTable("Listatodos");
-            String sql = " SELECT E.legajo, E.nombre, E.apellido, E.celular, E.email, E.fecha_ingreso FROM Empleado WHERE baja_empleado = 0";
-
-            try
-            {
-                Conexion Cx = new Conexion();
-                Cx.AbrirConexion();
-                Cx.SetComnadoSQL(sql);
-
-                SqlDataAdapter sqlDat = new SqlDataAdapter(Cx.Comando());
-                sqlDat.Fill(listarNoBaja);
-                Cx.CerrarConexion();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Error por excepción " + e.ToString());
-                listarNoBaja = null;
-            }
-            return listarNoBaja;
-        }
-
 
         public static DataTable listarEmpleadoTrabaja(int nro_tarea)
         {
