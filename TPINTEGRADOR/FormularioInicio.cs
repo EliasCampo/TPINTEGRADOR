@@ -49,7 +49,6 @@ namespace TPIntegrador
 
         public DataTable limpiarDgvProyecto()
         {
-
             DataTable dt = (DataTable)dgvProyecto.DataSource;
             dt.Rows.Clear();
 
