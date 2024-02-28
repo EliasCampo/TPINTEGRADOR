@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TPIntegrador.Controlador;
 
+
 namespace TPIntegrador
 {
     public partial class FormularioTarea : Form
@@ -24,6 +25,7 @@ namespace TPIntegrador
             dgvTarea.DataSource = ControladorTarea.obtenerTareaProyectoBDD(idProyectoTarea);
             btnAgregarEmpleado.Enabled = true;
             btnAgregarObservacion.Enabled = false;
+            btnVolver.Enabled = false;
         }
 
         private static int idProyectoTarea;
@@ -132,7 +134,6 @@ namespace TPIntegrador
             txtHoraEstimada.Enabled = true;
             txtHoraReal.Enabled = false;
             txtCostoEstimado.Enabled = true;
-            btnAgregarTarea.Enabled = true;
         }
 
         private void dgvTarea_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -418,6 +419,8 @@ namespace TPIntegrador
 
                 dgvTarea.DataSource = ControladorTarea.obtenerTareaProyectoBDD(idProyectoTarea); //actualizo
                 LimpiarCamposTarea();
+                dgvEmpleado.DataSource = limpiarDgvEmpleado();
+                dgvObservacion.DataSource = limpiarDgvObservacion();
             }
             else
             {
@@ -503,25 +506,16 @@ namespace TPIntegrador
 
                 int indiceTablaEmpleado = dgvEmpleado.CurrentCell.RowIndex;
                 legajoEmpleadoTarea = Convert.ToInt32(dgvEmpleado[0, indiceTablaEmpleado].Value.ToString());
+
                 txtNombreEmpleado.Text = dgvEmpleado[1, indiceTablaEmpleado].Value.ToString();
                 txtApellidoEmpleado.Text = dgvEmpleado[2, indiceTablaEmpleado].Value.ToString();
                 txtTelefonoEmpleado.Text = dgvEmpleado[3, indiceTablaEmpleado].Value.ToString();
                 txtCorreoEmpleado.Text = dgvEmpleado[4, indiceTablaEmpleado].Value.ToString();
-
-                dgvEmpleado.DataSource = ControladorEmpleado.listarEmpleadoTrabajaBDD(idTarea);
                 cbxFuncion.Text = Validar.validarFuncionObtenida(ControladorTrabaja.obtenerIdFuncionEmpleadoBDD(legajoEmpleadoTarea));
                 dgvObservacion.DataSource = ControladorObservacion.obtenerObservacionBDD(legajoEmpleadoTarea);
 
-                if (indiceTablaEmpleado >= 0 && indiceTablaEmpleado >= 0 &&
-                        indiceTablaEmpleado < dgvEmpleado.Rows.Count && indiceTablaEmpleado < dgvEmpleado.Columns.Count)
-                {
-                    dgvEmpleado.CurrentCell = dgvEmpleado[indiceTablaEmpleado, indiceTablaEmpleado];
-                    dgvEmpleado.Rows[indiceTablaEmpleado].Selected = true;
-                }
-
                 txtHoraReal.Text = string.Empty;
                 txtCostoReal.Text = string.Empty;
-
                 txtDescripcion.Enabled = false;
                 txtHoraEstimada.Enabled = false;
                 txtCostoEstimado.Enabled = false;
@@ -562,6 +556,7 @@ namespace TPIntegrador
                     dgvEmpleado.DataSource = ControladorEmpleado.listarEmpleadoTrabajaBDD(idTarea); //actualizo
                     btnAgregarEmpleado.Enabled = true;
                     LimpiarCamposEmpleado();
+                    dgvObservacion.DataSource = limpiarDgvObservacion();
                 }
                 else
                 {
@@ -577,6 +572,7 @@ namespace TPIntegrador
                     dgvEmpleado.DataSource = ControladorEmpleado.listarEmpleadoTrabajaBDD(idTarea); //actualizo
                     btnAgregarEmpleado.Enabled = false;
                     LimpiarCamposEmpleado();
+                    dgvObservacion.DataSource = limpiarDgvObservacion();
                 }
                 else
                 {
@@ -614,6 +610,7 @@ namespace TPIntegrador
                 btnAgregarEmpleado.Enabled = true;
 
                 LimpiarCampoObservacion();
+                btnVolver.Enabled = true;
             }
         }
 
@@ -641,6 +638,50 @@ namespace TPIntegrador
                 txtObservacion.Text = dgvObservacion[2, indiceTablaObservacion].Value.ToString();
 
             }
+        }
+
+        public DataTable limpiarDgvEmpleado()
+        {
+
+            DataTable dt = (DataTable)dgvEmpleado.DataSource;
+            dt.Rows.Clear();
+
+            return dt;
+        }
+
+        public DataTable limpiarDgvObservacion()
+        {
+
+            DataTable dt = (DataTable)dgvObservacion.DataSource;
+            dt.Rows.Clear();
+
+            return dt;
+        }
+
+        private void btnCancelarCarga_Click(object sender, EventArgs e)
+        {
+            dgvEmpleado.DataSource = limpiarDgvEmpleado();
+            dgvObservacion.DataSource = limpiarDgvObservacion();
+            btnAgregarTarea.Enabled = true;
+            btnAgregarObservacion.Enabled = false;
+            btnAgregarEmpleado.Enabled = false;
+            LimpiarCamposTarea();
+            LimpiarCamposEmpleado();
+            LimpiarCampoObservacion();
+            txtDescripcion.Enabled = true;
+            txtCostoEstimado.Enabled = true;
+            txtHoraEstimada.Enabled = true;
+            txtHoraReal.Enabled = false;
+            txtCostoReal.Enabled = false;
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            FormularioInicio formularioInicio = new FormularioInicio();
+            gpxFormularioTarea.Visible = false;
+            formularioInicio.TopLevel = false;
+            gpxFormularioTarea.Controls.Add(formularioInicio);
+            formularioInicio.Show();
         }
     }
 }

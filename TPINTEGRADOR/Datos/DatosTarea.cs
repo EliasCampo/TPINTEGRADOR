@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace TPIntegrador.Datos
 {
@@ -219,7 +220,63 @@ namespace TPIntegrador.Datos
 
 
 
-        
+        public static DataTable obtenerCostoRealEstimado(int id_proyecto)
+        {
+            DataTable resultado = new DataTable();
+            string sql = "SELECT SUM(costo_estimado) AS costo_estimado, SUM(costo_real) AS costo_real FROM tarea WHERE id_proyecto = " + id_proyecto;
 
+            try
+            {
+                Conexion Cx = new Conexion();
+                Cx.AbrirConexion();
+                Cx.SetComnadoSQL(sql);
+                SqlCommand cmd = Cx.Comando();
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(resultado);
+
+                Cx.CerrarConexion();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error por excepción " + e.ToString());
+            }
+
+            return resultado;
+        }
+
+        public static int obtenerGradoAvance(int id_proyecto) 
+        {
+            int nro_tarea = -1;
+            var resultado = "";
+            string sql = "SELECT (COUNT(estado) * '100') / (SELECT COUNT (estado) as estado_total FROM Tarea WHERE id_proyecto = '13') " +
+                        " FROM Tarea" +
+                        " WHERE estado = 'FINALIZADO' AND id_proyecto = " + id_proyecto;
+            try
+            {
+                Conexion Cx = new Conexion();
+                Cx.AbrirConexion();
+                Cx.SetComnadoSQL(sql);
+                SqlCommand cmd = Cx.Comando();
+
+                if (cmd.ExecuteScalar() != null)
+                {
+                    resultado = cmd.ExecuteScalar().ToString(); //.ExecuteNonQuery();
+                    nro_tarea = Convert.ToInt32(resultado);
+                    Cx.CerrarConexion();
+                    return nro_tarea;
+                }
+                else
+                {
+                    return -1;
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error por excepción " + e.ToString());
+                return nro_tarea;
+            }
+        }
     }
 }

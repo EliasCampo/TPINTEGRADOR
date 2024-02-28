@@ -129,6 +129,18 @@ namespace TPIntegrador.Controlador
             DatosTarea.BajaDatosTarea(idTarea);
         }
 
+        public static int obtenerGradoAvanceBDD(int id_proyecto)
+        {
+            int gradoAvance = DatosTarea.obtenerGradoAvance(id_proyecto);
+            return gradoAvance;
+        }
+
+        public static DataTable obtenerCostoRealEstimadoBDD(int id_proyecto)
+        {
+            DataTable listarCostos = DatosTarea.obtenerCostoRealEstimado(id_proyecto);
+            return listarCostos;
+        }
+
     }
 }
 

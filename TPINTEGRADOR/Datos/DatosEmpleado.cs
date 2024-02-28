@@ -176,7 +176,7 @@ namespace TPIntegrador.Datos
             String sql = "SELECT E.legajo, E.nombre, E.apellido, E.celular, E.email, E.fecha_ingreso" +
                         " FROM Empleado E" +
                         " INNER JOIN Trabaja T ON E.legajo = T.legajo" +
-                        " WHERE T.id_tarea = '" + nro_tarea + "' AND E.baja_empleado = 0 AND T.legajo != 1"; 
+                        " WHERE T.id_tarea = '" + nro_tarea + "' AND E.baja_empleado = 0 AND T.id_funcion_fk != 1"; 
             try
             {
                 Conexion Cx = new Conexion();

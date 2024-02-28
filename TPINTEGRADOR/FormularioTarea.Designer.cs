@@ -35,6 +35,7 @@
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             gpxFormularioTarea = new GroupBox();
+            btnCancelarCarga = new Button();
             cbxFuncion = new ComboBox();
             lbTituloSeccionEmpleado = new Label();
             txtNombreEmpleado = new TextBox();
@@ -81,6 +82,9 @@
             btnModificarObservacion = new Button();
             btnAgregarObservacion = new Button();
             dgvObservacion = new DataGridView();
+            IdObservacion = new DataGridViewTextBoxColumn();
+            FechaObservacion = new DataGridViewTextBoxColumn();
+            observacion = new DataGridViewTextBoxColumn();
             txtObservacion = new TextBox();
             txtCostoReal = new TextBox();
             txtHoraEstimada = new TextBox();
@@ -112,9 +116,7 @@
             FechaFinalizacion = new DataGridViewTextBoxColumn();
             Desvio = new DataGridViewTextBoxColumn();
             Estado = new DataGridViewTextBoxColumn();
-            IdObservacion = new DataGridViewTextBoxColumn();
-            FechaObservacion = new DataGridViewTextBoxColumn();
-            observacion = new DataGridViewTextBoxColumn();
+            btnVolver = new Button();
             gpxFormularioTarea.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbEmpleado).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvEmpleado).BeginInit();
@@ -147,6 +149,8 @@
             // gpxFormularioTarea
             // 
             gpxFormularioTarea.BackColor = Color.White;
+            gpxFormularioTarea.Controls.Add(btnVolver);
+            gpxFormularioTarea.Controls.Add(btnCancelarCarga);
             gpxFormularioTarea.Controls.Add(cbxFuncion);
             gpxFormularioTarea.Controls.Add(lbTituloSeccionEmpleado);
             gpxFormularioTarea.Controls.Add(txtNombreEmpleado);
@@ -218,6 +222,24 @@
             gpxFormularioTarea.TabIndex = 1;
             gpxFormularioTarea.TabStop = false;
             gpxFormularioTarea.Enter += gpxFormularioTarea_Enter;
+            // 
+            // btnCancelarCarga
+            // 
+            btnCancelarCarga.BackColor = Color.Transparent;
+            btnCancelarCarga.FlatStyle = FlatStyle.Flat;
+            btnCancelarCarga.Font = new Font("Arial", 6.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnCancelarCarga.ForeColor = Color.Black;
+            btnCancelarCarga.Image = Resource1.limpiar_datos;
+            btnCancelarCarga.ImageAlign = ContentAlignment.MiddleRight;
+            btnCancelarCarga.Location = new Point(1074, 297);
+            btnCancelarCarga.Margin = new Padding(3, 4, 3, 4);
+            btnCancelarCarga.Name = "btnCancelarCarga";
+            btnCancelarCarga.Size = new Size(154, 45);
+            btnCancelarCarga.TabIndex = 938;
+            btnCancelarCarga.Text = "CANCELAR CARGA";
+            btnCancelarCarga.TextAlign = ContentAlignment.MiddleLeft;
+            btnCancelarCarga.UseVisualStyleBackColor = false;
+            btnCancelarCarga.Click += btnCancelarCarga_Click;
             // 
             // cbxFuncion
             // 
@@ -816,6 +838,34 @@
             dgvObservacion.TabStop = false;
             dgvObservacion.CellClick += dgvObservacion_CellClick;
             // 
+            // IdObservacion
+            // 
+            IdObservacion.DataPropertyName = "id_observacion";
+            IdObservacion.HeaderText = "ID";
+            IdObservacion.MinimumWidth = 6;
+            IdObservacion.Name = "IdObservacion";
+            IdObservacion.ReadOnly = true;
+            IdObservacion.Width = 125;
+            // 
+            // FechaObservacion
+            // 
+            FechaObservacion.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            FechaObservacion.DataPropertyName = "fecha";
+            FechaObservacion.HeaderText = "Fecha";
+            FechaObservacion.MinimumWidth = 6;
+            FechaObservacion.Name = "FechaObservacion";
+            FechaObservacion.ReadOnly = true;
+            FechaObservacion.Width = 50;
+            // 
+            // observacion
+            // 
+            observacion.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            observacion.DataPropertyName = "observacion";
+            observacion.HeaderText = "Observacion";
+            observacion.MinimumWidth = 6;
+            observacion.Name = "observacion";
+            observacion.ReadOnly = true;
+            // 
             // txtObservacion
             // 
             txtObservacion.BackColor = Color.White;
@@ -1181,33 +1231,16 @@
             Estado.Name = "Estado";
             Estado.ReadOnly = true;
             // 
-            // IdObservacion
+            // btnVolver
             // 
-            IdObservacion.DataPropertyName = "id_observacion";
-            IdObservacion.HeaderText = "ID";
-            IdObservacion.MinimumWidth = 6;
-            IdObservacion.Name = "IdObservacion";
-            IdObservacion.ReadOnly = true;
-            IdObservacion.Width = 125;
-            // 
-            // FechaObservacion
-            // 
-            FechaObservacion.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            FechaObservacion.DataPropertyName = "fecha";
-            FechaObservacion.HeaderText = "Fecha";
-            FechaObservacion.MinimumWidth = 6;
-            FechaObservacion.Name = "FechaObservacion";
-            FechaObservacion.ReadOnly = true;
-            FechaObservacion.Width = 50;
-            // 
-            // observacion
-            // 
-            observacion.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            observacion.DataPropertyName = "observacion";
-            observacion.HeaderText = "Observacion";
-            observacion.MinimumWidth = 6;
-            observacion.Name = "observacion";
-            observacion.ReadOnly = true;
+            btnVolver.BackColor = Color.Brown;
+            btnVolver.Location = new Point(1197, 650);
+            btnVolver.Name = "btnVolver";
+            btnVolver.Size = new Size(162, 53);
+            btnVolver.TabIndex = 939;
+            btnVolver.Text = "VOLVER AL PROYECTO";
+            btnVolver.UseVisualStyleBackColor = false;
+            btnVolver.Click += btnVolver_Click;
             // 
             // FormularioTarea
             // 
@@ -1333,5 +1366,7 @@
         private DataGridViewTextBoxColumn FechaObservacion;
         private DataGridViewTextBoxColumn Column4;
         private DataGridViewTextBoxColumn observacion;
+        private Button btnCancelarCarga;
+        private Button btnVolver;
     }
 }
