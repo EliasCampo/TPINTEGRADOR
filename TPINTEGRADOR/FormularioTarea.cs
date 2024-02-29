@@ -44,7 +44,6 @@ namespace TPIntegrador
         {
             try
             {
-                FormularioInicio obtenerIdProyecto = new FormularioInicio();
                 string descripcionTarea = txtDescripcion.Text.Trim();
                 string horaEstimada = txtHoraEstimada.Text.Trim();
                 string costoEstimado = txtCostoEstimado.Text.Trim();
@@ -309,6 +308,7 @@ namespace TPIntegrador
         private void btnCancelarObservacion_Click(object sender, EventArgs e)
         {
             LimpiarCampoObservacion();
+            btnAgregarObservacion.Enabled = true;
         }
 
         private void gpxFormularioTarea_Enter(object sender, EventArgs e)
@@ -636,6 +636,7 @@ namespace TPIntegrador
                 int indiceTablaObservacion = dgvObservacion.CurrentCell.RowIndex;
                 int idObservacion = Convert.ToInt32(dgvObservacion[0, indiceTablaObservacion].Value.ToString());
                 txtObservacion.Text = dgvObservacion[2, indiceTablaObservacion].Value.ToString();
+                btnAgregarObservacion.Enabled = false;
 
             }
         }
@@ -677,11 +678,27 @@ namespace TPIntegrador
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            FormularioInicio formularioInicio = new FormularioInicio();
-            gpxFormularioTarea.Visible = false;
-            formularioInicio.TopLevel = false;
-            gpxFormularioTarea.Controls.Add(formularioInicio);
-            formularioInicio.Show();
+            DataTable costoRealyEstimado = new DataTable();
+            costoRealyEstimado = ControladorTarea.obtenerCostoRealEstimadoBDD(idProyectoTarea);
+
+
+            decimal costoEstimadoTotal = Convert.ToDecimal(costoRealyEstimado.Rows[0]["costo_estimado"].ToString());
+            decimal costoRealTotal = Convert.ToDecimal(costoRealyEstimado.Rows[0]["costo_real"].ToString());
+            int gradoAvanceProyecto = ControladorTarea.obtenerGradoAvanceBDD(idProyectoTarea);
+
+            ControladorProyecto modificarCostos = new ControladorProyecto(idProyectoTarea, costoEstimadoTotal, costoEstimadoTotal, costoRealTotal, (costoEstimadoTotal - costoRealTotal), gradoAvanceProyecto);
+            modificarCostos.ModificarCostoYGradoAvanceBDD();
+            FormularioInicio form1 = new FormularioInicio();
+
+
+            // Configurar el formulario1 para que se muestre sin bordes
+            form1.FormBorderStyle = FormBorderStyle.None;
+            // Establecer el tamaño del formulario1 al tamaño del panel en el formulario2
+            form1.Size = gpxFormularioTarea.Size;
+            form1.TopLevel = false;
+            gpxFormularioTarea.Controls.Add(form1);
+            // Mostrar el formulario1
+            form1.Show();
         }
-    }
+    } 
 }

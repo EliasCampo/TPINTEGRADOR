@@ -34,9 +34,6 @@
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            menuStrip1 = new MenuStrip();
-            proyectosToolStripMenuItem = new ToolStripMenuItem();
-            buscarYListarResponsablesToolStripMenuItem = new ToolStripMenuItem();
             PanelPrincipal = new Panel();
             gbxPrincipalProyecto = new GroupBox();
             lbTituloSeccionLider = new Label();
@@ -131,7 +128,7 @@
             CostoEstimado = new DataGridViewTextBoxColumn();
             CostoReal = new DataGridViewTextBoxColumn();
             Desvio = new DataGridViewTextBoxColumn();
-            menuStrip1.SuspendLayout();
+            grado_avance = new DataGridViewTextBoxColumn();
             PanelPrincipal.SuspendLayout();
             gbxPrincipalProyecto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbImagenLider).BeginInit();
@@ -170,47 +167,14 @@
             ((System.ComponentModel.ISupportInitialize)pblimpiardatos).BeginInit();
             SuspendLayout();
             // 
-            // menuStrip1
-            // 
-            menuStrip1.BackColor = Color.White;
-            menuStrip1.BackgroundImageLayout = ImageLayout.Center;
-            menuStrip1.Font = new Font("Microsoft Sans Serif", 11.2499981F, FontStyle.Regular, GraphicsUnit.Point);
-            menuStrip1.GripMargin = new Padding(2);
-            menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { proyectosToolStripMenuItem, buscarYListarResponsablesToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Padding = new Padding(5, 2, 0, 2);
-            menuStrip1.RightToLeft = RightToLeft.No;
-            menuStrip1.Size = new Size(1659, 25);
-            menuStrip1.TabIndex = 0;
-            menuStrip1.Text = "menuStrip1";
-            menuStrip1.ItemClicked += menuStrip1_ItemClicked;
-            // 
-            // proyectosToolStripMenuItem
-            // 
-            proyectosToolStripMenuItem.Font = new Font("Franklin Gothic Medium", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            proyectosToolStripMenuItem.Name = "proyectosToolStripMenuItem";
-            proyectosToolStripMenuItem.Size = new Size(74, 21);
-            proyectosToolStripMenuItem.Text = "Proyectos";
-            proyectosToolStripMenuItem.Click += proyectosToolStripMenuItem_Click;
-            // 
-            // buscarYListarResponsablesToolStripMenuItem
-            // 
-            buscarYListarResponsablesToolStripMenuItem.Font = new Font("Franklin Gothic Medium", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            buscarYListarResponsablesToolStripMenuItem.Name = "buscarYListarResponsablesToolStripMenuItem";
-            buscarYListarResponsablesToolStripMenuItem.Size = new Size(196, 21);
-            buscarYListarResponsablesToolStripMenuItem.Text = "Buscar y Listar Lider y Empleado";
-            buscarYListarResponsablesToolStripMenuItem.Click += buscarYListarResponsablesToolStripMenuItem_Click;
-            // 
             // PanelPrincipal
             // 
             PanelPrincipal.BackColor = SystemColors.Control;
             PanelPrincipal.Controls.Add(gbxPrincipalProyecto);
-            PanelPrincipal.Location = new Point(0, 29);
+            PanelPrincipal.Location = new Point(0, 11);
             PanelPrincipal.Margin = new Padding(3, 2, 3, 2);
             PanelPrincipal.Name = "PanelPrincipal";
-            PanelPrincipal.Size = new Size(1628, 877);
+            PanelPrincipal.Size = new Size(1628, 895);
             PanelPrincipal.TabIndex = 1;
             PanelPrincipal.Paint += PanelPrincipal_Paint;
             // 
@@ -234,7 +198,7 @@
             gbxPrincipalProyecto.Name = "gbxPrincipalProyecto";
             gbxPrincipalProyecto.Padding = new Padding(3, 2, 3, 2);
             gbxPrincipalProyecto.RightToLeft = RightToLeft.No;
-            gbxPrincipalProyecto.Size = new Size(1628, 877);
+            gbxPrincipalProyecto.Size = new Size(1628, 895);
             gbxPrincipalProyecto.TabIndex = 0;
             gbxPrincipalProyecto.TabStop = false;
             // 
@@ -247,7 +211,7 @@
             lbTituloSeccionLider.ForeColor = Color.SlateGray;
             lbTituloSeccionLider.Location = new Point(35, 341);
             lbTituloSeccionLider.Name = "lbTituloSeccionLider";
-            lbTituloSeccionLider.Size = new Size(56, 21);
+            lbTituloSeccionLider.Size = new Size(69, 25);
             lbTituloSeccionLider.TabIndex = 31;
             lbTituloSeccionLider.Text = "LÍDER";
             // 
@@ -303,7 +267,7 @@
             label2.ForeColor = Color.DeepSkyBlue;
             label2.Location = new Point(21, 12);
             label2.Name = "label2";
-            label2.Size = new Size(47, 18);
+            label2.Size = new Size(58, 21);
             label2.TabIndex = 122;
             label2.Text = "Legajo";
             // 
@@ -313,7 +277,7 @@
             txtNumeroLegajo.Font = new Font("Franklin Gothic Medium", 9F, FontStyle.Regular, GraphicsUnit.Point);
             txtNumeroLegajo.Location = new Point(26, 28);
             txtNumeroLegajo.Name = "txtNumeroLegajo";
-            txtNumeroLegajo.Size = new Size(76, 14);
+            txtNumeroLegajo.Size = new Size(76, 18);
             txtNumeroLegajo.TabIndex = 125;
             // 
             // pictureBox11
@@ -340,7 +304,7 @@
             lbCorreoLider.ForeColor = Color.DeepSkyBlue;
             lbCorreoLider.Location = new Point(673, 16);
             lbCorreoLider.Name = "lbCorreoLider";
-            lbCorreoLider.Size = new Size(47, 18);
+            lbCorreoLider.Size = new Size(59, 21);
             lbCorreoLider.TabIndex = 4;
             lbCorreoLider.Text = "Correo";
             // 
@@ -351,7 +315,7 @@
             label1.ForeColor = Color.DeepSkyBlue;
             label1.Location = new Point(447, 14);
             label1.Name = "label1";
-            label1.Size = new Size(50, 18);
+            label1.Size = new Size(61, 21);
             label1.TabIndex = 4;
             label1.Text = "Celular";
             // 
@@ -362,7 +326,7 @@
             lbApellidoLider.ForeColor = Color.DeepSkyBlue;
             lbApellidoLider.Location = new Point(294, 12);
             lbApellidoLider.Name = "lbApellidoLider";
-            lbApellidoLider.Size = new Size(85, 18);
+            lbApellidoLider.Size = new Size(104, 21);
             lbApellidoLider.TabIndex = 4;
             lbApellidoLider.Text = "Apellido líder";
             // 
@@ -373,7 +337,7 @@
             lbNombreLider.ForeColor = Color.DeepSkyBlue;
             lbNombreLider.Location = new Point(141, 12);
             lbNombreLider.Name = "lbNombreLider";
-            lbNombreLider.Size = new Size(85, 18);
+            lbNombreLider.Size = new Size(104, 21);
             lbNombreLider.TabIndex = 4;
             lbNombreLider.Text = "Nombre líder";
             // 
@@ -508,7 +472,7 @@
             txtCorreoLider.Font = new Font("Franklin Gothic Medium", 9F, FontStyle.Regular, GraphicsUnit.Point);
             txtCorreoLider.Location = new Point(671, 32);
             txtCorreoLider.Name = "txtCorreoLider";
-            txtCorreoLider.Size = new Size(235, 14);
+            txtCorreoLider.Size = new Size(235, 18);
             txtCorreoLider.TabIndex = 14;
             // 
             // txtCelularLider
@@ -517,7 +481,7 @@
             txtCelularLider.Font = new Font("Franklin Gothic Medium", 9F, FontStyle.Regular, GraphicsUnit.Point);
             txtCelularLider.Location = new Point(445, 30);
             txtCelularLider.Name = "txtCelularLider";
-            txtCelularLider.Size = new Size(195, 14);
+            txtCelularLider.Size = new Size(195, 18);
             txtCelularLider.TabIndex = 13;
             // 
             // txtApellidoLider
@@ -526,7 +490,7 @@
             txtApellidoLider.Font = new Font("Franklin Gothic Medium", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             txtApellidoLider.Location = new Point(292, 28);
             txtApellidoLider.Name = "txtApellidoLider";
-            txtApellidoLider.Size = new Size(128, 15);
+            txtApellidoLider.Size = new Size(128, 19);
             txtApellidoLider.TabIndex = 12;
             txtApellidoLider.Tag = "txtApellidoLider";
             // 
@@ -536,7 +500,7 @@
             txtNombreLider.Font = new Font("Franklin Gothic Medium", 9F, FontStyle.Regular, GraphicsUnit.Point);
             txtNombreLider.Location = new Point(146, 28);
             txtNombreLider.Name = "txtNombreLider";
-            txtNombreLider.Size = new Size(113, 14);
+            txtNombreLider.Size = new Size(113, 18);
             txtNombreLider.TabIndex = 11;
             // 
             // pictureBox16
@@ -651,7 +615,7 @@
             lbTituloSeccionProyecto.ForeColor = Color.SlateGray;
             lbTituloSeccionProyecto.Location = new Point(17, 543);
             lbTituloSeccionProyecto.Name = "lbTituloSeccionProyecto";
-            lbTituloSeccionProyecto.Size = new Size(93, 21);
+            lbTituloSeccionProyecto.Size = new Size(114, 25);
             lbTituloSeccionProyecto.TabIndex = 28;
             lbTituloSeccionProyecto.Text = "PROYECTO";
             // 
@@ -768,7 +732,7 @@
             lbNombreProyecto.ForeColor = Color.DarkSlateBlue;
             lbNombreProyecto.Location = new Point(26, 10);
             lbNombreProyecto.Name = "lbNombreProyecto";
-            lbNombreProyecto.Size = new Size(110, 18);
+            lbNombreProyecto.Size = new Size(136, 21);
             lbNombreProyecto.TabIndex = 4;
             lbNombreProyecto.Text = "Nombre Proyecto";
             // 
@@ -780,7 +744,7 @@
             txtNombreProyecto.Location = new Point(25, 29);
             txtNombreProyecto.Margin = new Padding(3, 2, 3, 2);
             txtNombreProyecto.Name = "txtNombreProyecto";
-            txtNombreProyecto.Size = new Size(280, 14);
+            txtNombreProyecto.Size = new Size(280, 18);
             txtNombreProyecto.TabIndex = 19;
             txtNombreProyecto.Enter += TextBox_Enter;
             txtNombreProyecto.Leave += TextBox_Leave;
@@ -792,7 +756,7 @@
             txtEmpresa.Location = new Point(339, 29);
             txtEmpresa.Margin = new Padding(3, 2, 3, 2);
             txtEmpresa.Name = "txtEmpresa";
-            txtEmpresa.Size = new Size(340, 14);
+            txtEmpresa.Size = new Size(340, 18);
             txtEmpresa.TabIndex = 20;
             txtEmpresa.Enter += TextBox_Enter;
             txtEmpresa.Leave += TextBox_Leave;
@@ -804,7 +768,7 @@
             lbNombreEmpresa.ForeColor = Color.DarkSlateBlue;
             lbNombreEmpresa.Location = new Point(339, 10);
             lbNombreEmpresa.Name = "lbNombreEmpresa";
-            lbNombreEmpresa.Size = new Size(61, 18);
+            lbNombreEmpresa.Size = new Size(74, 21);
             lbNombreEmpresa.TabIndex = 4;
             lbNombreEmpresa.Text = "Empresa";
             // 
@@ -822,7 +786,7 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             dgvProyecto.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvProyecto.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProyecto.Columns.AddRange(new DataGridViewColumn[] { IdProyecto, Nombre, Empresa, monto_estimado, CostoEstimado, CostoReal, Desvio });
+            dgvProyecto.Columns.AddRange(new DataGridViewColumn[] { IdProyecto, Nombre, Empresa, monto_estimado, CostoEstimado, CostoReal, Desvio, grado_avance });
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = Color.MediumOrchid;
             dataGridViewCellStyle4.Font = new Font("Franklin Gothic Medium", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -899,7 +863,7 @@
             lbTituloSeccionPropietario.ForeColor = Color.SlateGray;
             lbTituloSeccionPropietario.Location = new Point(9, 128);
             lbTituloSeccionPropietario.Name = "lbTituloSeccionPropietario";
-            lbTituloSeccionPropietario.Size = new Size(116, 21);
+            lbTituloSeccionPropietario.Size = new Size(141, 25);
             lbTituloSeccionPropietario.TabIndex = 5;
             lbTituloSeccionPropietario.Text = "PROPIETARIO";
             // 
@@ -948,7 +912,7 @@
             txtNombrePropietario.Font = new Font("Franklin Gothic Medium", 9F, FontStyle.Regular, GraphicsUnit.Point);
             txtNombrePropietario.Location = new Point(26, 28);
             txtNombrePropietario.Name = "txtNombrePropietario";
-            txtNombrePropietario.Size = new Size(174, 14);
+            txtNombrePropietario.Size = new Size(174, 18);
             txtNombrePropietario.TabIndex = 1;
             txtNombrePropietario.Tag = "txtNombrePropietario";
             txtNombrePropietario.Enter += TextBox_Enter;
@@ -961,7 +925,7 @@
             lblNombrePropietario.ForeColor = Color.DarkCyan;
             lblNombrePropietario.Location = new Point(21, 11);
             lblNombrePropietario.Name = "lblNombrePropietario";
-            lblNombrePropietario.Size = new Size(124, 18);
+            lblNombrePropietario.Size = new Size(152, 21);
             lblNombrePropietario.TabIndex = 4;
             lblNombrePropietario.Text = "Nombre Propietario";
             lblNombrePropietario.Leave += TextBox_Leave;
@@ -990,7 +954,7 @@
             txtPersonaContacto.Location = new Point(731, 30);
             txtPersonaContacto.Margin = new Padding(3, 2, 3, 2);
             txtPersonaContacto.Name = "txtPersonaContacto";
-            txtPersonaContacto.Size = new Size(185, 14);
+            txtPersonaContacto.Size = new Size(185, 18);
             txtPersonaContacto.TabIndex = 5;
             txtPersonaContacto.Enter += TextBox_Enter;
             txtPersonaContacto.Leave += TextBox_Leave;
@@ -1002,7 +966,7 @@
             txtTelefono.Location = new Point(403, 29);
             txtTelefono.Margin = new Padding(3, 2, 3, 2);
             txtTelefono.Name = "txtTelefono";
-            txtTelefono.Size = new Size(134, 14);
+            txtTelefono.Size = new Size(134, 18);
             txtTelefono.TabIndex = 3;
             txtTelefono.Enter += TextBox_Enter;
             txtTelefono.KeyPress += txtTelefono_KeyPress;
@@ -1015,7 +979,7 @@
             txtCuit.Location = new Point(567, 29);
             txtCuit.Margin = new Padding(3, 2, 3, 2);
             txtCuit.Name = "txtCuit";
-            txtCuit.Size = new Size(137, 14);
+            txtCuit.Size = new Size(137, 18);
             txtCuit.TabIndex = 4;
             txtCuit.Enter += TextBox_Enter;
             txtCuit.KeyPress += txtCuit_KeyPress;
@@ -1046,7 +1010,7 @@
             txtRazonSocial.Location = new Point(231, 30);
             txtRazonSocial.Margin = new Padding(3, 2, 3, 2);
             txtRazonSocial.Name = "txtRazonSocial";
-            txtRazonSocial.Size = new Size(142, 14);
+            txtRazonSocial.Size = new Size(142, 18);
             txtRazonSocial.TabIndex = 2;
             txtRazonSocial.Enter += TextBox_Enter;
             txtRazonSocial.Leave += TextBox_Leave;
@@ -1151,7 +1115,7 @@
             lbPersonaContactoProp.ForeColor = Color.DarkCyan;
             lbPersonaContactoProp.Location = new Point(731, 13);
             lbPersonaContactoProp.Name = "lbPersonaContactoProp";
-            lbPersonaContactoProp.Size = new Size(132, 18);
+            lbPersonaContactoProp.Size = new Size(158, 21);
             lbPersonaContactoProp.TabIndex = 4;
             lbPersonaContactoProp.Text = "Persona de contacto";
             // 
@@ -1179,7 +1143,7 @@
             lbCuitProp.ForeColor = Color.DarkCyan;
             lbCuitProp.Location = new Point(567, 13);
             lbCuitProp.Name = "lbCuitProp";
-            lbCuitProp.Size = new Size(34, 18);
+            lbCuitProp.Size = new Size(43, 21);
             lbCuitProp.TabIndex = 4;
             lbCuitProp.Text = "CUIT";
             // 
@@ -1190,7 +1154,7 @@
             lbTelefonoProp.ForeColor = Color.DarkCyan;
             lbTelefonoProp.Location = new Point(404, 13);
             lbTelefonoProp.Name = "lbTelefonoProp";
-            lbTelefonoProp.Size = new Size(57, 18);
+            lbTelefonoProp.Size = new Size(72, 21);
             lbTelefonoProp.TabIndex = 4;
             lbTelefonoProp.Text = "Teléfono";
             // 
@@ -1218,7 +1182,7 @@
             lbRazonSocialProp.ForeColor = Color.DarkCyan;
             lbRazonSocialProp.Location = new Point(231, 13);
             lbRazonSocialProp.Name = "lbRazonSocialProp";
-            lbRazonSocialProp.Size = new Size(84, 18);
+            lbRazonSocialProp.Size = new Size(101, 21);
             lbRazonSocialProp.TabIndex = 4;
             lbRazonSocialProp.Text = "Razón social";
             // 
@@ -1385,24 +1349,29 @@
             Desvio.Name = "Desvio";
             Desvio.ReadOnly = true;
             // 
+            // grado_avance
+            // 
+            grado_avance.DataPropertyName = "grado_avance";
+            grado_avance.HeaderText = "Grado Avance %";
+            grado_avance.MinimumWidth = 6;
+            grado_avance.Name = "grado_avance";
+            grado_avance.ReadOnly = true;
+            grado_avance.Width = 125;
+            // 
             // FormularioInicio
             // 
-            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleDimensions = new SizeF(9F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             BackgroundImageLayout = ImageLayout.Center;
             ClientSize = new Size(1659, 917);
             Controls.Add(PanelPrincipal);
-            Controls.Add(menuStrip1);
             Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             ForeColor = Color.White;
-            MainMenuStrip = menuStrip1;
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormularioInicio";
             Text = "Proyectos";
             Load += FormularioInicio_Load;
-            menuStrip1.ResumeLayout(false);
-            menuStrip1.PerformLayout();
             PanelPrincipal.ResumeLayout(false);
             gbxPrincipalProyecto.ResumeLayout(false);
             gbxPrincipalProyecto.PerformLayout();
@@ -1444,12 +1413,9 @@
             ((System.ComponentModel.ISupportInitialize)pbtxtRazonSocialProp).EndInit();
             ((System.ComponentModel.ISupportInitialize)pblimpiardatos).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private MenuStrip menuStrip1;
         private Panel PanelPrincipal;
         private GroupBox gbxPrincipalProyecto;
         private GroupBox gbxPropietario;
@@ -1464,8 +1430,6 @@
         private Button btnAgregarPropietario;
         private TextBox textBox12;
         private TextBox textBox2;
-        private ToolStripMenuItem proyectosToolStripMenuItem;
-        private ToolStripMenuItem buscarYListarResponsablesToolStripMenuItem;
         private TextBox txtCostoEstimado;
         private TextBox txtCostoReal;
         private PictureBox pictureBox1;
@@ -1558,5 +1522,6 @@
         private DataGridViewTextBoxColumn CostoEstimado;
         private DataGridViewTextBoxColumn CostoReal;
         private DataGridViewTextBoxColumn Desvio;
+        private DataGridViewTextBoxColumn grado_avance;
     }
 }

@@ -249,7 +249,7 @@ namespace TPIntegrador.Datos
         {
             int nro_tarea = -1;
             var resultado = "";
-            string sql = "SELECT (COUNT(estado) * '100') / (SELECT COUNT (estado) as estado_total FROM Tarea WHERE id_proyecto = '13') " +
+            string sql = "SELECT (COUNT(estado) * '100') / (SELECT COUNT (estado) as estado_total FROM Tarea WHERE id_proyecto = '" + id_proyecto + "') " +
                         " FROM Tarea" +
                         " WHERE estado = 'FINALIZADO' AND id_proyecto = " + id_proyecto;
             try

@@ -19,6 +19,7 @@ namespace TPIntegrador.Controlador
         private decimal costoEstimado;
         private decimal costoReal;
         private decimal desvioProyecto;
+        private int gradoAvance;
         private int legajoFk;
         private int idPropietarioFK;
         
@@ -27,13 +28,13 @@ namespace TPIntegrador.Controlador
 		{
 
 		}
-		public ControladorProyecto(string nombre_proyecto, string empresa_proyecto, decimal monto_estimado, decimal costo_estimado, decimal costo_real, decimal desvio_proyecto, int legajo_FK, int id_propietario_FK)
+		public ControladorProyecto(string nombre_proyecto, string empresa_proyecto, decimal monto_estimado, decimal costo_estimado, decimal costo_real, decimal desvio_proyecto, int grado_avance, int legajo_FK, int id_propietario_FK)
         {
             
             nombreProyecto = nombre_proyecto;
             empresa = empresa_proyecto;
             montoEstimado = monto_estimado;
-            //gradoAvance = grado_avance;
+            gradoAvance = grado_avance;
             costoEstimado = costo_estimado;
             costoReal = costo_real;
             desvioProyecto = desvio_proyecto;
@@ -46,7 +47,16 @@ namespace TPIntegrador.Controlador
             idProyecto = id_proyecto;
             nombreProyecto = nombre_proyecto;
             empresa = empresa_proyecto;
+        }
 
+        public ControladorProyecto(int id_proyecto, decimal monto_estimado, decimal costo_estimado, decimal costo_real, decimal desvio_proyecto, int grado_avance)
+        {
+            montoEstimado = monto_estimado;
+            gradoAvance = grado_avance;
+            costoEstimado = costo_estimado;
+            costoReal = costo_real;
+            desvioProyecto = desvio_proyecto;
+            idProyecto = id_proyecto;
         }
 
         public bool ValidarDatosProyecto()
@@ -64,7 +74,7 @@ namespace TPIntegrador.Controlador
 
         public void insertarProyectoBDD()
         {
-            DatosProyecto.insertarProyecto(this.nombreProyecto, this.empresa, this.montoEstimado, this.costoEstimado, this.costoReal, this.desvioProyecto, this.legajoFk, this.idPropietarioFK);
+            DatosProyecto.insertarProyecto(this.nombreProyecto, this.empresa, this.montoEstimado, this.costoEstimado, this.costoReal, this.desvioProyecto, this.gradoAvance, this.legajoFk, this.idPropietarioFK);
 
         }
 
@@ -99,7 +109,11 @@ namespace TPIntegrador.Controlador
             DatosProyecto.BajaDatosProyecto(idProyecto);
         }
 
-
+        public DataTable ModificarCostoYGradoAvanceBDD()
+        {
+            DataTable listarProyecto = DatosProyecto.ModificarCostoYGradoAvance(this.idProyecto, this.montoEstimado, this.costoEstimado, this.costoReal, this.gradoAvance, this.desvioProyecto);
+            return listarProyecto;
+        }
     }
 
 }

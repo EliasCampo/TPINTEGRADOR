@@ -110,6 +110,10 @@ namespace TPIntegrador.Controlador
             DataTable listarTareas = DatosTarea.ModificarDatosTarea(this.idTarea, Convert.ToInt32(this.horaRealTarea), Convert.ToDecimal(this.costoRealTarea), this.fechaFinalTarea, Convert.ToDecimal(this.desvioTarea), this.estadoTarea);
             return listarTareas;
         }
+        public static void BajaDatosTareaBDD(int idTarea)
+        {
+            DatosTarea.BajaDatosTarea(idTarea);
+        }
 
 
         public static DataTable obtenerCostosBDD(int idTarea)
@@ -124,11 +128,7 @@ namespace TPIntegrador.Controlador
             return listarCostos;
         }
 
-        public static void BajaDatosTareaBDD(int idTarea)
-        {
-            DatosTarea.BajaDatosTarea(idTarea);
-        }
-
+  
         public static int obtenerGradoAvanceBDD(int id_proyecto)
         {
             int gradoAvance = DatosTarea.obtenerGradoAvance(id_proyecto);

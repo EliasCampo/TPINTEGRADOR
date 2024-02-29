@@ -85,23 +85,6 @@ namespace TPIntegrador
             PanelPrincipal.Controls.Add(formularioBuscar);
             formularioBuscar.Show();
         }
-
-        private void buscarYListarResponsablesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            gbxPrincipalProyecto.Visible = false;
-            FormularioBuscar formularioBuscar = new FormularioBuscar();
-            formularioBuscar.TopLevel = false;
-            PanelPrincipal.Controls.Add(formularioBuscar);
-            formularioBuscar.Show();
-        }
-
-        private void proyectosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            PanelPrincipal.Controls.Clear();
-            gbxPrincipalProyecto.Visible = true;
-            PanelPrincipal.Controls.Add(gbxPrincipalProyecto);
-
-        }
         ///////////////////////////////////////////////////////////////////////////
         ///////////////          P R O P I E T A R I O              ///////////////
         ///////////////////////////////////////////////////////////////////////////
@@ -271,7 +254,7 @@ namespace TPIntegrador
             int indiceTablaLider = dgvLider.CurrentCell.RowIndex;
             int nroLegajoLider = Convert.ToInt32(dgvLider[0, indiceTablaLider].Value.ToString());
 
-            ControladorProyecto insertarProyecto = new ControladorProyecto(nombreProyecto, empresaProyecto, 0, 0, 0, 0, nroLegajoLider, idPropietario);
+            ControladorProyecto insertarProyecto = new ControladorProyecto(nombreProyecto, empresaProyecto, 0, 0, 0, 0, 0, nroLegajoLider, idPropietario);
 
             if (insertarProyecto.ValidarDatosProyecto() != false)
             {
@@ -302,7 +285,7 @@ namespace TPIntegrador
             LimpiarCamposLider();
 
 
-            if (dgvLider.Rows.Count == 0) 
+            if (dgvLider.Rows.Count == 0)
             {
                 btnAgregarEmpleado.Enabled = true;
             }

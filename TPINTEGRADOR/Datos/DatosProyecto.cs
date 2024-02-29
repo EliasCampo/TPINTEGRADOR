@@ -18,7 +18,7 @@ namespace TPIntegrador.Datos
         public static DataTable listarProyectosPropietario(int idPropietario)
         {
             DataTable listarProyecto = new DataTable("Listatodos");
-            String sql = "SELECT [id_proyecto],[nombre],[empresa],[monto_estimado],[costo_estimado],[costo_real],[desvio] FROM[Proyecto] WHERE [baja_proyecto] = 0 AND [id_propietario_FK] = " + idPropietario;
+            String sql = "SELECT [id_proyecto],[nombre],[empresa],[monto_estimado],[costo_estimado],[costo_real],[desvio], [grado_avance] FROM[Proyecto] WHERE [baja_proyecto] = 0 AND [id_propietario_FK] = " + idPropietario;
 
             try
             {
@@ -39,11 +39,11 @@ namespace TPIntegrador.Datos
         }
 
 
-        public static void insertarProyecto(string nombre, string empresa, decimal montoEstimado, decimal costoEstimado, decimal costoReal, decimal desvio, int legajoFK, int idPropietarioFK)
+        public static void insertarProyecto(string nombre, string empresa, decimal montoEstimado, decimal costoEstimado, decimal costoReal, decimal desvio, int gradoAvance, int legajoFK, int idPropietarioFK)
         {
 
-            string sql = "INSERT INTO Proyecto(nombre,empresa,monto_estimado, costo_estimado, costo_real, desvio, legajo_FK, id_propietario_FK, baja_proyecto) VALUES " +
-                                "(@nombre, @empresa,@monto_estimado,@costo_estimado, @costo_real, @desvio, @legajo_FK, @id_propietario_FK, @baja_proyecto)";
+            string sql = "INSERT INTO Proyecto(nombre,empresa,monto_estimado, costo_estimado, costo_real, desvio, grado_avance, legajo_FK, id_propietario_FK, baja_proyecto) VALUES " +
+                                "(@nombre, @empresa,@monto_estimado,@costo_estimado, @costo_real, @desvio, @grado_avance, @legajo_FK, @id_propietario_FK, @baja_proyecto)";
 
             try
             {
@@ -70,14 +70,17 @@ namespace TPIntegrador.Datos
                 cmd.Parameters.Add("@desvio", SqlDbType.Decimal);
                 cmd.Parameters[5].Value = desvio;
 
+                cmd.Parameters.Add("@grado_avance", SqlDbType.Int);
+                cmd.Parameters[6].Value = gradoAvance;
+
                 cmd.Parameters.Add("@legajo_FK", SqlDbType.Int);
-                cmd.Parameters[6].Value = legajoFK;
+                cmd.Parameters[7].Value = legajoFK;
 
                 cmd.Parameters.Add("@id_propietario_FK", SqlDbType.Int);
-                cmd.Parameters[7].Value = idPropietarioFK;
+                cmd.Parameters[8].Value = idPropietarioFK;
 
                 cmd.Parameters.Add("@baja_proyecto", SqlDbType.Bit);
-                cmd.Parameters[8].Value = 0;
+                cmd.Parameters[9].Value = 0;
 
                 Object nro = cmd.ExecuteScalar(); //.ExecuteNonQuery();
 
@@ -95,7 +98,7 @@ namespace TPIntegrador.Datos
         public static DataTable listarProyectosLider(int idLider)
         {
             DataTable listarProyecto = new DataTable("Listatodos");
-            String sql = "SELECT [id_proyecto],[nombre],[empresa],[monto_estimado],[costo_estimado],[costo_real],[desvio] FROM[Proyecto] WHERE [baja_proyecto] = 0 AND [legajo_FK] = " + idLider;
+            String sql = "SELECT [id_proyecto],[nombre],[empresa],[monto_estimado],[costo_estimado],[costo_real],[desvio], [grado_avance] FROM[Proyecto] WHERE [baja_proyecto] = 0 AND [legajo_FK] = " + idLider;
 
             try
             {
@@ -191,6 +194,26 @@ namespace TPIntegrador.Datos
             }
         }
 
+        public static DataTable ModificarCostoYGradoAvance(int idProyecto, decimal montoEstimado, decimal costoEstimado, decimal costoReal, int gradoAvance, decimal desvio)
+        {
+            DataTable listarNoBaja = new DataTable("Listatodos");
+            String sql = $"UPDATE Proyecto SET monto_estimado = {montoEstimado.ToString().Replace(",", ".")}, costo_estimado = {costoEstimado.ToString().Replace(",", ".")}, costo_real = {costoReal.ToString().Replace(",", ".")}, grado_avance = {gradoAvance}, desvio = {desvio.ToString().Replace(",", ".")} WHERE id_proyecto = {idProyecto}";
 
+            try
+            {
+                Conexion Cx = new Conexion();
+                Cx.AbrirConexion();
+                Cx.SetComnadoSQL(sql);
+
+                SqlDataAdapter sqlDat = new SqlDataAdapter(Cx.Comando());
+                sqlDat.Fill(listarNoBaja);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error por excepción " + e.ToString());
+                listarNoBaja = null;
+            }
+            return listarNoBaja;
+        }
     }
 }
