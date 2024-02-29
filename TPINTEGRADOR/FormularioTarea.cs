@@ -415,7 +415,7 @@ namespace TPIntegrador
 
             if (Validar.mConsulta("Si da de baja esta tarea, dara de baja todo el proyecto completo ¿Desea Continuar?"))
             {
-                ControladorTarea.BajaDatosTareaBDD(idTarea); // doy de baja propietario
+                ControladorTarea.BajaDatosTareaBDD(idTarea); // doy de baja la tarea
 
                 dgvTarea.DataSource = ControladorTarea.obtenerTareaProyectoBDD(idProyectoTarea); //actualizo
                 LimpiarCamposTarea();

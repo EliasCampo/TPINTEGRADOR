@@ -88,7 +88,6 @@ namespace TPIntegrador.Controlador
         public void insertarTarea()
         {
             DatosTarea.insertarTarea(this.idProyecto, this.descripcionTarea, Convert.ToInt32(this.horaEstimadaTarea), Convert.ToDecimal(this.costoEstimadoTarea), Convert.ToInt32(this.horaRealTarea), Convert.ToDecimal(this.costoRealTarea), this.fechaFinalTarea, Convert.ToDecimal(this.desvioTarea), this.estadoTarea);
-
         }
 
         public static DataTable obtenerTareaProyectoBDD(int idProyecto)
