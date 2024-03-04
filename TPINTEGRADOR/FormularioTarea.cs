@@ -58,7 +58,7 @@ namespace TPIntegrador
                     idTarea = ControladorTarea.obtenerUltimoIdTareaBDD();
 
 
-                    ControladorTrabaja insertarTrabaja = new ControladorTrabaja(idProyectoTarea, idTarea, 1, 1);
+                    ControladorTrabaja insertarTrabaja = new ControladorTrabaja(idProyectoTarea, idTarea, 1, 1); // cuando no tenemos ningun empleado en una tarea ponemos 1,1 y luego lo modificamos cuando agregamos un primer empleado
                     insertarTrabaja.insertarTrabajaBDD();
 
                     dgvTarea.DataSource = ControladorTarea.obtenerTareaProyectoBDD(idProyectoTarea);
